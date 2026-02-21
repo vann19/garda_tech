@@ -21,8 +21,13 @@ export default function Home() {
  
 
   return (
+<<<<<<< HEAD
     <div className="min-h-screen transition-colors duration-500 bg-hitam ">
       <Navbar />
+=======
+    <div className="min-h-screen transition-colors duration-500 bg-hitam">
+      <Navbar currentView ={currentView} setView={setCurrentView} />
+>>>>>>> feature/service
       <Hero />
       <CardSlug />
       <WhPage />
