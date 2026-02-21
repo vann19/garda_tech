@@ -35,7 +35,7 @@ const FaqPage = () => {
 >
   <Accordion type="single" collapsible>
     <AccordionItem value="item-1">
-      <AccordionTrigger className="text-base  sm:text-lg lg:text-xl font-semibold">
+      <AccordionTrigger className="text-base  sm:text-lg lg:text-xl font-semibold text-primary">
         What services do you offer?
       </AccordionTrigger>
       <AccordionContent className="text-sm sm:text-base lg:text-lg text-white/80">
@@ -44,7 +44,7 @@ const FaqPage = () => {
     </AccordionItem>
 
     <AccordionItem value="item-2">
-      <AccordionTrigger className="text-base sm:text-lg lg:text-xl font-semibold">
+      <AccordionTrigger className="text-base sm:text-lg lg:text-xl font-semibold text-primary">
         How long does a typical project take?
       </AccordionTrigger>
       <AccordionContent className="text-sm sm:text-base lg:text-lg text-white/80">
@@ -53,7 +53,7 @@ const FaqPage = () => {
     </AccordionItem>
 
     <AccordionItem value="item-3">
-      <AccordionTrigger className="text-base sm:text-lg lg:text-xl font-semibold">
+      <AccordionTrigger className="text-base sm:text-lg lg:text-xl font-semibold text-primary">
         Do you provide ongoing support?
       </AccordionTrigger>
       <AccordionContent className="text-sm sm:text-base lg:text-lg text-white/80">

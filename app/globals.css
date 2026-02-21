@@ -214,6 +214,11 @@ body {
   color: var(--color-secondary);
 }
 
+.text-primary {
+  color: var(--color-primary);
+}
+
+
 /* globals.css */
 .grid-kotak {
   position: relative;
