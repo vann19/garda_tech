@@ -10,28 +10,18 @@ git add .
 git commit -m "feat: add login authentication"
 
 # 4. Push ke GitHub
-git push origin feature/auth-login
-
-# 5. Buat Pull Request di GitHub
-# Tunggu review dari teman
-Teman bikin fitur berbeda:
-bash# 1. Update dari main
 git checkout main
+
+# 5. gabungkan 
+git merge feature/Home
+
+
+# 5. cek
 git pull origin main
+From https://github.com/vann19/garda_tech
+ * branch            main       -> FETCH_HEAD
+Already up to date.
 
-# 2. Buat branch sendiri
-git checkout -b feature/event-list
 
-# 3. Coding... lalu commit
-git add .
-git commit -m "feat: add event listing page"
-
-# 4. Push
-git push origin feature/event-list
-
-# 5. Buat Pull Request
-    -Merge Pull Request:
-    -Review code teman di GitHub
-    -Diskusi kalau ada yang perlu diperbaiki
-    -Kalau oke, klik Merge Pull Request
-    -Delete branch setelah merge
+# 5. push github
+git push origin main
