@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Kotak() {
   return (
     <div className="w-screen h-screen relative bg-hitam overflow-hidden">
@@ -15,6 +17,24 @@ export default function Kotak() {
         {[...Array(96)].map((_, i) => (
           <div key={i} className="border border-purple-300/5"></div>
         ))}
+      </div>
+
+      {/* Tombol Kembali - untuk semua layout */}
+      <div className="absolute z-20 top-6 left-4 sm:left-6 lg:left-8">
+        <Link 
+          href="/" 
+          className="inline-flex items-center text-white hover:text-purple-300 transition-colors group"
+        >
+          <svg 
+            className="w-5 h-5 mr-2 transform group-hover:-translate-x-1 transition-transform" 
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+          <span className="text-sm sm:text-base">Kembali</span>
+        </Link>
       </div>
 
       {/* LAYOUT DESKTOP (default) - menggunakan absolute positioning dengan viewport units */}

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Pricing() {
   const [activeCategory, setActiveCategory] = useState('maintenance');
@@ -37,6 +38,13 @@ export default function Pricing() {
     { id: 'web', name: 'Web Development' },
     { id: 'mobile', name: 'Mobile App Development' }
   ];
+
+  // Baris pertama kategori
+  const firstRowCategories = categories.slice(0, 4);
+  // Baris kedua kategori
+  const secondRowCategories = categories.slice(4, 9);
+  // Baris ketiga kategori (Mobile App Development)
+  const thirdRowCategories = categories.slice(9, 10);
 
   const services = {
     maintenance: [
@@ -469,139 +477,197 @@ export default function Pricing() {
   };
 
   return (
-    <div className="w-screen min-h-screen relative bg-black overflow-hidden">
-      {/* Background blur effects */}
-      <div className="absolute w-[1829px] h-[1623px] left-[-51px] top-[917px] bg-indigo-900 rounded-full blur-[80.20px] opacity-50"></div>
-      <div className="absolute w-[1601px] h-[1588px] left-[73px] top-[1136px] bg-violet-500 rounded-full blur-[80.20px] opacity-50"></div>
-      <div className="absolute w-[1215px] h-[1327px] left-[266px] top-[1315px] bg-purple-300 rounded-full blur-[80.20px] opacity-50"></div>
+    <div className="w-full min-h-screen bg-black overflow-x-hidden">
+      {/* Background blur effects - full width */}
+      <div className="fixed w-[1829px] h-[1623px] left-[-51px] top-[917px] bg-indigo-900 rounded-full blur-[80.20px] opacity-50"></div>
+      <div className="fixed w-[1601px] h-[1588px] left-[73px] top-[1136px] bg-violet-500 rounded-full blur-[80.20px] opacity-50"></div>
+      <div className="fixed w-[1215px] h-[1327px] left-[266px] top-[1315px] bg-purple-300 rounded-full blur-[80.20px] opacity-50"></div>
       
-      {/* Lampu ungu di tengah bawah */}
+      {/* Lampu ungu di tengah bawah - full width */}
       <img 
         src="/img/price.png" 
         alt="decorative lamp"
-        className="absolute w-[100vw] h-auto left-1/2 transform -translate-x-1/2 bottom-0 opacity-20 md:opacity-40 lg:opacity-60 pointer-events-none z-0"
+        className="fixed w-full h-auto left-1/2 transform -translate-x-1/2 bottom-0 opacity-20 md:opacity-40 lg:opacity-60 pointer-events-none z-0"
+        style={{ width: '100vw', maxWidth: '100%' }}
       />
-      
-      {/* Service Packages Button */}
-      <div className="relative z-10 w-full pt-12 sm:pt-16 md:pt-20 lg:pt-24 px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-center">
-          <div className="relative w-[180px] sm:w-[200px] md:w-[240px] lg:w-[288px] h-[50px] sm:h-[60px] md:h-[70px] lg:h-[96px]">
-            <div className="w-full h-full bg-violet-800/60 rounded-[57px] shadow-[inset_-1px_-1px_47.80px_rgba(208,186,232,0.80)] border-4 border-violet-500/95 flex items-center justify-center">
-              <span className="text-white text-base sm:text-lg md:text-xl lg:text-2xl font-bold font-['Syne']">Service Packages</span>
-            </div>
-          </div>
-        </div>
 
-        {/* Title */}
-        <div className="text-center mt-8 sm:mt-10 md:mt-12 lg:mt-16">
-          <span className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-['Syne'] block">Flexible Packages.</span>
-          <span className="text-violet-800 text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold font-['Syne'] block mt-1 sm:mt-2">Transparent Pricing.</span>
-        </div>
-
-        {/* Description */}
-        <p className="text-white text-xs sm:text-sm md:text-base lg:text-xl text-center font-['Inter'] max-w-4xl mx-auto mt-3 sm:mt-4 md:mt-6 lg:mt-8 px-4">
-          Setiap paket dirancang untuk menyesuaikan kebutuhan dan skala bisnis,
-          dengan rincian biaya yang jelas tanpa tambahan tersembunyi.
-        </p>
-
-        {/* Kebijakan Revisi */}
-        <div className="max-w-4xl mx-auto mt-8 p-4 bg-white/5 backdrop-blur-sm rounded-2xl border border-purple-300/30">
-          <h3 className="text-violet-400 text-lg font-bold font-['Syne'] mb-2"> Kebijakan Revisi</h3>
-          <p className="text-white/80 text-xs sm:text-sm mb-2"><span className="text-violet-300">Minor:</span> teks/typo, ganti foto, warna/font kecil, spacing/alignment, wording CTA</p>
-          <p className="text-white/80 text-xs sm:text-sm mb-2"><span className="text-violet-300">Major:</span> ubah struktur besar, tambah halaman/fitur, redesign total, perubahan requirement inti</p>
-          <p className="text-white/80 text-xs sm:text-sm"><span className="text-violet-300">Window revisi:</span> Basic/Starter: 7 hari | Growth: 14 hari | Pro: 30 hari</p>
-        </div>
-
-        {/* Category Navigation */}
-        <div className="flex flex-wrap justify-center gap-2 mt-8 max-w-4xl mx-auto">
-          {categories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => setActiveCategory(cat.id)}
-              className={`px-3 py-1.5 text-xs sm:text-sm rounded-full transition-all ${
-                activeCategory === cat.id
-                  ? 'bg-violet-600 text-white border-violet-400'
-                  : 'bg-transparent text-white/70 border border-purple-300/30 hover:bg-white/10'
-              }`}
-            >
-              {cat.name}
-            </button>
-          ))}
-        </div>
+      {/* Tombol Kembali */}
+      <div className="relative z-20 w-full pt-6 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <Link 
+          href="/" 
+          className="inline-flex items-center text-white hover:text-purple-300 transition-colors group"
+        >
+          <svg 
+            className="w-5 h-5 mr-2 transform group-hover:-translate-x-1 transition-transform" 
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+          Kembali
+        </Link>
       </div>
-
-      {/* Pricing Cards */}
-      <div className="relative z-10 w-full mt-8 px-4 pb-10">
-        {/* Mobile Layout */}
-        <div className="block sm:hidden">
-          <div className="flex flex-col items-center gap-4">
-            {services[activeCategory]?.map((service, index) => (
-              <PricingCard 
-                key={index}
-                title={service.tier}
-                price={service.price}
-                period={service.period || ""}
-                features={service.features}
-                promo={service.promo}
-                isMobile={true}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* Tablet Layout */}
-        <div className="hidden sm:block lg:hidden">
-          <div className="grid grid-cols-2 gap-4 max-w-3xl mx-auto">
-            {services[activeCategory]?.slice(0, 2).map((service, index) => (
-              <PricingCard 
-                key={index}
-                title={service.tier}
-                price={service.price}
-                period={service.period || ""}
-                features={service.features}
-                promo={service.promo}
-                isTablet={true}
-              />
-            ))}
-          </div>
-          {services[activeCategory]?.length > 2 && (
-            <div className="flex justify-center mt-4">
-              <PricingCard 
-                title={services[activeCategory][2].tier}
-                price={services[activeCategory][2].price}
-                period={services[activeCategory][2].period || ""}
-                features={services[activeCategory][2].features}
-                promo={services[activeCategory][2].promo}
-                isTablet={true}
-                className="max-w-md w-full"
-              />
+      
+      {/* Main Content */}
+      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 py-8">
+        <div className="max-w-7xl mx-auto">
+          {/* Service Packages Button */}
+          <div className="flex justify-center mb-8 md:mb-12">
+            <div className="relative w-[180px] sm:w-[200px] md:w-[240px] lg:w-[288px] h-[50px] sm:h-[60px] md:h-[70px] lg:h-[96px]">
+              <div className="w-full h-full bg-violet-800/60 rounded-[57px] shadow-[inset_-1px_-1px_47.80px_rgba(208,186,232,0.80)] border-4 border-violet-500/95 flex items-center justify-center">
+                <span className="text-white text-base sm:text-lg md:text-xl lg:text-2xl font-bold font-['Syne']">Service Packages</span>
+              </div>
             </div>
-          )}
-        </div>
+          </div>
 
-        {/* Desktop Layout */}
-        <div className="hidden lg:block">
-          <div className="flex justify-center gap-6 flex-wrap">
-            {services[activeCategory]?.map((service, index) => (
-              <PricingCard 
-                key={index}
-                title={service.tier}
-                price={service.price}
-                period={service.period || ""}
-                features={service.features}
-                promo={service.promo}
-                width="w-[380px] xl:w-[400px]"
-              />
+          {/* Title */}
+          <div className="text-center mb-6 md:mb-8">
+            <h1 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-['Syne']">Flexible Packages.</h1>
+            <h2 className="text-violet-800 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-['Syne'] mt-2">Transparent Pricing.</h2>
+          </div>
+
+          {/* Description */}
+          <p className="text-white/90 text-sm sm:text-base md:text-lg text-center font-['Inter'] max-w-4xl mx-auto mb-8 md:mb-12">
+            Setiap paket dirancang untuk menyesuaikan kebutuhan dan skala bisnis,
+            dengan rincian biaya yang jelas tanpa tambahan tersembunyi.
+          </p>
+
+          {/* Kebijakan Revisi */}
+          <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-purple-300/30 p-6 mb-8 md:mb-12">
+            <h3 className="text-violet-400 text-lg md:text-xl font-bold font-['Syne'] mb-4"> Kebijakan Revisi</h3>
+            <div className="space-y-3">
+              <p className="text-white/80 text-sm md:text-base"><span className="text-violet-300 font-semibold">Minor:</span> teks/typo, ganti foto, warna/font kecil, spacing/alignment, wording CTA</p>
+              <p className="text-white/80 text-sm md:text-base"><span className="text-violet-300 font-semibold">Major:</span> ubah struktur besar, tambah halaman/fitur, redesign total, perubahan requirement inti</p>
+              <p className="text-white/80 text-sm md:text-base"><span className="text-violet-300 font-semibold">Window revisi:</span> Basic/Starter: 7 hari | Growth: 14 hari | Pro: 30 hari</p>
+            </div>
+          </div>
+
+          {/* Category Navigation - First Row (4 items) */}
+          <div className="flex flex-wrap justify-center gap-3 mb-3">
+            {firstRowCategories.map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() => setActiveCategory(cat.id)}
+                className={`px-4 py-2 text-sm md:text-base rounded-full transition-all whitespace-nowrap ${
+                  activeCategory === cat.id
+                    ? 'bg-violet-600 text-white border-violet-400'
+                    : 'bg-transparent text-white/70 border border-purple-300/30 hover:bg-white/10'
+                }`}
+              >
+                {cat.name}
+              </button>
             ))}
           </div>
-        </div>
 
-        {/* Promo Banner */}
-        <div className="max-w-4xl mx-auto mt-10 p-4 bg-gradient-to-r from-purple-900/40 to-indigo-900/40 rounded-2xl border border-purple-400/30 text-center">
-          <h3 className="text-white text-sm sm:text-base font-bold font-['Syne'] mb-1"> Promo Spesial </h3>
-          <p className="text-white/90 text-xs sm:text-sm">
-            Early-bird: DP 50% ≤ 3 hari → diskon 2% | Bundle 2 layanan → diskon 3% | Retainer 3 bulan → diskon 3%
-          </p>
+          {/* Category Navigation - Second Row (5 items) */}
+          <div className="flex flex-wrap justify-center gap-3 mb-3">
+            {secondRowCategories.map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() => setActiveCategory(cat.id)}
+                className={`px-4 py-2 text-sm md:text-base rounded-full transition-all whitespace-nowrap ${
+                  activeCategory === cat.id
+                    ? 'bg-violet-600 text-white border-violet-400'
+                    : 'bg-transparent text-white/70 border border-purple-300/30 hover:bg-white/10'
+                }`}
+              >
+                {cat.name}
+              </button>
+            ))}
+          </div>
+
+          {/* Category Navigation - Third Row (1 item - Mobile App Development) */}
+          <div className="flex flex-wrap justify-center gap-3 mb-8 md:mb-12">
+            {thirdRowCategories.map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() => setActiveCategory(cat.id)}
+                className={`px-4 py-2 text-sm md:text-base rounded-full transition-all whitespace-nowrap ${
+                  activeCategory === cat.id
+                    ? 'bg-violet-600 text-white border-violet-400'
+                    : 'bg-transparent text-white/70 border border-purple-300/30 hover:bg-white/10'
+                }`}
+              >
+                {cat.name}
+              </button>
+            ))}
+          </div>
+
+          {/* Pricing Cards */}
+          <div className="mt-8">
+            {/* Mobile Layout */}
+            <div className="block sm:hidden">
+              <div className="flex flex-col items-center gap-4">
+                {services[activeCategory]?.map((service, index) => (
+                  <PricingCard 
+                    key={index}
+                    title={service.tier}
+                    price={service.price}
+                    period={service.period || ""}
+                    features={service.features}
+                    promo={service.promo}
+                    isMobile={true}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Tablet Layout */}
+            <div className="hidden sm:block lg:hidden">
+              <div className="grid grid-cols-2 gap-4">
+                {services[activeCategory]?.slice(0, 2).map((service, index) => (
+                  <PricingCard 
+                    key={index}
+                    title={service.tier}
+                    price={service.price}
+                    period={service.period || ""}
+                    features={service.features}
+                    promo={service.promo}
+                    isTablet={true}
+                  />
+                ))}
+              </div>
+              {services[activeCategory]?.length > 2 && (
+                <div className="flex justify-center mt-4">
+                  <PricingCard 
+                    title={services[activeCategory][2].tier}
+                    price={services[activeCategory][2].price}
+                    period={services[activeCategory][2].period || ""}
+                    features={services[activeCategory][2].features}
+                    promo={services[activeCategory][2].promo}
+                    isTablet={true}
+                    className="max-w-md w-full"
+                  />
+                </div>
+              )}
+            </div>
+
+            {/* Desktop Layout */}
+            <div className="hidden lg:block">
+              <div className="flex justify-center gap-6 flex-wrap">
+                {services[activeCategory]?.map((service, index) => (
+                  <PricingCard 
+                    key={index}
+                    title={service.tier}
+                    price={service.price}
+                    period={service.period || ""}
+                    features={service.features}
+                    promo={service.promo}
+                    width="w-[350px] xl:w-[380px]"
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Promo Banner */}
+          <div className="mt-10 p-4 bg-gradient-to-r from-purple-900/40 to-indigo-900/40 rounded-2xl border border-purple-400/30 text-center">
+            <h3 className="text-white text-sm sm:text-base font-bold font-['Syne'] mb-1"> Promo Spesial </h3>
+            <p className="text-white/90 text-xs sm:text-sm">
+              Early-bird: DP 50% ≤ 3 hari → diskon 2% | Bundle 2 layanan → diskon 3% | Retainer 3 bulan → diskon 3%
+            </p>
+          </div>
         </div>
       </div>
     </div>
