@@ -21,6 +21,7 @@ export default function Home() {
  
 
   return (
+
     <div className="min-h-screen transition-colors duration-500 bg-hitam ">
       <Hero />
       <CardSlug />

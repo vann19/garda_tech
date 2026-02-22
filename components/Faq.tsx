@@ -35,29 +35,44 @@ const FaqPage = () => {
 >
   <Accordion type="single" collapsible>
     <AccordionItem value="item-1">
+
+      <AccordionTrigger className="text-base  sm:text-lg lg:text-xl font-semibold">
+        Layanan apa saja yang Kami tawarkan?
+
       <AccordionTrigger className="text-base  sm:text-lg lg:text-xl font-semibold text-primary">
         What services do you offer?
+
       </AccordionTrigger>
       <AccordionContent className="text-sm sm:text-base lg:text-lg text-white/80">
-        We offer a wide range of services including web development, mobile app development, UI/UX design, and digital marketing.
+        Kami menawarkan berbagai layanan termasuk pengembangan web, pengembangan aplikasi seluler, desain UI/UX, dan pemasaran digital dan masih banyak lagi.
       </AccordionContent>
     </AccordionItem>
 
     <AccordionItem value="item-2">
+
+      <AccordionTrigger className="text-base sm:text-lg lg:text-xl font-semibold">
+        Berapa lama waktu yang dibutuhkan untuk sebuah proyek pada umumnya?
+
       <AccordionTrigger className="text-base sm:text-lg lg:text-xl font-semibold text-primary">
         How long does a typical project take?
+
       </AccordionTrigger>
       <AccordionContent className="text-sm sm:text-base lg:text-lg text-white/80">
-        The timeline for a project varies depending on its complexity and scope. Typically, a standard website project takes 4-8 weeks.
+        Jangka waktu pengerjaan suatu proyek bervariasi tergantung pada kompleksitas dan ruang lingkupnya. Biasanya, proyek pembuatan situs web standar membutuhkan waktu 4-8 minggu.
       </AccordionContent>
     </AccordionItem>
 
     <AccordionItem value="item-3">
+
+      <AccordionTrigger className="text-base sm:text-lg lg:text-xl font-semibold">
+        Apakah Kami menyediakan dukungan berkelanjutan?
+
       <AccordionTrigger className="text-base sm:text-lg lg:text-xl font-semibold text-primary">
         Do you provide ongoing support?
+
       </AccordionTrigger>
       <AccordionContent className="text-sm sm:text-base lg:text-lg text-white/80">
-        Yes, we offer ongoing support and maintenance packages to ensure your project continues to run smoothly after launch.
+      Ya, kami menawarkan paket dukungan dan pemeliharaan berkelanjutan untuk memastikan proyek Anda terus berjalan lancar setelah diluncurkan.
       </AccordionContent>
     </AccordionItem>
   </Accordion>
@@ -66,5 +81,6 @@ const FaqPage = () => {
     </section>
   )
 }
+
 
 export default FaqPage
