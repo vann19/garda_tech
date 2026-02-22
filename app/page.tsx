@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Navbar from "@/components/Navbar";
+
 import Hero from '@/components/Hero';
 import CardSlug from '@/components/CardSlug';
 import WhPage from '@/components/Wh';
@@ -22,7 +22,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen transition-colors duration-500 bg-hitam ">
-      <Navbar />
       <Hero />
       <CardSlug />
       <WhPage />

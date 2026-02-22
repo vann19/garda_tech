@@ -1,7 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
 // Import icon dari lucide-react
-import { Instagram, Linkedin, Github } from 'lucide-react';
+import { Instagram, Linkedin } from 'lucide-react';
+
+const TikTokIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className={className} xmlns="http://www.w3.org/2000/svg">
+    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.86a8.28 8.28 0 0 0 4.76 1.5V6.83a4.83 4.83 0 0 1-1-.14Z" />
+  </svg>
+);
 
 const FooterPage = () => {
   return (
@@ -92,9 +98,9 @@ const FooterPage = () => {
               <Link 
                 href="#" 
                 className="group flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-white/10 rounded-xl hover:bg-violet-600 transition-all duration-300 border border-white/20 hover:border-violet-400"
-                aria-label="GitHub"
+                aria-label="TikTok"
               >
-                <Github className="w-6 h-6 sm:w-7 sm:h-7 text-white group-hover:scale-110 transition-transform duration-300" />
+                <TikTokIcon className="w-6 h-6 sm:w-7 sm:h-7 text-white group-hover:scale-110 transition-transform duration-300" />
               </Link>
             </div>
           </div>

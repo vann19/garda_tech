@@ -33,21 +33,22 @@ const information = [
 
 const CardSlug = () => {
   return (
-    <section className=" relative w-full py-16 px-4 sm:px-8 overflow-hidden">
-      {/* Cards Grid */}
-      <div className="relative  z-10 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6  max-w-7xl mx-auto">
-        {information.map((info) => (
-          <Link
-            key={info.slug}
-            href={`/${info.slug}`}
-            className="group block"
-          >
-            <div className="card-slug">
-              {/* Blur layer di dalam card */}
-              <div className="card-blob-primary" />
-              <div className="card-blob-secondary" />
+    <section className="relative w-full py-6 sm:py-16 px-4 sm:px-8">
 
-              {/* Nomor + Judul */}
+      {/* Blur Background */}
+      {/* Large left purple glow */}
+      <div className="absolute -left-32 top-1/2 -translate-y-1/2 w-[600px] h-[600px] 
+        bg-purple-700/50 rounded-full blur-[180px] z-0 pointer-events-none" />
+      
+      <div className="absolute right-0 bottom-0 w-[400px] h-[400px]
+        bg-violet-500/30 rounded-full blur-[120px] z-0" />
+
+      {/* Cards Grid */}
+      <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
+        {information.map((info) => (
+          <Link key={info.slug} href={`/${info.slug}`} className="group block">
+            <div className="card-slug">
+
               <div className="relative z-10">
                 <p className="text-white text-2xl sm:text-3xl font-bold font-['Syne'] mb-3">
                   {info.number}
@@ -57,10 +58,10 @@ const CardSlug = () => {
                 </p>
               </div>
 
-              {/* Arrow Icon */}
               <div className="relative z-10 flex justify-end transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
                 <ArrowIcon />
               </div>
+
             </div>
           </Link>
         ))}

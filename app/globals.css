@@ -9,6 +9,7 @@
 :root {   /* gelap */  /* teks terang */
   --primary: #9D6AD1;
   --hitam: #000000; /* TAMBAH INI */
+  --ungu: #452273;
   /* --primary-dark: #1d4ed8; */
   --secondary: oklch(0.968 0.007 247.896);
   --radius: 0.625rem;
@@ -57,6 +58,7 @@
   --color-primary: var(--primary);
   --color-hitam: #000000;
   --color-secondary: var(--secondary);
+  --color-ungu: var(--ungu);
 
   /* --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono); */
@@ -139,6 +141,7 @@
 
 body {
   font-family: var(--font-main);
+  overflow-x: hidden;
 }
 
 /* ========================= */
@@ -194,6 +197,10 @@ body {
   background-color: var(--primary);
 }
 
+.bg-ungu {
+  background-color: var(--ungu);
+}
+
 .text-primary {
   color: var(--primary);
 }
@@ -222,13 +229,17 @@ body {
 /* globals.css */
 .grid-kotak {
   position: relative;
-  width: 100vw;      /* full lebar viewport */
-  min-height: 100vh;/* full tinggi layar */
+  width: 100vw;
+  min-height: 1vh;
+}
 
-  background-image:
-    linear-gradient(to right, rgb(216 180 254 / 0.04) 2px, transparent 2px),
-    linear-gradient(to bottom, rgb(216 180 254 / 0.04) 2px, transparent 2px);
-  background-size: 60px 60px;
+@media (min-width: 1024px) {
+  .grid-kotak {
+    background-image:
+      linear-gradient(to right, rgb(216 180 254 / 0.04) 2px, transparent 2px),
+      linear-gradient(to bottom, rgb(216 180 254 / 0.04) 2px, transparent 2px);
+    background-size: 60px 60px;
+  }
 }
 
 /* ========================= */
