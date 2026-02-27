@@ -1,64 +1,65 @@
 import React from 'react'
 import Image from 'next/image'
+import TeamMembers from '@/components/TeamMembers'
+import Footer from '@/components/Footer';
 
 const AboutPage = () => {
   return (
-    <div className="relative min-h-screen bg-black overflow-hidden grid-kotak">
+    <div className="relative min-h-screen bg-black overflow-hidden ">
 
-      {/* === BLUR BACKGROUNDS === */}
-      <div className="absolute inset-x-0 top-[13%] w-full h-[62%] bg-violet-800 blur-[133px]" />
-      <div className="absolute inset-x-0 -top-[13%] w-full h-[75%] bg-violet-500 blur-[133px]" />
-      <div className="absolute inset-x-0 -top-[25%] w-full h-[75%] bg-purple-300 blur-[133px]" />
-      <div className="absolute inset-x-0 -top-[49%] w-full h-[75%] bg-white blur-[133px]" />
 
-      {/* === CONTENT === */}
-      <div className="relative z-10 flex flex-col items-center pt-16 sm:pt-20 px-4">
+      {/* === SECTION: Tentang Kami === */}
+      <div className="relative z-10 w-full px-4 sm:px-8 lg:px-16 py-16 sm:py-24 lg:py-32">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-8 sm:gap-12 lg:gap-16 items-center">
 
-       
+          {/* Gambar */}
+          <div className="w-full md:w-1/2 relative aspect-[4/3] rounded-2xl overflow-hidden">
+            <Image
+              src="/img/logo.png"
+              alt="Tentang Garda Tech"
+              fill
+              className="object-cover"
+            />
+          </div>
 
-        {/* Heading */}
-        <h1 className="mt-12 sm:mt-16 text-center text-indigo-900 text-3xl sm:text-5xl lg:text-6xl font-bold font-['Syne'] leading-tight">
-          Building with Purpose.
-          <br />
-          Delivering with Responsibility.
-        </h1>
+          {/* Teks penjelasan */}
+          <div className="w-full md:w-1/2">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-['Syne']">
+              <span className="text-violet-500">Siapa </span>
+              <span className="text-white">Kami?</span>
+            </h2>
 
-        {/* === CONCENTRIC RINGS + BRAND CENTER === */}
-        <div className="relative mt-16 sm:mt-24 w-full max-w-[1263px] aspect-[1263/628] mx-auto">
+            <p className="mt-4 sm:mt-6 text-white/80 text-sm sm:text-base lg:text-lg font-['Inter'] leading-relaxed">
+              Garda Tech adalah tim pengembang yang berfokus pada pembuatan solusi digital berkualitas tinggi. Kami percaya bahwa teknologi yang baik dimulai dari proses yang terstruktur dan transparan.
+            </p>
 
-          {/* Ring 4 — outermost */}
-          <div className="absolute inset-0 rounded-[246px] border-4 border-violet-800/20" />
+            <p className="mt-4 text-white/80 text-sm sm:text-base lg:text-lg font-['Inter'] leading-relaxed">
+              Dengan pendekatan yang detail dan presisi, kami membangun website, aplikasi mobile, dan solusi digital lainnya yang dirancang untuk mendukung pertumbuhan bisnis jangka panjang Anda.
+            </p>
 
-          {/* Ring 3 */}
-          <div className="absolute left-[7%] right-[7%] top-[11%] bottom-[11%] rounded-[211px] border-4 border-violet-800/60" />
-
-          {/* Ring 2 */}
-          <div className="absolute left-[13%] right-[13%] top-[22%] bottom-[22%] rounded-full border-4 border-violet-800/75" />
-
-          {/* Ring 1 — innermost */}
-          <div className="absolute left-[20%] right-[20%] top-[33%] bottom-[33%] rounded-[135px] border-4 border-violet-800/80" />
-
-          {/* Brand Center Card */}
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] max-w-[629px]">
-            {/* Outer glow */}
-            <div className="absolute inset-0 bg-violet-500/95 rounded-[62px] translate-y-[-3px]" />
-            {/* Inner dark card */}
-            <div className="relative bg-ungu rounded-[62px] px-6 py-7 sm:py-8 flex items-center justify-center gap-3 sm:gap-4">
-              <Image
-                src="/img/logo.png"
-                alt="Garda Tech Logo"
-                width={64}
-                height={64}
-                className="w-10 h-10 sm:w-14 sm:h-14 lg:w-16 lg:h-16"
-              />
-              <span className="text-white text-2xl sm:text-3xl lg:text-4xl font-bold font-['Syne']">
-                Garda Tech
-              </span>
+            <div className="mt-6 sm:mt-8 flex flex-col gap-3">
+              <div className="flex items-center gap-3">
+                <div className="w-3 h-3 rounded-full bg-violet-500 shrink-0" />
+                <span className="text-white text-sm sm:text-base font-['Inter']">Pengembangan Website & Aplikasi Mobile</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-3 h-3 rounded-full bg-violet-500 shrink-0" />
+                <span className="text-white text-sm sm:text-base font-['Inter']">Desain UI/UX yang Modern</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-3 h-3 rounded-full bg-violet-500 shrink-0" />
+                <span className="text-white text-sm sm:text-base font-['Inter']">Proses Transparan & Dukungan Berkelanjutan</span>
+              </div>
             </div>
           </div>
-        </div>
 
+        </div>
       </div>
+
+      {/* === SECTION: Tim Kami === */}
+      <TeamMembers />
+      <Footer />
+
     </div>
   )
 }

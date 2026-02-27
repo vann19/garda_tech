@@ -9,7 +9,7 @@ const TikTokIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const FooterPage = () => {
+const ConfPage = () => {
   return (
     <footer className="relative w-full py-20 px-4 md:px-8 overflow-hidden bg-transparent">
       
@@ -111,4 +111,4 @@ const FooterPage = () => {
   );
 };
 
-export default FooterPage;
+export default ConfPage;

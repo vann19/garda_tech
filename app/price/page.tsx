@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Pricing() {
-  const [activeCategory, setActiveCategory] = useState('maintenance');
+  const [activeCategory, setActiveCategory] = useState('maintenance') ;
   const [scale, setScale] = useState(1);
 
   useEffect(() => {
@@ -46,10 +46,11 @@ export default function Pricing() {
   // Baris ketiga kategori (Mobile App Development)
   const thirdRowCategories = categories.slice(9, 10);
 
-  const services = {
+  const services: Record<string, { tier: string; slug: string; price: string; period: string; features: string[]; promo?: string }[]> = {
     maintenance: [
       {
         tier: "Basic Care",
+        slug: "basic-care",
         price: "Rp300k–Rp800k",
         period: "/bulan",
         features: [
@@ -64,6 +65,7 @@ export default function Pricing() {
       },
       {
         tier: "Growth Care",
+        slug: "growth-care",
         price: "Rp1jt–Rp2,5jt",
         period: "/bulan",
         features: [
@@ -79,6 +81,7 @@ export default function Pricing() {
       },
       {
         tier: "Pro Care",
+        slug: "pro-care",
         price: "Rp3jt–Rp7jt",
         period: "/bulan",
         features: [
@@ -95,6 +98,7 @@ export default function Pricing() {
     performance: [
       {
         tier: "Speed Basic",
+        slug: "speed-basic",
         price: "Rp500k–Rp1,5jt",
         period: "",
         features: [
@@ -109,6 +113,7 @@ export default function Pricing() {
       },
       {
         tier: "Speed Growth",
+        slug: "speed-growth",
         price: "Rp2jt–Rp6jt",
         period: "",
         features: [
@@ -124,6 +129,7 @@ export default function Pricing() {
       },
       {
         tier: "Speed Pro",
+        slug: "speed-pro",
         price: "Rp7jt–Rp20jt",
         period: "",
         features: [
@@ -140,6 +146,7 @@ export default function Pricing() {
     design: [
       {
         tier: "UX Review Mini",
+        slug: "ux-review-mini",
         price: "Rp500k–Rp1,5jt",
         period: "",
         features: [
@@ -154,6 +161,7 @@ export default function Pricing() {
       },
       {
         tier: "UX Prototype",
+        slug: "ux-prototype",
         price: "Rp2jt–Rp7jt",
         period: "",
         features: [
@@ -167,6 +175,7 @@ export default function Pricing() {
       },
       {
         tier: "UX Full System",
+        slug: "ux-full-system",
         price: "Rp8jt–Rp25jt",
         period: "",
         features: [
@@ -183,6 +192,7 @@ export default function Pricing() {
     brand: [
       {
         tier: "Brand Kit Mini",
+        slug: "brand-kit-mini",
         price: "Rp500k–Rp1,5jt",
         period: "",
         features: [
@@ -196,6 +206,7 @@ export default function Pricing() {
       },
       {
         tier: "Brand Kit Growth",
+        slug: "brand-kit-growth",
         price: "Rp2jt–Rp6jt",
         period: "",
         features: [
@@ -210,6 +221,7 @@ export default function Pricing() {
       },
       {
         tier: "Brand Kit Pro",
+        slug: "brand-kit-pro",
         price: "Rp7jt–Rp20jt",
         period: "",
         features: [
@@ -225,6 +237,7 @@ export default function Pricing() {
     profile: [
       {
         tier: "Mini Deck",
+        slug: "mini-deck",
         price: "Rp300k–Rp1jt",
         period: "",
         features: [
@@ -236,6 +249,7 @@ export default function Pricing() {
       },
       {
         tier: "Company Profile Pro",
+        slug: "company-profile-pro",
         price: "Rp1,5jt–Rp4jt",
         period: "",
         features: [
@@ -248,6 +262,7 @@ export default function Pricing() {
       },
       {
         tier: "Pro Bundle",
+        slug: "pro-bundle",
         price: "Rp5jt–Rp12jt",
         period: "",
         features: [
@@ -262,6 +277,7 @@ export default function Pricing() {
     content: [
       {
         tier: "Content Starter",
+        slug: "content-starter",
         price: "Rp300k–Rp800k",
         period: "",
         features: [
@@ -276,6 +292,7 @@ export default function Pricing() {
       },
       {
         tier: "Content Growth",
+        slug: "content-growth",
         price: "Rp1jt–Rp3jt",
         period: "",
         features: [
@@ -290,6 +307,7 @@ export default function Pricing() {
       },
       {
         tier: "Content Pro",
+        slug: "content-pro",
         price: "Rp4jt–Rp10jt",
         period: "",
         features: [
@@ -306,6 +324,7 @@ export default function Pricing() {
     templates: [
       {
         tier: "Starter Templates",
+        slug: "starter-templates",
         price: "Rp200k–Rp600k",
         period: "",
         features: [
@@ -320,6 +339,7 @@ export default function Pricing() {
       },
       {
         tier: "Growth Templates",
+        slug: "growth-templates",
         price: "Rp700k–Rp2jt",
         period: "",
         features: [
@@ -334,6 +354,7 @@ export default function Pricing() {
       },
       {
         tier: "Pro Templates",
+        slug: "pro-templates",
         price: "Rp3jt–Rp8jt",
         period: "",
         features: [
@@ -350,6 +371,7 @@ export default function Pricing() {
     workshop: [
       {
         tier: "Mini Workshop",
+        slug: "mini-workshop",
         price: "Rp300k–Rp800k",
         period: "",
         features: [
@@ -362,6 +384,7 @@ export default function Pricing() {
       },
       {
         tier: "Growth Workshop",
+        slug: "growth-workshop",
         price: "Rp1jt–Rp3jt",
         period: "",
         features: [
@@ -374,6 +397,7 @@ export default function Pricing() {
       },
       {
         tier: "Pro Workshop",
+        slug: "pro-workshop",
         price: "Rp4jt–Rp10jt",
         period: "",
         features: [
@@ -388,6 +412,7 @@ export default function Pricing() {
     web: [
       {
         tier: "Website Basic",
+        slug: "website-basic",
         price: "Rp2jt–Rp6jt",
         period: "",
         features: [
@@ -402,6 +427,7 @@ export default function Pricing() {
       },
       {
         tier: "Website Growth",
+        slug: "website-growth",
         price: "Rp7jt–Rp20jt",
         period: "",
         features: [
@@ -416,6 +442,7 @@ export default function Pricing() {
       },
       {
         tier: "Web App MVP",
+        slug: "web-app-mvp",
         price: "Rp20jt–Rp80jt+",
         period: "",
         features: [
@@ -433,6 +460,7 @@ export default function Pricing() {
     mobile: [
       {
         tier: "App MVP Mini",
+        slug: "app-mvp-mini",
         price: "Rp10jt–Rp25jt",
         period: "",
         features: [
@@ -446,6 +474,7 @@ export default function Pricing() {
       },
       {
         tier: "App Growth",
+        slug: "app-growth",
         price: "Rp25jt–Rp60jt",
         period: "",
         features: [
@@ -460,6 +489,7 @@ export default function Pricing() {
       },
       {
         tier: "App Pro",
+        slug: "app-pro",
         price: "Rp60jt–Rp200jt+",
         period: "",
         features: [
@@ -513,7 +543,7 @@ export default function Pricing() {
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 py-8">
         <div className="max-w-7xl mx-auto">
           {/* Service Packages Button */}
-          <div className="flex justify-center mb-8 md:mb-12">
+          <div className="flex justify-center mt-12 md:mt-2 py-[12px] lg:py-6">
             <div className="relative w-[180px] sm:w-[200px] md:w-[240px] lg:w-[288px] h-[50px] sm:h-[60px] md:h-[70px] lg:h-[96px]">
               <div className="w-full h-full bg-violet-800/60 rounded-[57px] shadow-[inset_-1px_-1px_47.80px_rgba(208,186,232,0.80)] border-4 border-violet-500/95 flex items-center justify-center">
                 <span className="text-white text-base sm:text-lg md:text-xl lg:text-2xl font-bold font-['Syne']">Service Packages</span>
@@ -603,6 +633,7 @@ export default function Pricing() {
                   <PricingCard 
                     key={index}
                     title={service.tier}
+                    slug={service.slug}
                     price={service.price}
                     period={service.period || ""}
                     features={service.features}
@@ -620,6 +651,7 @@ export default function Pricing() {
                   <PricingCard 
                     key={index}
                     title={service.tier}
+                    slug={service.slug}
                     price={service.price}
                     period={service.period || ""}
                     features={service.features}
@@ -632,6 +664,7 @@ export default function Pricing() {
                 <div className="flex justify-center mt-4">
                   <PricingCard 
                     title={services[activeCategory][2].tier}
+                    slug={services[activeCategory][2].slug}
                     price={services[activeCategory][2].price}
                     period={services[activeCategory][2].period || ""}
                     features={services[activeCategory][2].features}
@@ -650,6 +683,7 @@ export default function Pricing() {
                   <PricingCard 
                     key={index}
                     title={service.tier}
+                    slug={service.slug}
                     price={service.price}
                     period={service.period || ""}
                     features={service.features}
@@ -675,7 +709,7 @@ export default function Pricing() {
 }
 
 // Komponen Pricing Card
-function PricingCard({ title, price, period, features, promo, width = "w-full", className = "", isMobile, isTablet }) {
+function PricingCard({ title, slug, price, period, features, promo, width = "w-full", className = "", isMobile = false, isTablet = false }: { title: string, slug: string, price: string, period: string, features: string[], promo?: string, width?: string, className?: string, isMobile?: boolean, isTablet?: boolean }) {
   return (
     <div className={`${width} ${className} bg-white/5 backdrop-blur-sm rounded-[30px] sm:rounded-[40px] border-2 border-purple-300 p-4 sm:p-5 relative overflow-hidden hover:border-violet-400 transition-all duration-300`}>
       {/* Inner glow effect */}
@@ -715,9 +749,12 @@ function PricingCard({ title, price, period, features, promo, width = "w-full", 
 
         {/* Order Button */}
         <div className="flex justify-center">
-          <button className="w-full py-2 bg-black rounded-[57px] shadow-[inset_-1px_1px_47.80px_rgba(69,34,115,1.00)] border-2 border-indigo-900 flex items-center justify-center cursor-pointer hover:opacity-90 transition-opacity">
+          <Link
+            href={`/price/${slug}`}
+            className="w-full py-2 bg-black rounded-[57px] shadow-[inset_-1px_1px_47.80px_rgba(69,34,115,1.00)] border-2 border-indigo-900 flex items-center justify-center cursor-pointer hover:opacity-90 transition-opacity"
+          >
             <span className="text-violet-500 text-xs sm:text-sm font-bold font-['Syne']">Order Now</span>
-          </button>
+          </Link>
         </div>
       </div>
     </div>

@@ -16,7 +16,7 @@ const WhPage = (): JSX.Element => {
           alt="who it's for"
           width={2400}
           height={100}
-          className="w-screen max-w-none  mx-auto"
+          className="w-full h-auto mx-auto"
           priority
         />
       </div>

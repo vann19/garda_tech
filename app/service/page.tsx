@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Kotak() {
   return (
-    <div className="w-screen h-screen relative bg-hitam overflow-hidden">
+    <div className="w-full h-screen relative bg-hitam overflow-hidden">
       {/* Background elements*/}
       <div className="absolute w-[34.32vw] h-[94.59vh] left-[32.87vw] top-[-1.62vh] bg-[#452273] blur-[90.85px]"></div>
       
@@ -45,7 +45,7 @@ export default function Kotak() {
       {/* DESKTOP LAYOUT (>=1024px) */}
       <div className="hidden lg:block relative w-full h-full">
         {/* Our Process button */}
-        <div className="absolute w-[14.81vw] h-[8.66vh] left-[42.77vw] top-[9.29vh] bg-violet-800/60 rounded-[57px] shadow-[inset_-1px_-1px_47.80px_rgba(208,186,232,0.80)] border-4 border-violet-500/95 flex items-center justify-center">
+        <div className="absolute w-[14.81vw] h-[8.66vh] left-[42.77vw] top-[12.29vh] bg-violet-800/60 rounded-[57px] shadow-[inset_-1px_-1px_47.80px_rgba(208,186,232,0.80)] border-4 border-violet-500/95 flex items-center justify-center">
           <span className="text-white text-[1.39vw] font-bold font-['Syne']">Our Process</span>
         </div>
         

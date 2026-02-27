@@ -18,10 +18,10 @@ const Navbar = () => {
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
-    { href: "#process", label: "Our Process" },
-    { href: "#portfolio", label: "Portfolio" },
-    { href: "#pricing", label: "Pricing" },
-    { href: "#contact", label: "Contact" },
+    { href: "/service", label: "Our Process" },
+    { href: "/portofolio", label: "Portfolio" },
+    { href: "/price", label: "Pricing" },
+    { href: "/contact", label: "Contact" },
   ];
 
   const closeMenu = () => setMenuOpen(false);
@@ -29,8 +29,8 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`bg-hitam shadow-md  top-0 z-50 transition-all duration-300 ${
-          scrolled ? "shadow-lg" : ""
+        className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+          scrolled ? "bg-hitam shadow-lg" : "bg-hitam shadow-md"
         }`}
       >
         <div className="container mx-auto pl-8 pr-4 sm:pl-0 sm:pr-6 py-4 flex items-center justify-between">
@@ -143,7 +143,7 @@ const Navbar = () => {
               <Link
                 href="#contact"
                 onClick={closeMenu}
-                className="block w-full text-center bg-secondary hover:bg-primary-dark text-white px-5 py-3 rounded-lg transition-colors font-semibold text-sm"
+                className="block w-full text-center bg-primary text-white px-5 py-3 rounded-lg transition-colors font-semibold text-sm"
               >
                 Let&apos;s Talk
               </Link>

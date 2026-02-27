@@ -25,7 +25,7 @@ export default function Kotak() {
   }, []);
 
   return (
-    <div className="w-screen h-screen flex justify-center items-center bg-hitam overflow-hidden relative">
+    <div className="w-full h-screen flex justify-center items-center bg-hitam overflow-hidden relative">
       {/* Kode JSX Anda selengkapnya... */}
       {/* ... */}
     </div>

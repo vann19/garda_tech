@@ -139,9 +139,15 @@
   --radius-4xl: calc(var(--radius) + 16px);
 }
 
+html {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 body {
   font-family: var(--font-main);
   overflow-x: hidden;
+  max-width: 100%;
 }
 
 /* ========================= */
@@ -229,7 +235,7 @@ body {
 /* globals.css */
 .grid-kotak {
   position: relative;
-  width: 100vw;
+  width: 100%;
   min-height: 1vh;
 }
 
@@ -330,12 +336,4 @@ body {
    --sidebar-ring: oklch(0.551 0.027 264.364);
 }
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-   }
-  body {
-    @apply bg-background text-foreground;
-   }
-}
 
