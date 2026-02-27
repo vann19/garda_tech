@@ -9,14 +9,14 @@ const AboutPage = () => {
 
 
       {/* === SECTION: Tentang Kami === */}
-      <div className="relative z-10 w-full px-4 sm:px-8 lg:px-16 py-16 sm:py-24 lg:py-32">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-8 sm:gap-12 lg:gap-16 items-center">
+      <div className="relative z-10 w-full px-4  sm:px-8 lg:px-16 py-16 sm:py-24 lg:py-32">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-8 sm:gap-12 lg:gap-16 items-center">
 
           {/* Gambar */}
-          <div className="w-full md:w-1/2 relative aspect-[4/3] rounded-2xl overflow-hidden">
+          <div className="w-full md:w-1/2 relative aspect-4/3 rounded-2xl overflow-hidden">
             <Image
-              src="/img/logo.png"
-              alt="Tentang Garda Tech"
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&h=675&fit=crop&q=80"
+              alt="Tim Garda Tech bekerja bersama"
               fill
               className="object-cover"
             />

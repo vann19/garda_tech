@@ -1,5 +1,8 @@
+"use client";
+
 import React from 'react'
 import Image from 'next/image'
+import Typewriter from 'typewriter-effect'
 
 const Hero = () => {
   return (
@@ -7,15 +10,38 @@ const Hero = () => {
 
       {/* Top Section: Heading & Subtext */}
       <div className="relative z-10 flex flex-col items-center text-center px-6 sm:px-8 mt-[10vh] sm:mt-[18vh]">
-        {/* Heading */}
-        <h1 className="font-sans font-bold leading-tight tracking-tight">
-          <span className="block text-white text-[32px] sm:text-[48px] lg:text-[64px] xl:text-[72px]">
-            Built with Precision.
-          </span>
-          <span className="block text-[#6a29ff] text-[32px] sm:text-[48px] lg:text-[64px] xl:text-[72px] mt-1 sm:mt-2">
-            Delivered with Trust.
-          </span>
-        </h1>
+        {/* Heading Container to Prevent Layout Shift */}
+        <div className="relative w-full">
+          {/* Invisible Static Placeholder */}
+          <h1 className="font-sans font-bold leading-tight tracking-tight invisible pointer-events-none select-none" aria-hidden="true">
+            <span className="block text-[32px] sm:text-[48px] lg:text-[64px] xl:text-[72px]">
+              Built with Precision.
+            </span>
+            <span className="block text-[32px] sm:text-[48px] lg:text-[64px] xl:text-[72px] mt-1 sm:mt-2">
+              Delivered with Trust.
+            </span>
+          </h1>
+
+          {/* Typewriter Animation */}
+          <h1 className="absolute top-0 inset-x-0 font-sans font-bold leading-tight tracking-tight">
+            <Typewriter
+              onInit={(typewriter) => {
+                typewriter
+                  .typeString('<span class="block text-white text-[32px] sm:text-[48px] lg:text-[64px] xl:text-[72px]">Built with Precision.</span>')
+                  .pauseFor(500)
+                  .typeString('<span class="block text-[#6a29ff] text-[32px] sm:text-[48px] lg:text-[64px] xl:text-[72px] mt-1 sm:mt-2">Delivered with Trust.</span>')
+                  .pauseFor(3000)
+                  .deleteAll(20)
+                  .start();
+              }}
+              options={{
+                loop: true,
+                delay: 50,
+                cursor: ''
+              }}
+            />
+          </h1>
+        </div>
 
         {/* Subtext */}
         <p className="mt-5 sm:mt-12 text-white/80 text-sm sm:text-base lg:text-xl max-w-[300px] sm:max-w-[700px] md:max-w-[1000px] mx-auto leading-relaxed sm:leading-loose">
