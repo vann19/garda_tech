@@ -33,7 +33,7 @@ const information = [
 
 const CardSlug = () => {
   return (
-    <section className="relative w-full py-6 sm:py-16 px-4 sm:px-8">
+    <section className="relative w-full py-6 sm:py-16 px-4 sm:px-8 -mt-45 sm:mt-0 z-20">
 
       {/* Blur Background */}
       {/* Large left purple glow */}

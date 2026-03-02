@@ -26,3 +26,10 @@
           priority
         />
 </div>
+
+1. Nama lengkap :FADLY MAULANA
+2. Tentang diri  kamu :Saya adalah Founder sekaligus Project Manager di Garda Tech yang berkomitmen membangun dan mengelola solusi bisnis berbasis teknologi secara terstruktur, terukur, dan berkelanjutan untuk membantu perusahaan bertumbuh melalui sistem yang efisien, scalable, dan berdampak nyata.
+3. Pengalaman  :Saya memiliki pengalaman sebagai Project Manager pada ajang PKM 2026, memimpin perencanaan hingga eksekusi proyek secara terstruktur, serta terlibat dalam berbagai pengembangan sistem, perancangan aplikasi, dan implementasi solusi IT yang berfokus pada efisiensi operasional dan kebutuhan bisnis.
+4. Link sosial media linkind :www.linkedin.com/in/fadly-maulana
+5. Link sosial media ig  :@faaddlyy_
+ini di isi, dan kirim foto potrait/dekat dengan kamera, jangan terlalu jauh

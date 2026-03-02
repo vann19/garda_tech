@@ -78,20 +78,11 @@ const Hero = () => {
       </div>
 
       {/* What We Do Section - Pinned to bottom, sits above image */}
-      <div className="relative z-20 mt-auto w-full text-center pb-10 sm:pb-20">
+      <div className="relative z-10 mt-auto w-full text-center pb-50 sm:pb-20">
         <h2 className="font-['Syne'] font-bold text-3xl sm:text-4xl lg:text-5xl tracking-wide">
           <span className="text-[#6a29ff]">What</span>
           <span className="text-white"> We Do.</span>
         </h2>
-        {/* Scroll hint — mobile only */}
-        <div className="flex sm:hidden justify-center mt-3">
-          <div className="flex flex-col items-center gap-1 opacity-50">
-            <div className="w-px h-6 bg-white/60" />
-            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 1L5 5L9 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </div>
-        </div>
       </div>
 
     </section>

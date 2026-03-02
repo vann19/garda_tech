@@ -340,7 +340,7 @@ export default function OrderPage({ params }: { params: Promise<{ slug: string }
                   <Info className="w-4 h-4 mt-0.5 shrink-0" />
                   <p>Isi range budget yang sesuai dengan ketersediaan Anda untuk proyek ini.</p>
                 </div>
-              </div>
+              </div>joko
 
               {/* Target Waktu */}
               <div className="space-y-3">
