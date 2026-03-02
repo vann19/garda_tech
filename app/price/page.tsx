@@ -36,22 +36,23 @@ export default function Pricing() {
     { id: 'templates', name: 'Template Pack' },
     { id: 'workshop', name: 'Workshop / Training' },
     { id: 'web', name: 'Web Development' },
-    { id: 'mobile', name: 'Mobile App Development' }
+    { id: 'mobile', name: 'Mobile App Development' },
+    { id: 'audit', name: 'Audit Services' }
   ];
 
   // Baris pertama kategori
   const firstRowCategories = categories.slice(0, 4);
   // Baris kedua kategori
-  const secondRowCategories = categories.slice(4, 9);
+  const secondRowCategories = categories.slice(4, 8);
   // Baris ketiga kategori (Mobile App Development)
-  const thirdRowCategories = categories.slice(9, 10);
+  const thirdRowCategories = categories.slice(8, 11);
 
   const services: Record<string, { tier: string; slug: string; price: string; period: string; features: string[]; promo?: string }[]> = {
     maintenance: [
       {
         tier: "Basic Care",
         slug: "basic-care",
-        price: "Rp300k–Rp800k",
+        price: "Rp300.000",
         period: "/bulan",
         features: [
           "Bugfix minor",
@@ -66,7 +67,7 @@ export default function Pricing() {
       {
         tier: "Growth Care",
         slug: "growth-care",
-        price: "Rp1jt–Rp2,5jt",
+        price: "Rp1.000.000",
         period: "/bulan",
         features: [
           "Semua Basic +",
@@ -82,7 +83,7 @@ export default function Pricing() {
       {
         tier: "Pro Care",
         slug: "pro-care",
-        price: "Rp3jt–Rp7jt",
+        price: "Rp3.000.000",
         period: "/bulan",
         features: [
           "Semua Growth +",
@@ -99,7 +100,7 @@ export default function Pricing() {
       {
         tier: "Speed Basic",
         slug: "speed-basic",
-        price: "Rp500k–Rp1,5jt",
+        price: "Rp500.000",
         period: "",
         features: [
           "Kompres gambar",
@@ -114,7 +115,7 @@ export default function Pricing() {
       {
         tier: "Speed Growth",
         slug: "speed-growth",
-        price: "Rp2jt–Rp6jt",
+        price: "Rp2.000.000",
         period: "",
         features: [
           "Semua Basic +",
@@ -130,7 +131,7 @@ export default function Pricing() {
       {
         tier: "Speed Pro",
         slug: "speed-pro",
-        price: "Rp7jt–Rp20jt",
+        price: "Rp7.000.000",
         period: "",
         features: [
           "Staging environment",
@@ -147,7 +148,7 @@ export default function Pricing() {
       {
         tier: "UX Review Mini",
         slug: "ux-review-mini",
-        price: "Rp500k–Rp1,5jt",
+        price: "Rp500.000",
         period: "",
         features: [
           "Review 1 flow",
@@ -162,7 +163,7 @@ export default function Pricing() {
       {
         tier: "UX Prototype",
         slug: "ux-prototype",
-        price: "Rp2jt–Rp7jt",
+        price: "Rp2.000.000",
         period: "",
         features: [
           "Flow + wireframe",
@@ -176,7 +177,7 @@ export default function Pricing() {
       {
         tier: "UX Full System",
         slug: "ux-full-system",
-        price: "Rp8jt–Rp25jt",
+        price: "Rp8.000.000",
         period: "",
         features: [
           "Design system mini",
@@ -193,7 +194,7 @@ export default function Pricing() {
       {
         tier: "Brand Kit Mini",
         slug: "brand-kit-mini",
-        price: "Rp500k–Rp1,5jt",
+        price: "Rp500.000",
         period: "",
         features: [
           "Rapihin logo",
@@ -207,7 +208,7 @@ export default function Pricing() {
       {
         tier: "Brand Kit Growth",
         slug: "brand-kit-growth",
-        price: "Rp2jt–Rp6jt",
+        price: "Rp2.000.000",
         period: "",
         features: [
           "Logo final",
@@ -222,7 +223,7 @@ export default function Pricing() {
       {
         tier: "Brand Kit Pro",
         slug: "brand-kit-pro",
-        price: "Rp7jt–Rp20jt",
+        price: "Rp7.000.000",
         period: "",
         features: [
           "Guideline lengkap",
@@ -238,7 +239,7 @@ export default function Pricing() {
       {
         tier: "Mini Deck",
         slug: "mini-deck",
-        price: "Rp300k–Rp1jt",
+        price: "Rp300.000",
         period: "",
         features: [
           "1 pager atau 5 slide",
@@ -250,7 +251,7 @@ export default function Pricing() {
       {
         tier: "Company Profile Pro",
         slug: "company-profile-pro",
-        price: "Rp1,5jt–Rp4jt",
+        price: "Rp1.500.000",
         period: "",
         features: [
           "8–12 slide",
@@ -263,7 +264,7 @@ export default function Pricing() {
       {
         tier: "Pro Bundle",
         slug: "pro-bundle",
-        price: "Rp5jt–Rp12jt",
+        price: "Rp5.000.000",
         period: "",
         features: [
           "2 deck (profile + pitch)",
@@ -278,7 +279,7 @@ export default function Pricing() {
       {
         tier: "Content Starter",
         slug: "content-starter",
-        price: "Rp300k–Rp800k",
+        price: "Rp300.000",
         period: "",
         features: [
           "Kalender 2 minggu",
@@ -293,7 +294,7 @@ export default function Pricing() {
       {
         tier: "Content Growth",
         slug: "content-growth",
-        price: "Rp1jt–Rp3jt",
+        price: "Rp1.000.000",
         period: "",
         features: [
           "Kalender 1 bulan",
@@ -308,7 +309,7 @@ export default function Pricing() {
       {
         tier: "Content Pro",
         slug: "content-pro",
-        price: "Rp4jt–Rp10jt",
+        price: "Rp4.000.000",
         period: "",
         features: [
           "Semua Growth +",
@@ -325,7 +326,7 @@ export default function Pricing() {
       {
         tier: "Starter Templates",
         slug: "starter-templates",
-        price: "Rp200k–Rp600k",
+        price: "Rp200.000",
         period: "",
         features: [
           "Proposal template",
@@ -340,7 +341,7 @@ export default function Pricing() {
       {
         tier: "Growth Templates",
         slug: "growth-templates",
-        price: "Rp700k–Rp2jt",
+        price: "Rp700.000",
         period: "",
         features: [
           "Semua Starter +",
@@ -355,7 +356,7 @@ export default function Pricing() {
       {
         tier: "Pro Templates",
         slug: "pro-templates",
-        price: "Rp3jt–Rp8jt",
+        price: "Rp3.000.000",
         period: "",
         features: [
           "SOP delivery end-to-end",
@@ -372,7 +373,7 @@ export default function Pricing() {
       {
         tier: "Mini Workshop",
         slug: "mini-workshop",
-        price: "Rp300k–Rp800k",
+        price: "Rp300.000",
         period: "",
         features: [
           "1 topik spesifik",
@@ -385,7 +386,7 @@ export default function Pricing() {
       {
         tier: "Growth Workshop",
         slug: "growth-workshop",
-        price: "Rp1jt–Rp3jt",
+        price: "Rp1.000.000",
         period: "",
         features: [
           "2 sesi workshop",
@@ -398,7 +399,7 @@ export default function Pricing() {
       {
         tier: "Pro Workshop",
         slug: "pro-workshop",
-        price: "Rp4jt–Rp10jt",
+        price: "Rp4.000.000",
         period: "",
         features: [
           "3–5 sesi",
@@ -413,7 +414,7 @@ export default function Pricing() {
       {
         tier: "Website Basic",
         slug: "website-basic",
-        price: "Rp2jt–Rp6jt",
+        price: "Rp2.000.000",
         period: "",
         features: [
           "3–5 halaman",
@@ -428,7 +429,7 @@ export default function Pricing() {
       {
         tier: "Website Growth",
         slug: "website-growth",
-        price: "Rp7jt–Rp20jt",
+        price: "Rp7.000.000",
         period: "",
         features: [
           "6–12 halaman",
@@ -443,7 +444,7 @@ export default function Pricing() {
       {
         tier: "Web App MVP",
         slug: "web-app-mvp",
-        price: "Rp20jt–Rp80jt+",
+        price: "Rp20.000.000",
         period: "",
         features: [
           "Fitur inti (scope ketat)",
@@ -461,7 +462,7 @@ export default function Pricing() {
       {
         tier: "App MVP Mini",
         slug: "app-mvp-mini",
-        price: "Rp10jt–Rp25jt",
+        price: "Rp10.000.000",
         period: "",
         features: [
           "3–5 screen",
@@ -475,7 +476,7 @@ export default function Pricing() {
       {
         tier: "App Growth",
         slug: "app-growth",
-        price: "Rp25jt–Rp60jt",
+        price: "Rp25.000.000",
         period: "",
         features: [
           "Auth system",
@@ -490,7 +491,7 @@ export default function Pricing() {
       {
         tier: "App Pro",
         slug: "app-pro",
-        price: "Rp60jt–Rp200jt+",
+        price: "Rp60.000.000",
         period: "",
         features: [
           "Scalable architecture",
@@ -502,6 +503,59 @@ export default function Pricing() {
           "Pengerjaan 3–6 bulan"
         ],
         promo: "Bonus 3 bulan Growth Care"
+      }
+    ],
+    audit: [
+      {
+        tier: "Basic Audit",
+        slug: "basic-audit",
+        price: "Rp300.000",
+        period: "/bulan",
+        features: [
+            "Bedah tampilan & konten",
+            "Ramah mobile",
+            "Audit kepercayaan",
+            "Quick scan teknis",
+            "3 ide copywriting CTA",
+            "Konsultasi selama 30 menit",
+            "1x revisi"
+        ],
+        promo: "Bayar 3 bulan → bonus 1x mini audit"
+      },
+      {
+        tier: "Growth Audit",
+        slug: "growth-audit",
+        price: "Rp1.500.000",
+        period: "/bulan",
+        features: [
+            "Paket Basic Audit",
+            "Audit funnel",
+            "Audit kompetitor",
+            "Audit tracking readiness",
+            "Laporan strategis",
+            "Wireframe perbaikan",
+            "Konsultasi selama 60 menit",
+            "2x revisi"
+        ],
+        promo: "Kontrak 6 bulan → diskon 3%"
+      },
+      {
+        tier: "Pro Audit",
+        slug: "pro-audit",
+        price: "Rp5.000.000",
+        period: "/bulan",
+        features: [
+           "Paket Growth Audit",
+           "Audit UX",
+           "Audit keamanan",
+           "Masterplan Konten & SEO",
+           "Laporan eksekutif",
+           "Prototype Figma",
+           "Tracking plan",
+           "2x sesi konsultasi",
+           "Unlimited revisi"
+        ],
+        promo: "Kontrak 12 bulan → bonus 1x UI/UX review mini"
       }
     ]
   };
