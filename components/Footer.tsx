@@ -130,21 +130,6 @@ const Footer = () => {
                 Yogyakarta, Indonesia
               </li>
             </ul>
-
-            {/* Mini newsletter */}
-            <div className="mt-1">
-              <p className="text-xs text-white/30 mb-2 uppercase tracking-wider">Dapatkan Update</p>
-              <div className="flex gap-0 rounded-lg overflow-hidden border border-white/10 focus-within:border-[#6a29ff]/50 transition-colors duration-200">
-                <input
-                  type="email"
-                  placeholder="Email kamu"
-                  className="flex-1 bg-white/5 px-3 py-2.5 text-sm text-white placeholder:text-white/25 outline-none min-w-0"
-                />
-                <button className="px-4 bg-[#6a29ff] hover:bg-[#5520d4] transition-colors duration-200 text-white text-sm font-semibold shrink-0">
-                  OK
-                </button>
-              </div>
-            </div>
           </div>
 
         </div>

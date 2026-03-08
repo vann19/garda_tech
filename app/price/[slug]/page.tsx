@@ -2,7 +2,7 @@
 
 import { use, useState } from "react";
 import Link from "next/link";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -77,37 +77,71 @@ export default function OrderPage({ params }: { params: Promise<{ slug: string }
     targetWaktuCustom: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setForm((p) => ({ ...p, [e.target.name]: e.target.value }));
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Prevent double submission
+    if (isSubmitting) return;
+    
+    setIsSubmitting(true);
+
+    // Validate required fields
+    if (!form.namaLengkap || !form.email || !form.whatsapp || !form.detailProyek || !form.estimasiBudget) {
+      alert("Mohon lengkapi semua field yang bertanda *");
+      setIsSubmitting(false);
+      return;
+    }
+
+    // Validate WhatsApp number (simple validation)
+    const waNumber = form.whatsapp.replace(/\D/g, '');
+    if (waNumber.length < 10) {
+      alert("Nomor WhatsApp tidak valid");
+      setIsSubmitting(false);
+      return;
+    }
 
     const targetWaktuFinal = form.targetWaktuCustom || form.targetWaktu || "-";
 
     const message = [
-      `Halo! Saya ingin melakukan konsultasi untuk layanan berikut:`,
+      `*Garda Tech - Project Request*`,
       ``,
       `📦 *Paket:* ${service.name} (${service.category})`,
       `💰 *Harga:* ${service.price}${service.period ?? ""}`,
       ``,
-      `*Data Diri:*`,
-      `👤 Nama: ${form.namaLengkap}`,
-      ...(form.namaPerusahaan ? [`🏢 Perusahaan: ${form.namaPerusahaan}`] : []),
-      `📧 Email: ${form.email}`,
-      `📱 WhatsApp: ${form.whatsapp}`,
-      ...(form.alamat ? [`📍 Alamat: ${form.alamat}`] : []),
+      `*👤 Data Diri:*`,
+      `Nama: ${form.namaLengkap}`,
+      form.namaPerusahaan ? `Perusahaan: ${form.namaPerusahaan}` : null,
+      `Email: ${form.email}`,
+      `WhatsApp: ${form.whatsapp}`,
+      form.alamat ? `Alamat: ${form.alamat}` : null,
       ``,
-      `*Detail Proyek:*`,
-      `${form.detailProyek}`,
+      `*📋 Detail Proyek:*`,
+      form.detailProyek,
       ``,
-      `💵 Estimasi Budget: ${form.estimasiBudget}`,
-      `⏰ Target Waktu: ${targetWaktuFinal}`,
-    ].join("\n");
+      `*💰 Estimasi Budget:* ${form.estimasiBudget}`,
+      `*⏰ Target Waktu:* ${targetWaktuFinal}`,
+      ``,
+      `_Pesan ini dikirim melalui formulir website Garda Tech_`
+    ]
+      .filter(Boolean) // Remove null values
+      .join("\n");
 
-    const waUrl = `https://wa.me/628223981198?text=${encodeURIComponent(message)}`;
+    // Format nomor WhatsApp (pastikan format internasional yang benar)
+    const phoneNumber = "6282239841198"; // Sudah dalam format internasional tanpa +
+    
+    const waUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    
+    // Buka WhatsApp di tab baru
     window.open(waUrl, "_blank");
+    
+    // Set submitted state untuk menampilkan halaman sukses
+    setSubmitted(true);
+    setIsSubmitting(false);
   };
 
   /* ── 404 ── */
@@ -340,7 +374,7 @@ export default function OrderPage({ params }: { params: Promise<{ slug: string }
                   <Info className="w-4 h-4 mt-0.5 shrink-0" />
                   <p>Isi range budget yang sesuai dengan ketersediaan Anda untuk proyek ini.</p>
                 </div>
-              </div>joko
+              </div>
 
               {/* Target Waktu */}
               <div className="space-y-3">
@@ -381,12 +415,13 @@ export default function OrderPage({ params }: { params: Promise<{ slug: string }
 
               {/* Submit */}
               <div className="flex justify-center pt-2 pb-4">
-                <button
+                <Button
                   type="submit"
-                  className="px-14 py-4 bg-black rounded-full shadow-[inset_-6px_-13px_120px_0px_rgba(69,34,115,1)] border-[5px] border-indigo-900 text-white font-['Syne'] text-lg font-bold hover:opacity-90 hover:scale-[1.02] active:scale-95 transition-all duration-200 cursor-pointer"
+                  disabled={isSubmitting}
+                  className="px-14 py-6 bg-black rounded-full shadow-[inset_-6px_-13px_120px_0px_rgba(69,34,115,1)] border-[5px] border-indigo-900 text-white font-['Syne'] text-lg font-bold hover:opacity-90 hover:scale-[1.02] active:scale-95 transition-all duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                 >
-                  Request Consultation
-                </button>
+                  {isSubmitting ? "Memproses..." : "Request Consultation"}
+                </Button>
               </div>
 
             </form>

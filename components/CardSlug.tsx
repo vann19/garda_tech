@@ -33,15 +33,16 @@ const information = [
 
 const CardSlug = () => {
   return (
-    <section className="relative w-full py-6 sm:py-16 px-4 sm:px-8 -mt-45 sm:mt-0 z-20">
+    <section className="relative w-full py-6 sm:py-16 px-4 sm:px-8 z-20">
 
       {/* Blur Background */}
       {/* Large left purple glow */}
-      <div className="absolute -left-32 top-1/2 -translate-y-1/2 w-[600px] h-[600px] 
+      <div className="absolute -left-32 top-[35%] -translate-y-1/2 w-[600px] h-[400px] 
         bg-purple-700/50 rounded-full blur-[180px] z-0 pointer-events-none" />
       
       <div className="absolute right-0 bottom-0 w-[400px] h-[400px]
         bg-violet-500/30 rounded-full blur-[120px] z-0" />
+
 
       {/* Cards Grid */}
       <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">

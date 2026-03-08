@@ -17,6 +17,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Garda Tech",
   description: "Solusi Pembuatan Website dan Aplikasi Mobile Profesional untuk Bisnis Anda",
+  icons: {
+    icon: "/img/logo2.png",
+    apple: "/img/logo2.png",
+  },
 };
 
 export default function RootLayout({

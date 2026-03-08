@@ -37,7 +37,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 z-10">
             <Image
-              src="/img/logo.png"
+              src="/img/logo2.png"
               alt="Garda Tech Logo"
               width={36}
               height={36}
