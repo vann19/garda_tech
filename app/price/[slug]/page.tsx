@@ -131,7 +131,7 @@ export default function OrderPage({ params }: { params: Promise<{ slug: string }
       .join("\n");
 
     // Format nomor WhatsApp (pastikan format internasional yang benar)
-    const phoneNumber = "6282239841198"; // Sudah dalam format internasional tanpa +
+    const phoneNumber = "+6283121113643"; // Sudah dalam format internasional tanpa +
     
     const waUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     
