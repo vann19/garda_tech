@@ -775,11 +775,7 @@ function PricingCard({ title, slug, price, period, features, promo, width = "w-f
           {title}
         </h3>
 
-        {/* Price */}
-        <div className="text-white text-lg sm:text-xl md:text-2xl font-bold font-['Inter'] mb-3">
-          {price}
-          <span className="text-white/60 text-xs sm:text-sm ml-1">{period}</span>
-        </div>
+
 
         {/* Features List */}
         <div className="space-y-1.5 mb-4">

@@ -72,7 +72,7 @@ const Navbar = () => {
           {/* Desktop CTA */}
         <div className="hidden lg:flex items-center gap-4">
   <Button variant="glow" size="pill" asChild>
-    <Link href="#contact">
+    <Link href="/price">
       Let&apos;s Talk
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -141,7 +141,7 @@ const Navbar = () => {
             {/* Mobile CTA */}
             <div className="mt-4 px-4">
               <Link
-                href="#contact"
+                href="/price"
                 onClick={closeMenu}
                 className="block w-full text-center bg-primary text-white px-5 py-3 rounded-lg transition-colors font-semibold text-sm"
               >

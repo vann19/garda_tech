@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 // Import icon dari lucide-react
-import { Instagram, Linkedin } from 'lucide-react';
+import { Instagram} from 'lucide-react';
 
 const TikTokIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="currentColor" className={className} xmlns="http://www.w3.org/2000/svg">
@@ -34,15 +34,6 @@ const ConfPage = () => {
           {/* Grid Informasi Kontak */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-x-20 md:gap-y-16">
             
-            {/* Alamat */}
-            <div className="flex flex-col gap-3">
-              <h3 className="text-violet-500/95 text-2xl sm:text-3xl font-bold font-['Syne']">Alamat</h3>
-              <p className="text-white text-lg sm:text-xl lg:text-2xl font-normal font-['Inter'] leading-relaxed">
-                Jl. Siliwangi (Ringroad Utara), Jombor,<br />
-                Sleman, Daerah Istimewa Yogyakarta <br />
-                55285
-              </p>
-            </div>
 
             {/* No Telp */}
             <div className="flex flex-col gap-3">
@@ -80,23 +71,16 @@ const ConfPage = () => {
             {/* Icon Sosial Media dengan Lucide */}
             <div className="flex items-center gap-8 sm:gap-12">
               <Link 
-                href="#" 
+                href="https://www.instagram.com/garda_tech?igsh=MXJyMXUya2Y4aTBhZA==" 
                 className="group flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-white/10 rounded-xl hover:bg-violet-600 transition-all duration-300 border border-white/20 hover:border-violet-400"
                 aria-label="Instagram"
               >
                 <Instagram className="w-6 h-6 sm:w-7 sm:h-7 text-white group-hover:scale-110 transition-transform duration-300" />
               </Link>
+
               
               <Link 
-                href="#" 
-                className="group flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-white/10 rounded-xl hover:bg-violet-600 transition-all duration-300 border border-white/20 hover:border-violet-400"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-6 h-6 sm:w-7 sm:h-7 text-white group-hover:scale-110 transition-transform duration-300" />
-              </Link>
-              
-              <Link 
-                href="#" 
+                href="https://www.tiktok.com/@garda.tech?_r=1&_t=ZS-94ZlyCv6ozc" 
                 className="group flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-white/10 rounded-xl hover:bg-violet-600 transition-all duration-300 border border-white/20 hover:border-violet-400"
                 aria-label="TikTok"
               >

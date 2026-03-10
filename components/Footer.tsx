@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import { Instagram } from 'lucide-react'
 
 const Footer = () => {
   const year = new Date().getFullYear()
@@ -34,7 +35,7 @@ const Footer = () => {
               {[
                 {
                   label: 'Instagram',
-                  href: '#',
+                  href: 'https://www.instagram.com/garda_tech?igsh=MXJyMXUya2Y4aTBhZA==',
                   icon: (
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
                       <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
@@ -44,23 +45,11 @@ const Footer = () => {
                   ),
                 },
                 {
-                  label: 'LinkedIn',
-                  href: '#',
+                  label: 'TikTok',
+                  href: 'https://www.tiktok.com/@garda.tech?_r=1&_t=ZS-94ZlyCv6ozc',
                   icon: (
                     <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
-                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-                      <rect x="2" y="9" width="4" height="12"/>
-                      <circle cx="4" cy="4" r="2"/>
-                    </svg>
-                  ),
-                },
-                {
-                  label: 'WhatsApp',
-                  href: '#',
-                  icon: (
-                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
-                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-                      <path d="M11.994 2C6.477 2 2 6.477 2 11.994c0 1.99.576 3.842 1.57 5.403L2 22l4.75-1.546A9.954 9.954 0 0 0 11.994 22C17.511 22 22 17.511 22 11.994S17.511 2 11.994 2z"/>
+                      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.71a8.21 8.21 0 0 0 4.76 1.52V6.79a4.85 4.85 0 0 1-1-.1z"/>
                     </svg>
                   ),
                 },
@@ -74,7 +63,7 @@ const Footer = () => {
                   {icon}
                 </a>
               ))}
-            </div>
+            </div>  
           </div>
 
           {/* Layanan */}
@@ -123,7 +112,7 @@ const Footer = () => {
               </li>
               <li className="flex items-start gap-2.5 text-sm text-white/55">
                 <svg className="w-4 h-4 mt-0.5 shrink-0 text-[#6a29ff]" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 6.75z"/></svg>
-                +62 822-3984-1198
+                +62 831-2111-3643
               </li>
               <li className="flex items-start gap-2.5 text-sm text-white/55">
                 <svg className="w-4 h-4 mt-0.5 shrink-0 text-[#6a29ff]" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0z"/></svg>

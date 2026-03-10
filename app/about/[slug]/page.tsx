@@ -151,21 +151,15 @@ export default async function MemberBioPage({ params }: Props) {
           <div className="flex flex-col gap-4">
             {/* Contact card */}
             <div className="rounded-2xl bg-violet-600 p-6 text-white">
-              <p className="font-bold text-base font-['Syne'] mb-1">Hubungi {member.name.split(' ')[0]}</p>
+              <p className="font-bold text-base font-['Syne'] mb-1">Mari Berkolaborasi</p>
               <p className="text-white/70 text-xs mb-5 leading-relaxed">
-                Tertarik bekerja sama? Kirim pesan sekarang dan mulai diskusi proyek.
+                Punya ide proyek luar biasa? Diskusikan kebutuhan bisnis Anda bersama  dan tim ahli kami.
               </p>
-              <Link
-                href="#contact"
-                className="block w-full text-center bg-white text-violet-700 font-semibold text-sm py-2.5 rounded-xl hover:bg-violet-50 transition-colors duration-200"
-              >
-                Kirim Pesan
-              </Link>
               <Link
                 href="/about"
                 className="block w-full text-center border border-white/40 text-white text-sm py-2.5 rounded-xl mt-2 hover:bg-white/10 transition-colors duration-200"
               >
-                Lihat Tim Lain
+                Kenali Anggota Tim Lain
               </Link>
             </div>
 

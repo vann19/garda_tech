@@ -111,7 +111,6 @@ export default function OrderPage({ params }: { params: Promise<{ slug: string }
       `*Garda Tech - Project Request*`,
       ``,
       `📦 *Paket:* ${service.name} (${service.category})`,
-      `💰 *Harga:* ${service.price}${service.period ?? ""}`,
       ``,
       `*👤 Data Diri:*`,
       `Nama: ${form.namaLengkap}`,
@@ -226,18 +225,6 @@ export default function OrderPage({ params }: { params: Promise<{ slug: string }
                 Package
               </p>
 
-              {/* Divider */}
-              <div className="w-16 h-px bg-white/20 mx-auto mb-6" />
-
-              {/* Price block */}
-              <p className="text-white/50 text-sm font-medium tracking-widest uppercase mb-1">Price</p>
-              <p className="text-white/40 text-sm mb-4">{service.priceLabel ?? "Start form"}</p>
-              <p className="font-['Inter'] text-3xl sm:text-4xl font-bold text-violet-500 mb-8">
-                {service.price}
-                {service.period && (
-                  <span className="text-white/40 text-base font-normal ml-1">{service.period}</span>
-                )}
-              </p>
 
               {/* Divider */}
               <div className="w-full h-px bg-white/10 mb-6" />
@@ -365,9 +352,13 @@ export default function OrderPage({ params }: { params: Promise<{ slug: string }
                 <Input
                   name="estimasiBudget"
                   value={form.estimasiBudget}
-                  onChange={onChange}
+                  onChange={(e) => {
+                    const raw = e.target.value.replace(/[^\d]/g, '');
+                    const formatted = raw ? `Rp ${raw.replace(/\B(?=(\d{3})+(?!\d))/g, '.')}` : '';
+                    setForm((p) => ({ ...p, estimasiBudget: formatted }));
+                  }}
                   required
-                  placeholder="Contoh: Rp. 5.000.000"
+                  placeholder="Contoh: Rp 5.000.000"
                   className="h-14 sm:h-16 rounded-[20px] sm:rounded-2xl bg-violet-500/70 border-violet-400/30 text-white placeholder:text-white/40 text-sm sm:text-base px-5 sm:px-6 focus-visible:ring-violet-400/50 focus-visible:border-violet-400"
                 />
                 <div className="flex items-start gap-2 pt-1 text-white/50 text-xs sm:text-sm">

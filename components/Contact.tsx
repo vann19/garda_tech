@@ -29,7 +29,7 @@ const ContactPage = () => {
       {/* button */}
       <div className="flex items-center justify-center py-2 mt-6 sm:mt-8">
         <Button variant="glow" size="pill" asChild>
-          <Link href="/contact">
+          <Link href="/price">
             Let&apos;s Talk
             <svg
               xmlns="http://www.w3.org/2000/svg"

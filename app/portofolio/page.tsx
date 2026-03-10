@@ -15,24 +15,17 @@ const projects = [
   },
   {
     id: 2,
-    slug: "project-2",
-    title: "Ramadhan Kareem",
-    description: "Selamat menunaikan ibadah puasa blaba danadanajsnduyashindajhgfvvgb fryguhjhgfdresw.",
-    image: null,
+    slug: "web-sejarah-yogyakarta",
+    title: "Web Sejarah  ",
+    description: "Web ini bertujuan untuk mengenalkan sejarah di Yogyakarta kepada para pengguna.",
+    image: "/img/tengah.jpeg",
   },
   {
     id: 3,
-    slug: "project-3",
-    title: "Ramadhan Kareem",
-    description: "Selamat menunaikan ibadah puasa blaba danadanajsnduyashindajhgfvvgb fryguhjhgfdresw.",
-    image: null,
-  },
-  {
-    id: 4,
-    slug: "project-4",
-    title: "Ramadhan Kareem",
-    description: "Selamat menunaikan ibadah puasa blaba danadanajsnduyashindajhgfvvgb fryguhjhgfdresw.",
-    image: null,
+    slug: "restoran-sikumbang",
+    title: "Restoran Sikumbang",
+    description: "Website ini bertujuan untuk mengenalkan restoran sikumbang kepada para pengguna.",
+    image: "/img/profil.png",
   },
 ]
 

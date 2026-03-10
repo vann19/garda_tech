@@ -98,7 +98,7 @@ export default async function InformationDetailPage({ params }: PageProps) {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 sm:px-8 py-16">
+      <div className="relative z-10 container mx-auto px-4 sm:px-8 py-24">
         {/* Back Button */}
         <Link 
           href="/" 
@@ -168,9 +168,11 @@ export default async function InformationDetailPage({ params }: PageProps) {
 
             {/* CTA Button */}
             <div className="mt-10">
-              <button className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(167,139,250,0.5)]">
-                Konsultasi Kebutuhan Anda
-              </button>
+              <Link href="/price">
+                <button className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(167,139,250,0.5)]">
+                  Konsultasi Kebutuhan Anda
+                </button>
+              </Link>
             </div>
           </div>
         </div>
