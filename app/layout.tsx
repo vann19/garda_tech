@@ -16,6 +16,9 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.gardatech.cloud"),
+  verification: {
+    google: "r8hroVz9lvz7qsxQHTe5Q3idMmuYzQg6XBehhEpNjxY",
+  },
   title: {
     default: "Garda Tech | Jasa Pembuatan Website & Aplikasi Mobile Profesional",
     template: "%s | Garda Tech",
