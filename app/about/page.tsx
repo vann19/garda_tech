@@ -77,7 +77,7 @@ const AboutPage = () => {
           texts={[
             '50+ Proyek Selesai  ✦  30+ Klien Puas  ✦',
             '3+ Tahun Pengalaman  ✦  10+ Anggota Tim  ✦',
-          ] as string[]}
+          ]}
           velocity={60}
           className="text-violet-600"
           parallaxStyle={{ padding: '0.25rem 0', fontFamily: "'Syne', sans-serif" }}
