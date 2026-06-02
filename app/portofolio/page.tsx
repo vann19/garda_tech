@@ -56,17 +56,17 @@ function ProjectImage({ image, title, slug }: { image: string | null; title: str
 
 const PortfolioPage = () => {
   return (
-    <div className="relative w-full min-h-screen bg-black overflow-hidden">
+    <div className="relative w-full min-h-screen bg-white overflow-hidden">
 
       {/* === Background blur === */}
-      <div className="absolute left-1/2 -translate-x-1/2 -top-[30%] w-[130%] aspect-square bg-violet-900/30 rounded-full blur-[120px] sm:blur-[188px]" />
+      <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-[20%] w-[80%] aspect-square bg-violet-400/10 rounded-full blur-[120px] sm:blur-[160px]" />
 
       {/* === CONTENT === */}
       <div className="relative z-10 w-full px-4 sm:px-8 lg:px-16 pt-24 sm:pt-28 lg:pt-32 pb-16 sm:pb-24">
 
         {/* Pill Badge */}
         <div className="flex justify-center">
-          <div className="bg-violet-800/60 rounded-[57px] shadow-[inset_-1px_-1px_47.8px_rgba(208,186,232,0.8)] border-4 border-violet-500/95 px-10 py-5 flex items-center justify-center">
+          <div className="bg-primary rounded-[57px] shadow-[inset_-1px_-1px_47.8px_rgba(208,186,232,0.8)] border-4 border-violet-500/95 px-10 py-5 flex items-center justify-center">
             <span className="text-white text-2xl font-bold font-['Syne']">
               Portofolio
             </span>
@@ -74,7 +74,7 @@ const PortfolioPage = () => {
         </div>
 
         {/* Heading */}
-        <h1 className="mt-10 sm:mt-14 lg:mt-16 text-center text-white text-3xl sm:text-5xl lg:text-6xl font-bold font-['Syne']">
+        <h1 className="mt-10 sm:mt-14 lg:mt-16 text-center text-violet-700 text-3xl sm:text-5xl lg:text-6xl font-bold font-['Syne']">
           Proof in Every Project.
         </h1>
 
@@ -98,7 +98,7 @@ const PortfolioPage = () => {
                   <h2 className="text-violet-800 text-2xl sm:text-3xl lg:text-5xl font-bold font-['Syne']">
                     {project.title}
                   </h2>
-                  <p className="mt-3 sm:mt-4 text-white text-sm sm:text-lg lg:text-xl font-medium font-['Inter'] leading-relaxed">
+                  <p className="mt-3 sm:mt-4 text-gray-500 text-sm sm:text-lg lg:text-xl font-medium font-['Inter'] leading-relaxed">
                     {project.description}
                   </p>
                 </div>

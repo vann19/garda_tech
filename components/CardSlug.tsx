@@ -3,8 +3,8 @@ import Link from 'next/link'
 
 const ArrowIcon = () => (
   <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="40" cy="40" r="40" fill="#D9D9D9"/>
-    <path d="M23.6507 54.1344C22.6203 55.4319 22.8369 57.319 24.1344 58.3493C25.4319 59.3797 27.319 59.1631 28.3493 57.8656L26 56L23.6507 54.1344ZM55.9804 21.658C55.7915 20.0119 54.304 18.8307 52.658 19.0196L25.834 22.0977C24.188 22.2866 23.0067 23.7741 23.1956 25.4202C23.3845 27.0662 24.872 28.2475 26.5181 28.0586L50.3616 25.3225L53.0977 49.166C53.2866 50.812 54.7741 51.9933 56.4202 51.8044C58.0662 51.6155 59.2475 50.128 59.0586 48.4819L55.9804 21.658ZM26 56L28.3493 57.8656L55.3493 23.8656L53 22L50.6507 20.1344L23.6507 54.1344L26 56Z" fill="#452273"/>
+    <circle cx="40" cy="40" r="40" fill="#EDE9FE"/>
+    <path d="M23.6507 54.1344C22.6203 55.4319 22.8369 57.319 24.1344 58.3493C25.4319 59.3797 27.319 59.1631 28.3493 57.8656L26 56L23.6507 54.1344ZM55.9804 21.658C55.7915 20.0119 54.304 18.8307 52.658 19.0196L25.834 22.0977C24.188 22.2866 23.0067 23.7741 23.1956 25.4202C23.3845 27.0662 24.872 28.2475 26.5181 28.0586L50.3616 25.3225L53.0977 49.166C53.2866 50.812 54.7741 51.9933 56.4202 51.8044C58.0662 51.6155 59.2475 50.128 59.0586 48.4819L55.9804 21.658ZM26 56L28.3493 57.8656L55.3493 23.8656L53 22L50.6507 20.1344L23.6507 54.1344L26 56Z" fill="#7C3AED"/>
   </svg>
 )
 
@@ -33,28 +33,27 @@ const information = [
 
 const CardSlug = () => {
   return (
-    <section className="relative w-full py-6 sm:py-16 px-4 sm:px-8 z-20">
+    <section className="relative w-full py-6 sm:py-16 px-4 sm:px-8 z-20 bg-white">
 
-      {/* Blur Background */}
-      {/* Large left purple glow */}
-      <div className="absolute -left-32 top-[35%] -translate-y-1/2 w-[600px] h-[400px] 
-        bg-purple-700/50 rounded-full blur-[180px] z-0 pointer-events-none" />
-      
-      <div className="absolute right-0 bottom-0 w-[400px] h-[400px]
-        bg-violet-500/30 rounded-full blur-[120px] z-0" />
-
+      {/* Subtle background glows */}
+      <div className="absolute -left-32 top-[35%] -translate-y-1/2 w-[500px] h-[350px]
+        bg-violet-100 rounded-full blur-[150px] z-0 pointer-events-none opacity-60" />
+      <div className="absolute right-0 bottom-0 w-[350px] h-[350px]
+        bg-purple-100 rounded-full blur-[100px] z-0 opacity-50" />
 
       {/* Cards Grid */}
       <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
-        {information.map((info) => (
-          <Link key={info.slug} href={`/${info.slug}`} className="group block">
+        {information.map((info, index) => (
+          <Link key={info.slug} href={`/${info.slug}`} className="group block"
+            style={{ animationDelay: `${index * 0.1}s` }}
+          >
             <div className="card-slug">
 
               <div className="relative z-10">
-                <p className="text-white text-2xl sm:text-3xl font-bold font-['Syne'] mb-3">
+                <p className="text-violet-400 text-2xl sm:text-3xl font-bold font-['Syne'] mb-3">
                   {info.number}
                 </p>
-                <p className="text-white text-xl sm:text-2xl font-bold font-['Syne'] leading-snug whitespace-pre-line">
+                <p className="text-gray-900 text-xl sm:text-2xl font-bold font-['Syne'] leading-snug whitespace-pre-line">
                   {info.title}
                 </p>
               </div>

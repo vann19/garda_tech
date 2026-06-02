@@ -4,6 +4,8 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import Dock, { DockItemData } from "@/components/Dock";
+import { Home, Info, Compass, Briefcase, Tag, Mail } from "lucide-react";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -26,11 +28,22 @@ const Navbar = () => {
 
   const closeMenu = () => setMenuOpen(false);
 
+  const dockItems: DockItemData[] = [
+    { href: "/", label: "Home", icon: <Home /> },
+    { href: "/about", label: "About", icon: <Info /> },
+    { href: "/service", label: "Process", icon: <Compass /> },
+    { href: "/portofolio", label: "Portfolio", icon: <Briefcase /> },
+    { href: "/price", label: "Pricing", icon: <Tag /> },
+    { href: "/contact", label: "Contact", icon: <Mail /> },
+  ];
+
   return (
     <>
       <nav
         className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-          scrolled ? "bg-hitam shadow-lg" : "bg-hitam shadow-md"
+          scrolled
+            ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-violet-100"
+            : "bg-white/90 backdrop-blur-sm"
         }`}
       >
         <div className="container mx-auto pl-8 pr-4 sm:pl-0 sm:pr-6 py-4 flex items-center justify-between">
@@ -43,7 +56,7 @@ const Navbar = () => {
               height={36}
               className="w-8 h-8 sm:w-10 sm:h-10"
             />
-            <span className="text-lg sm:text-xl font-bold font-sans text-white">
+            <span className="text-lg sm:text-xl font-bold font-sans text-gray-900">
               Garda Tech
             </span>
           </Link>
@@ -53,13 +66,13 @@ const Navbar = () => {
             <li>
               <div className="relative h-14 flex items-center">
                 {/* Pill background */}
-                <div className="absolute inset-0 bg-black rounded-[33.50px] border border-white backdrop-blur-md" />
+                <div className="absolute inset-0 bg-white rounded-[33.50px] border border-gray-200 shadow-sm backdrop-blur-md" />
                 <div className="relative flex items-center gap-1 px-6">
                   {navLinks.map((link) => (
                     <Link
                       key={link.href}
                       href={link.href}
-                      className="px-3 py-1 text-white text-base font-bold font-['Syne'] hover:text-primary whitespace-nowrap transition-colors duration-200"
+                      className="px-3 py-1 text-gray-700 text-base font-bold font-['Syne'] hover:text-violet-600 whitespace-nowrap transition-colors duration-200"
                     >
                       {link.label}
                     </Link>
@@ -70,95 +83,41 @@ const Navbar = () => {
           </ul>
 
           {/* Desktop CTA */}
-        <div className="hidden lg:flex items-center gap-4">
-  <Button variant="glow" size="pill" asChild>
-    <Link href="/price">
-      Let&apos;s Talk
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={1.5}
-        stroke="currentColor"
-        className="w-5 h-5 ml-2"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
-        />
-      </svg>
-    </Link>
-  </Button>
-</div>
-
-          {/* Hamburger Button — mobile & tablet */}
-          <button
-            onClick={() => setMenuOpen((prev) => !prev)}
-            className="lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-[5px] z-10 group"
-            aria-label="Toggle menu"
-            aria-expanded={menuOpen}
-          >
-            <span
-              className={`block w-6 h-[2px] bg-white rounded transition-all duration-300 ${
-                menuOpen ? "rotate-45 translate-y-[7px]" : ""
-              }`}
-            />
-            <span
-              className={`block w-6 h-[2px] bg-white rounded transition-all duration-300 ${
-                menuOpen ? "opacity-0 scale-x-0" : ""
-              }`}
-            />
-            <span
-              className={`block w-6 h-[2px] bg-white rounded transition-all duration-300 ${
-                menuOpen ? "-rotate-45 -translate-y-[7px]" : ""
-              }`}
-            />
-          </button>
-        </div>
-
-        {/* Mobile & Tablet Dropdown Menu */}
-        <div
-          className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-            menuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
-          }`}
-        >
-          <div className="bg-black/95 border-t border-white/10 backdrop-blur-md px-4 pb-6 pt-4">
-            <ul className="flex flex-col gap-1">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    onClick={closeMenu}
-                    className="block px-4 py-3 text-white text-base font-bold font-['Syne'] hover:text-primary hover:bg-white/5 rounded-lg transition-all duration-200"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-
-            {/* Mobile CTA */}
-            <div className="mt-4 px-4">
-              <Link
-                href="/price"
-                onClick={closeMenu}
-                className="block w-full text-center bg-primary text-white px-5 py-3 rounded-lg transition-colors font-semibold text-sm"
-              >
+          <div className="hidden lg:flex items-center gap-4">
+            <Button variant="glow" size="pill" asChild>
+              <Link href="/price">
                 Let&apos;s Talk
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-5 h-5 ml-2"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
+                  />
+                </svg>
               </Link>
-            </div>
+            </Button>
           </div>
+
         </div>
       </nav>
 
-      {/* Overlay backdrop when menu is open */}
-      {menuOpen && (
-        <div
-          className="lg:hidden fixed inset-0 bg-black/40 z-40"
-          onClick={closeMenu}
+      {/* Mobile & Tablet Dock Navigation Overlay */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-50 pointer-events-none pb-4">
+        <Dock 
+          items={dockItems}
+          panelHeight={60}
+          baseItemSize={44}
+          magnification={54}
+          distance={120}
         />
-      )}
+      </div>
     </>
   );
 };

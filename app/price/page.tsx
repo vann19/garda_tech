@@ -1,14 +1,23 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import Image from "next/image";
 import Link from "next/link";
+import { CheckCircle2, ChevronLeft } from 'lucide-react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 export default function Pricing() {
   const [activeCategory, setActiveCategory] = useState('maintenance') ;
   const [scale, setScale] = useState(1);
 
   useEffect(() => {
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      once: true,
+      easing: 'ease-out-cubic',
+    });
+
     const handleResize = () => {
       const designWidth = 1728;
       const designHeight = 1109;
@@ -25,6 +34,11 @@ export default function Pricing() {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  // Whenever activeCategory changes, refresh AOS so it detects the newly rendered cards
+  useEffect(() => {
+    AOS.refresh();
+  }, [activeCategory]);
 
   const categories = [
     { id: 'maintenance', name: 'Maintenance & Support' },
@@ -545,15 +559,15 @@ export default function Pricing() {
         price: "Rp5.000.000",
         period: "/bulan",
         features: [
-           "Paket Growth Audit",
-           "Audit UX",
-           "Audit keamanan",
-           "Masterplan Konten & SEO",
-           "Laporan eksekutif",
-           "Prototype Figma",
-           "Tracking plan",
-           "2x sesi konsultasi",
-           "Unlimited revisi"
+            "Paket Growth Audit",
+            "Audit UX",
+            "Audit keamanan",
+            "Masterplan Konten & SEO",
+            "Laporan eksekutif",
+            "Prototype Figma",
+            "Tracking plan",
+            "2x sesi konsultasi",
+            "Unlimited revisi"
         ],
         promo: "Kontrak 12 bulan → bonus 1x UI/UX review mini"
       }
@@ -561,28 +575,20 @@ export default function Pricing() {
   };
 
   return (
-    <div className="w-full min-h-screen bg-black overflow-x-hidden">
-      {/* Background blur effects - full width */}
-      <div className="fixed w-[1829px] h-[1623px] left-[-51px] top-[917px] bg-indigo-900 rounded-full blur-[80.20px] opacity-50"></div>
-      <div className="fixed w-[1601px] h-[1588px] left-[73px] top-[1136px] bg-violet-500 rounded-full blur-[80.20px] opacity-50"></div>
-      <div className="fixed w-[1215px] h-[1327px] left-[266px] top-[1315px] bg-purple-300 rounded-full blur-[80.20px] opacity-50"></div>
+    <div className="w-full min-h-screen bg-white overflow-x-hidden font-['Inter'] relative">
       
-      {/* Lampu ungu di tengah bawah - full width */}
-      <img 
-        src="/img/price.png" 
-        alt="decorative lamp"
-        className="fixed w-full h-auto left-1/2 transform -translate-x-1/2 bottom-0 opacity-20 md:opacity-40 lg:opacity-60 pointer-events-none z-0"
-        style={{ width: '100vw', maxWidth: '100%' }}
-      />
-
+      {/* Background blur effects - clean white/light HSL theme */}
+      <div className="fixed w-[600px] h-[600px] left-[-150px] top-[10%] bg-violet-100/40 rounded-full blur-[140px] opacity-60 pointer-events-none z-0"></div>
+      <div className="fixed w-[500px] h-[500px] right-[-100px] top-[40%] bg-purple-50/40 rounded-full blur-[120px] opacity-50 pointer-events-none z-0"></div>
+      
       {/* Tombol Kembali */}
-      <div className="relative z-20 w-full pt-6 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div className="relative z-20 w-full pt-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto" data-aos="fade-down" data-aos-duration="600">
         <Link 
           href="/" 
-          className="inline-flex items-center text-white hover:text-purple-300 transition-colors group"
+          className="inline-flex items-center text-gray-400 hover:text-gray-900 font-semibold transition-colors group text-sm"
         >
           <svg 
-            className="w-5 h-5 mr-2 transform group-hover:-translate-x-1 transition-transform" 
+            className="w-4 h-4 mr-1 transform group-hover:-translate-x-1 transition-transform" 
             fill="none" 
             stroke="currentColor" 
             viewBox="0 0 24 24"
@@ -596,47 +602,54 @@ export default function Pricing() {
       {/* Main Content */}
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 py-8">
         <div className="max-w-7xl mx-auto">
-          {/* Service Packages Button */}
-          <div className="flex justify-center mt-12 md:mt-2 py-[12px] lg:py-6">
-            <div className="relative w-[180px] sm:w-[200px] md:w-[240px] lg:w-[288px] h-[50px] sm:h-[60px] md:h-[70px] lg:h-[96px]">
-              <div className="w-full h-full bg-violet-800/60 rounded-[57px] shadow-[inset_-1px_-1px_47.80px_rgba(208,186,232,0.80)] border-4 border-violet-500/95 flex items-center justify-center">
-                <span className="text-white text-base sm:text-lg md:text-xl lg:text-2xl font-bold font-['Syne']">Service Packages</span>
-              </div>
+          
+          {/* Service Packages Badge */}
+          <div className="flex justify-center mt-6 md:mt-2 mb-6" data-aos="fade-down" data-aos-delay="100">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#7C3AED]/8 border border-[#7C3AED]/20 text-[#7C3AED] text-sm font-bold shadow-sm font-['Inter']">
+              <span className="w-2 h-2 rounded-full bg-[#7C3AED] animate-pulse" />
+              Layanan & Paket Harga
             </div>
           </div>
 
           {/* Title */}
-          <div className="text-center mb-6 md:mb-8">
-            <h1 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-['Syne']">Flexible Packages.</h1>
-            <h2 className="text-violet-800 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-['Syne'] mt-2">Transparent Pricing.</h2>
+          <div className="text-center mb-6 md:mb-8" data-aos="fade-down" data-aos-delay="200">
+            <h1 className="text-gray-900 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold font-['Inter'] tracking-tight leading-tight">
+              Flexible Packages.
+            </h1>
+            <h2 className="text-[#7C3AED] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold font-['Inter'] tracking-tight mt-2">
+              Transparent Pricing.
+            </h2>
           </div>
 
           {/* Description */}
-          <p className="text-white/90 text-sm sm:text-base md:text-lg text-center font-['Inter'] max-w-4xl mx-auto mb-8 md:mb-12">
-            Setiap paket dirancang untuk menyesuaikan kebutuhan dan skala bisnis,
-            dengan rincian biaya yang jelas tanpa tambahan tersembunyi.
+          <p className="text-gray-500 text-sm sm:text-base md:text-lg text-center font-['Inter'] max-w-2xl mx-auto mb-8 md:mb-12 leading-relaxed" data-aos="fade-up" data-aos-delay="300">
+            Setiap paket dirancang untuk menyesuaikan kebutuhan dan skala bisnis Anda,
+            dengan rincian biaya yang transparan tanpa biaya tersembunyi.
           </p>
 
           {/* Kebijakan Revisi */}
-          <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-purple-300/30 p-6 mb-8 md:mb-12">
-            <h3 className="text-violet-400 text-lg md:text-xl font-bold font-['Syne'] mb-4"> Kebijakan Revisi</h3>
-            <div className="space-y-3">
-              <p className="text-white/80 text-sm md:text-base"><span className="text-violet-300 font-semibold">Minor:</span> teks/typo, ganti foto, warna/font kecil, spacing/alignment, wording CTA</p>
-              <p className="text-white/80 text-sm md:text-base"><span className="text-violet-300 font-semibold">Major:</span> ubah struktur besar, tambah halaman/fitur, redesign total, perubahan requirement inti</p>
-              <p className="text-white/80 text-sm md:text-base"><span className="text-violet-300 font-semibold">Window revisi:</span> Basic/Starter: 7 hari | Growth: 14 hari | Pro: 30 hari</p>
+          <div className="bg-violet-50/40 backdrop-blur-sm rounded-[24px] border border-violet-100/80 p-6 sm:p-8 mb-8 md:mb-12 shadow-sm max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="400">
+            <h3 className="text-[#7C3AED] text-lg md:text-xl font-bold font-['Inter'] mb-4 flex items-center gap-2">
+              <span className="w-1.5 h-6 bg-[#7C3AED] rounded-full inline-block" />
+              Kebijakan Revisi & Garansi
+            </h3>
+            <div className="space-y-3 font-['Inter'] text-sm sm:text-base">
+              <p className="text-gray-600 leading-relaxed"><span className="text-gray-900 font-bold">Minor:</span> perubahan teks/typo, ganti foto, warna/font kecil, spacing/alignment, penyusunan kalimat CTA.</p>
+              <p className="text-gray-600 leading-relaxed"><span className="text-gray-900 font-bold">Major:</span> ubah struktur besar, tambah halaman/fitur baru, redesign total layout, perubahan spesifikasi/requirement inti.</p>
+              <p className="text-gray-600 leading-relaxed"><span className="text-gray-900 font-bold">Window Revisi Gratis:</span> Basic/Starter: 7 hari | Growth: 14 hari | Pro: 30 hari.</p>
             </div>
           </div>
 
           {/* Category Navigation - First Row (4 items) */}
-          <div className="flex flex-wrap justify-center gap-3 mb-3">
+          <div className="flex flex-wrap justify-center gap-2 mb-3" data-aos="fade-up">
             {firstRowCategories.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`px-4 py-2 text-sm md:text-base rounded-full transition-all whitespace-nowrap ${
+                className={`px-4 py-2 text-xs sm:text-sm font-semibold rounded-full transition-all whitespace-nowrap cursor-pointer font-['Inter'] ${
                   activeCategory === cat.id
-                    ? 'bg-violet-600 text-white border-violet-400'
-                    : 'bg-transparent text-white/70 border border-purple-300/30 hover:bg-white/10'
+                    ? 'bg-[#7C3AED] text-white border-none shadow-md shadow-violet-100'
+                    : 'bg-gray-50 text-gray-500 border border-gray-200 hover:bg-violet-50 hover:text-[#7C3AED] hover:border-violet-200'
                 }`}
               >
                 {cat.name}
@@ -645,15 +658,15 @@ export default function Pricing() {
           </div>
 
           {/* Category Navigation - Second Row (5 items) */}
-          <div className="flex flex-wrap justify-center gap-3 mb-3">
+          <div className="flex flex-wrap justify-center gap-2 mb-3" data-aos="fade-up">
             {secondRowCategories.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`px-4 py-2 text-sm md:text-base rounded-full transition-all whitespace-nowrap ${
+                className={`px-4 py-2 text-xs sm:text-sm font-semibold rounded-full transition-all whitespace-nowrap cursor-pointer font-['Inter'] ${
                   activeCategory === cat.id
-                    ? 'bg-violet-600 text-white border-violet-400'
-                    : 'bg-transparent text-white/70 border border-purple-300/30 hover:bg-white/10'
+                    ? 'bg-[#7C3AED] text-white border-none shadow-md shadow-violet-100'
+                    : 'bg-gray-50 text-gray-500 border border-gray-200 hover:bg-violet-50 hover:text-[#7C3AED] hover:border-violet-200'
                 }`}
               >
                 {cat.name}
@@ -661,16 +674,16 @@ export default function Pricing() {
             ))}
           </div>
 
-          {/* Category Navigation - Third Row (1 item - Mobile App Development) */}
-          <div className="flex flex-wrap justify-center gap-3 mb-8 md:mb-12">
+          {/* Category Navigation - Third Row (3 items) */}
+          <div className="flex flex-wrap justify-center gap-2 mb-10 md:mb-16" data-aos="fade-up">
             {thirdRowCategories.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`px-4 py-2 text-sm md:text-base rounded-full transition-all whitespace-nowrap ${
+                className={`px-4 py-2 text-xs sm:text-sm font-semibold rounded-full transition-all whitespace-nowrap cursor-pointer font-['Inter'] ${
                   activeCategory === cat.id
-                    ? 'bg-violet-600 text-white border-violet-400'
-                    : 'bg-transparent text-white/70 border border-purple-300/30 hover:bg-white/10'
+                    ? 'bg-[#7C3AED] text-white border-none shadow-md shadow-violet-100'
+                    : 'bg-gray-50 text-gray-500 border border-gray-200 hover:bg-violet-50 hover:text-[#7C3AED] hover:border-violet-200'
                 }`}
               >
                 {cat.name}
@@ -678,11 +691,11 @@ export default function Pricing() {
             ))}
           </div>
 
-          {/* Pricing Cards */}
+          {/* Pricing Cards Grid */}
           <div className="mt-8">
             {/* Mobile Layout */}
             <div className="block sm:hidden">
-              <div className="flex flex-col items-center gap-4">
+              <div className="flex flex-col items-center gap-5">
                 {services[activeCategory]?.map((service, index) => (
                   <PricingCard 
                     key={index}
@@ -693,6 +706,7 @@ export default function Pricing() {
                     features={service.features}
                     promo={service.promo}
                     isMobile={true}
+                    index={index}
                   />
                 ))}
               </div>
@@ -700,7 +714,7 @@ export default function Pricing() {
 
             {/* Tablet Layout */}
             <div className="hidden sm:block lg:hidden">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-5">
                 {services[activeCategory]?.slice(0, 2).map((service, index) => (
                   <PricingCard 
                     key={index}
@@ -711,11 +725,12 @@ export default function Pricing() {
                     features={service.features}
                     promo={service.promo}
                     isTablet={true}
+                    index={index}
                   />
                 ))}
               </div>
               {services[activeCategory]?.length > 2 && (
-                <div className="flex justify-center mt-4">
+                <div className="flex justify-center mt-5">
                   <PricingCard 
                     title={services[activeCategory][2].tier}
                     slug={services[activeCategory][2].slug}
@@ -725,6 +740,7 @@ export default function Pricing() {
                     promo={services[activeCategory][2].promo}
                     isTablet={true}
                     className="max-w-md w-full"
+                    index={2}
                   />
                 </div>
               )}
@@ -742,7 +758,8 @@ export default function Pricing() {
                     period={service.period || ""}
                     features={service.features}
                     promo={service.promo}
-                    width="w-[350px] xl:w-[380px]"
+                    width="w-[340px] xl:w-[370px]"
+                    index={index}
                   />
                 ))}
               </div>
@@ -750,10 +767,13 @@ export default function Pricing() {
           </div>
 
           {/* Promo Banner */}
-          <div className="mt-10 p-4 bg-gradient-to-r from-purple-900/40 to-indigo-900/40 rounded-2xl border border-purple-400/30 text-center">
-            <h3 className="text-white text-sm sm:text-base font-bold font-['Syne'] mb-1"> Promo Spesial </h3>
-            <p className="text-white/90 text-xs sm:text-sm">
-              Early-bird: DP 50% ≤ 3 hari → diskon 2% | Bundle 2 layanan → diskon 3% | Retainer 3 bulan → diskon 3%
+          <div className="mt-16 p-6 bg-gradient-to-r from-violet-50 to-purple-50 rounded-2xl border border-violet-100 text-center shadow-sm max-w-4xl mx-auto" data-aos="fade-up">
+            <h3 className="text-gray-900 text-sm sm:text-base font-bold font-['Inter'] mb-1.5 flex items-center justify-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#7C3AED] animate-ping" />
+              Promo Spesial Tambahan
+            </h3>
+            <p className="text-gray-500 text-xs sm:text-sm font-['Inter'] leading-relaxed">
+              <strong>Early-bird:</strong> DP 50% &le; 3 hari setelah deal &rarr; <strong>diskon 2%</strong> | <strong>Bundle:</strong> Ambil 2 layanan sekaligus &rarr; <strong>diskon 3%</strong> | <strong>Retainer:</strong> Kontrak minimal 3 bulan &rarr; <strong>diskon 3%</strong>.
             </p>
           </div>
         </div>
@@ -763,37 +783,52 @@ export default function Pricing() {
 }
 
 // Komponen Pricing Card
-function PricingCard({ title, slug, price, period, features, promo, width = "w-full", className = "", isMobile = false, isTablet = false }: { title: string, slug: string, price: string, period: string, features: string[], promo?: string, width?: string, className?: string, isMobile?: boolean, isTablet?: boolean }) {
+function PricingCard({ title, slug, price, period, features, promo, width = "w-full", className = "", isMobile = false, isTablet = false, index = 0 }: { title: string, slug: string, price: string, period: string, features: string[], promo?: string, width?: string, className?: string, isMobile?: boolean, isTablet?: boolean, index: number }) {
+  // Stagger entry animations for beautiful layout transitions
+  const aosAnimation = index % 3 === 0 ? "fade-right" : index % 3 === 1 ? "fade-up" : "fade-left";
+  
   return (
-    <div className={`${width} ${className} bg-white/5 backdrop-blur-sm rounded-[30px] sm:rounded-[40px] border-2 border-purple-300 p-4 sm:p-5 relative overflow-hidden hover:border-violet-400 transition-all duration-300`}>
-      {/* Inner glow effect */}
-      <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 to-transparent pointer-events-none"></div>
+    <div 
+      className={`${width} ${className} bg-white rounded-[24px] border border-violet-100/80 shadow-md shadow-violet-100/5 p-6 relative overflow-hidden hover:border-violet-300 hover:shadow-lg hover:shadow-violet-100/10 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between min-h-[460px]`}
+      data-aos={aosAnimation}
+      data-aos-delay={index * 100}
+    >
       
-      <div className="relative z-10">
+      <div className="relative z-10 flex-1">
         {/* Title */}
-        <h3 className="text-violet-400 text-base sm:text-lg md:text-xl font-bold font-['Syne'] mb-2 leading-tight">
+        <h3 className="text-gray-900 text-lg md:text-xl font-extrabold font-['Inter'] tracking-tight mb-2 leading-tight">
           {title}
         </h3>
 
+        {/* Price Tag */}
+        <div className="mb-5 flex items-baseline gap-1 font-['Inter'] font-semibold">
+          <span className="text-2xl sm:text-3xl font-extrabold text-[#7C3AED] tracking-tight">{price}</span>
+          {period && <span className="text-xs text-gray-400 font-semibold">{period}</span>}
+        </div>
 
+        {/* Divider */}
+        <div className="w-full h-px bg-gray-100 mb-5" />
 
         {/* Features List */}
-        <div className="space-y-1.5 mb-4">
+        <div className="space-y-3.5 mb-6">
           {features.map((feature, idx) => (
-            <div key={idx} className="flex items-start gap-2">
-              <div className="relative mt-1 flex-shrink-0">
-                <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full border border-violet-500/95"></div>
-                <div className="absolute w-1 h-1 left-[1.5px] top-[1.5px] sm:left-[2px] sm:top-[2px] bg-violet-500/95 rounded-full"></div>
-              </div>
-              <span className="text-white text-xs font-['Inter'] leading-relaxed">{feature}</span>
+            <div key={idx} className="flex items-start gap-2.5">
+              <span className="mt-[3px] shrink-0 w-4 h-4 rounded-full bg-violet-50 flex items-center justify-center border border-violet-100/85 text-[#7C3AED]">
+                <CheckCircle2 className="w-3.5 h-3.5" />
+              </span>
+              <span className="text-gray-600 text-xs sm:text-sm font-['Inter'] leading-relaxed font-medium">{feature}</span>
             </div>
           ))}
         </div>
+      </div>
 
-        {/* Promo */}
+      <div className="relative z-10 mt-auto">
+        {/* Promo tag */}
         {promo && (
-          <div className="mb-4 p-2 bg-purple-900/30 rounded-xl border border-purple-500/30">
-            <p className="text-violet-300 text-xs font-['Inter'] text-center"> {promo}</p>
+          <div className="mb-4 p-2.5 bg-violet-50/50 rounded-xl border border-violet-100/60">
+            <p className="text-[#7C3AED] text-xs font-bold font-['Inter'] text-center leading-normal">
+              {promo}
+            </p>
           </div>
         )}
 
@@ -801,9 +836,9 @@ function PricingCard({ title, slug, price, period, features, promo, width = "w-f
         <div className="flex justify-center">
           <Link
             href={`/price/${slug}`}
-            className="w-full py-2 bg-black rounded-[57px] shadow-[inset_-1px_1px_47.80px_rgba(69,34,115,1.00)] border-2 border-indigo-900 flex items-center justify-center cursor-pointer hover:opacity-90 transition-opacity"
+            className="w-full py-3 bg-[#7C3AED] hover:bg-[#6D28D9] text-white rounded-xl shadow-md shadow-violet-200/50 flex items-center justify-center font-bold font-['Inter'] tracking-tight text-xs sm:text-sm cursor-pointer hover:scale-[1.01] active:scale-95 transition-all duration-200"
           >
-            <span className="text-violet-500 text-xs sm:text-sm font-bold font-['Syne']">Order Now</span>
+            Order Now
           </Link>
         </div>
       </div>

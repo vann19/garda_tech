@@ -52,9 +52,9 @@ export default async function PortfolioDetail({
 
   if (!project) {
     return (
-      <div className="w-full min-h-screen bg-black flex items-center justify-center">
+      <div className="w-full min-h-screen bg-white flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-white text-4xl font-bold font-['Syne']">Proyek tidak ditemukan</h1>
+          <h1 className="text-gray-900 text-4xl font-bold font-['Syne']">Proyek tidak ditemukan</h1>
           <Link href="/portofolio" className="text-violet-500 mt-4 inline-block hover:underline">
             ← Kembali ke Portofolio
           </Link>
@@ -64,17 +64,17 @@ export default async function PortfolioDetail({
   }
 
   return (
-    <div className="relative w-full min-h-screen bg-black overflow-hidden">
+    <div className="relative w-full min-h-screen bg-white overflow-hidden">
 
       {/* === Background blur === */}
-      <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-[40%] w-[140%] aspect-square bg-violet-900/20 rounded-full blur-[120px] sm:blur-[188px]" />
+      <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-[20%] w-[80%] aspect-square bg-violet-400/10 rounded-full blur-[120px] sm:blur-[160px]" />
 
       {/* === CONTENT === */}
       <div className="relative z-10 w-full px-4 sm:px-8 lg:px-16 pt-24 sm:pt-28 lg:pt-32 pb-16 sm:pb-24">
 
         {/* Pill Badge */}
         <div className="flex justify-center">
-          <div className="bg-violet-800/60 rounded-[57px] shadow-[inset_-1px_-1px_47.8px_rgba(208,186,232,0.8)] border-4 border-violet-500/95 px-10 py-5 flex items-center justify-center">
+          <div className="bg-primary rounded-[57px] shadow-[inset_-1px_-1px_47.8px_rgba(208,186,232,0.8)] border-4 border-violet-500/95 px-10 py-5 flex items-center justify-center">
             <span className="text-white text-xl sm:text-2xl font-bold font-['Syne']">
               Portofolio
             </span>
@@ -82,7 +82,7 @@ export default async function PortfolioDetail({
         </div>
 
         {/* Heading */}
-        <h1 className="mt-10 sm:mt-14 lg:mt-16 text-center text-white text-3xl sm:text-5xl lg:text-6xl font-bold font-['Syne']">
+        <h1 className="mt-10 sm:mt-14 lg:mt-16 text-center text-gray-900 text-3xl sm:text-5xl lg:text-6xl font-bold font-['Syne']">
           Proof in Every Project.
         </h1>
 
@@ -143,11 +143,11 @@ export default async function PortfolioDetail({
         {/* === Title + Description === */}
         <div className="mt-10 sm:mt-16 lg:mt-20 max-w-5xl mx-auto text-center px-4">
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold font-['Syne']">
-            <span className="text-violet-800">{project.title} </span>
-            <span className="text-white">{project.titleHighlight}</span>
+            <span className="text-violet-700">{project.title} </span>
+            <span className="text-gray-900">{project.titleHighlight}</span>
           </h2>
 
-          <p className="mt-4 sm:mt-8 text-white text-sm sm:text-lg lg:text-xl font-medium font-['Inter'] leading-relaxed sm:leading-9">
+          <p className="mt-4 sm:mt-8 text-gray-500 text-sm sm:text-lg lg:text-xl font-medium font-['Inter'] leading-relaxed sm:leading-9">
             {project.description}
           </p>
         </div>
