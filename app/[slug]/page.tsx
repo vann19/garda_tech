@@ -125,11 +125,11 @@ export default async function InformationDetailPage({ params }: PageProps) {
   const nextService = currentIndex < information.length - 1 ? information[currentIndex + 1] : null
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="relative min-h-screen bg-white overflow-hidden">
       {/* Subtle top aura */}
-      <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[350px] bg-[#7C3AED]/5 blur-[100px] rounded-full" />
+      <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[600px] sm:w-[900px] h-[350px] bg-[#7C3AED]/5 blur-[100px] rounded-full" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-28 pb-28 lg:pb-20">
 
         {/* Back link */}
         <Link
@@ -149,7 +149,7 @@ export default async function InformationDetailPage({ params }: PageProps) {
               <span className="font-mono">{info.number}.</span>
               Layanan Kami
             </div>
-            <h1 className="font-['Inter'] font-extrabold text-4xl sm:text-5xl lg:text-6xl text-gray-900 tracking-tighter leading-[1.1] mb-4">
+            <h1 className="font-['Inter'] font-extrabold text-3xl sm:text-5xl lg:text-6xl text-gray-900 tracking-tighter leading-[1.1] mb-4">
               {info.title}
             </h1>
             <p className="text-[#7C3AED] font-semibold text-lg mb-4">{info.tagline}</p>
@@ -176,10 +176,10 @@ export default async function InformationDetailPage({ params }: PageProps) {
           </div>
 
           {/* Right: Stats cards */}
-          <div className="w-full lg:w-72 shrink-0 grid grid-cols-3 lg:grid-cols-1 gap-3">
+          <div className="w-full lg:w-72 shrink-0 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-3">
             {info.stats.map((stat, i) => (
               <Card key={i} className="border-[#7C3AED]/15 hover:border-[#7C3AED]/30 transition-colors py-4">
-                <CardContent className="px-5 text-center lg:text-left">
+                <CardContent className="px-5 text-center sm:text-center lg:text-left">
                   <div className="text-2xl font-extrabold text-[#7C3AED]">{stat.value}</div>
                   <div className="text-xs text-gray-500 mt-0.5">{stat.label}</div>
                 </CardContent>

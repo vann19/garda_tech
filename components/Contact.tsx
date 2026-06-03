@@ -83,7 +83,7 @@ const Contact = () => {
   };
 
   return (
-    <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 relative">
+    <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 relative overflow-hidden">
       
       {/* Glow backgrounds */}
       <div className="absolute top-[20%] -left-32 w-[350px] h-[350px] bg-violet-100/50 rounded-full blur-[100px] pointer-events-none -z-10" />

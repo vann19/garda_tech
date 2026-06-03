@@ -201,7 +201,7 @@ export default function OrderPage({ params }: { params: Promise<{ slug: string }
       <div className="fixed w-[400px] h-[400px] -right-20 top-[50%] bg-purple-50/40 rounded-full blur-[120px] pointer-events-none z-0 opacity-50" />
 
       {/* Back Button */}
-      <div className="relative z-20 pt-28 px-4 sm:px-8 max-w-3xl mx-auto" data-aos="fade-down" data-aos-duration="600">
+      <div className="relative z-20 pt-24 sm:pt-28 px-4 sm:px-8 max-w-3xl mx-auto" data-aos="fade-down" data-aos-duration="600">
         <Link 
           href="/price" 
           className="inline-flex items-center gap-1 text-gray-400 hover:text-gray-900 transition-colors text-sm font-semibold"
@@ -210,7 +210,7 @@ export default function OrderPage({ params }: { params: Promise<{ slug: string }
         </Link>
       </div>
 
-      <div className="relative z-10 w-full px-4 sm:px-6 pb-24 max-w-3xl mx-auto">
+      <div className="relative z-10 w-full px-4 sm:px-6 pb-28 lg:pb-24 max-w-3xl mx-auto overflow-x-hidden">
 
         {/* ── HERO ── */}
         <div className="text-center mt-8 mb-4" data-aos="fade-down">
@@ -218,12 +218,12 @@ export default function OrderPage({ params }: { params: Promise<{ slug: string }
             <span className="w-1.5 h-1.5 rounded-full bg-[#7C3AED] animate-pulse" />
             Konfirmasi Pesanan Anda
           </div>
-          <h1 className="font-['Syne'] text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+          <h1 className="font-['Syne'] text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight">
             <span className="text-gray-900">Mulai Proyek </span>
             <span className="text-[#7C3AED]">Sekarang.</span>
           </h1>
         </div>
-        <p className="text-center text-gray-500 text-sm sm:text-base leading-relaxed mb-12 max-w-lg mx-auto" data-aos="fade-up" data-aos-delay="100">
+        <p className="text-center text-gray-500 text-sm sm:text-base leading-relaxed mb-10 sm:mb-12 max-w-lg mx-auto" data-aos="fade-up" data-aos-delay="100">
           Lengkapi formulir di bawah ini untuk mengonfirmasi detail pesanan Anda. Kami akan terhubung langsung via WhatsApp.
         </p>
 
@@ -236,7 +236,7 @@ export default function OrderPage({ params }: { params: Promise<{ slug: string }
 
         {/* ── SERVICE CARD ── */}
         <Card className="bg-white border border-violet-100/80 shadow-md shadow-violet-100/10 rounded-3xl mb-10 overflow-hidden" data-aos="fade-up">
-          <CardContent className="p-8 sm:p-10 text-center">
+          <CardContent className="p-5 sm:p-8 lg:p-10 text-center">
             
             {/* Category tag */}
             <div className="inline-block px-3 py-1 rounded-full bg-violet-50 border border-violet-100 text-[#7C3AED] text-xs font-semibold uppercase tracking-wider mb-3">
@@ -283,7 +283,7 @@ export default function OrderPage({ params }: { params: Promise<{ slug: string }
 
         {/* ── FORM CARD ── */}
         <Card className="bg-white border border-violet-100/80 shadow-lg shadow-violet-100/10 rounded-3xl" data-aos="fade-up">
-          <CardContent className="p-8 sm:p-10">
+          <CardContent className="p-5 sm:p-8 lg:p-10">
             <form onSubmit={handleSubmit} className="space-y-6">
 
               {/* Nama Lengkap */}

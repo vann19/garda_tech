@@ -32,17 +32,17 @@ export default function PageTransition() {
 
   return (
     <div
-      className="fixed inset-0 z-9999 flex flex-col items-center justify-center bg-black transition-opacity duration-500"
-      style={{ opacity: fadeOut ? 0 : 1, pointerEvents: fadeOut ? 'none' : 'all' }}
+      className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black transition-opacity duration-500"
+      style={{ opacity: fadeOut ? 0 : 1, pointerEvents: fadeOut ? 'none' : 'all', width: '100vw', height: '100vh' }}
     >
       {/* Logo */}
-      <div className="flex items-center gap-3 mb-8">
+      <div className="flex items-center justify-center gap-3 mb-8 w-full px-6">
         <Image
           src="/img/logo.png"
           alt="Garda Tech"
           width={48}
           height={48}
-          className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+          className="w-10 h-10 sm:w-12 sm:h-12 object-contain flex-shrink-0"
           priority
         />
         <span className="text-white text-2xl sm:text-3xl font-bold font-['Syne'] tracking-tight">

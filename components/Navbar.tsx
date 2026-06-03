@@ -46,7 +46,7 @@ const Navbar = () => {
             : "bg-white/90 backdrop-blur-sm"
         }`}
       >
-        <div className="container mx-auto pl-8 pr-4 sm:pl-0 sm:pr-6 py-4 flex items-center justify-between">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 z-10">
             <Image
