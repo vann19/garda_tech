@@ -48,9 +48,9 @@ const SERVICES = [
 ];
 
 const STATS = [
-  { icon: <Star className="w-5 h-5 text-[#7C3AED]" />, value: '50+', label: 'Proyek Selesai' },
+  { icon: <Star className="w-5 h-5 text-[#7C3AED]" />, value: '15+', label: 'Proyek Selesai' },
   { icon: <Zap className="w-5 h-5 text-[#7C3AED]" />, value: '99%', label: 'Kepuasan Klien' },
-  { icon: <Shield className="w-5 h-5 text-[#7C3AED]" />, value: '3+', label: 'Tahun Berpengalaman' },
+  { icon: <Shield className="w-5 h-5 text-[#7C3AED]" />, value: '2', label: 'Tahun Berpengalaman' },
   { icon: <Globe className="w-5 h-5 text-[#7C3AED]" />, value: '24/7', label: 'Dukungan Teknis' },
 ];
 

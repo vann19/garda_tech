@@ -1,116 +1,140 @@
 import React from 'react'
 import Image from 'next/image'
-import { ArrowUpRight } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import Footer from '@/components/Footer';
+import { ArrowRight, ExternalLink } from 'lucide-react'
+import Footer from '@/components/Footer'
+import { projects } from '@/lib/projects'
 
-const projects = [
-  {
-    id: 1,
-    slug: "ramadhan-kareem",
-    title: "Desain UI/UX Tema Ramadhan",
-    description: "Desain ini adalah desain untuk menyambut bulan suci ramadhan. Dimana pada desain ini saya ingin memberikan kesan yang nyaman dan menenangkan bagi para pengguna.",
-    image: "/img/rama2.png",
-  },
-  {
-    id: 2,
-    slug: "web-sejarah-yogyakarta",
-    title: "Web Sejarah  ",
-    description: "Web ini bertujuan untuk mengenalkan sejarah di Yogyakarta kepada para pengguna.",
-    image: "/img/tengah.jpeg",
-  },
-  {
-    id: 3,
-    slug: "restoran-sikumbang",
-    title: "Restoran Sikumbang",
-    description: "Website ini bertujuan untuk mengenalkan restoran sikumbang kepada para pengguna.",
-    image: "/img/profil.png",
-  },
-]
-
-{/* === Komponen ProjectImage: gambar + tombol arrow di pojok kanan bawah === */}
-function ProjectImage({ image, title, slug }: { image: string | null; title: string; slug: string }) {
-  return (
-    <div className="relative w-full rounded-lg overflow-hidden group">
-      {/* Image */}
-      {image ? (
-        <Image
-          src={image}
-          alt={title}
-          width={715}
-          height={492}
-          className="w-full h-auto rounded-lg"
-        />
-      ) : (
-        <div className="w-full aspect-[715/492] bg-violet-500 rounded-lg" />
-      )}
-
-      {/* Arrow button — link ke detail page */}
-      <Link href={`/portofolio/${slug}`} className="absolute bottom-4 right-4 sm:bottom-5 sm:right-5 lg:bottom-6 lg:right-6 w-12 h-12 sm:w-14 sm:h-14 lg:w-20 lg:h-20 bg-zinc-300 rounded-full flex items-center justify-center hover:bg-white transition-colors z-10 cursor-pointer">
-        <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8 text-indigo-900" strokeWidth={3} />
-      </Link>
-    </div>
-  )
+export const metadata = {
+  title: 'Portofolio | GardaTech',
+  description: 'Kumpulan proyek digital yang telah kami kerjakan — website, aplikasi mobile, sistem kustom, dan desain UI/UX.',
 }
 
-const PortfolioPage = () => {
+export default function PortfolioPage() {
   return (
     <div className="relative w-full min-h-screen bg-white overflow-hidden">
 
-      {/* === Background blur === */}
-      <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-[20%] w-[80%] aspect-square bg-violet-400/10 rounded-full blur-[120px] sm:blur-[160px]" />
+      {/* ── Background aura ── */}
+      <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-[15%] w-[70%] aspect-square bg-violet-400/8 rounded-full blur-[140px]" />
+      <div className="pointer-events-none absolute -right-40 top-1/3 w-[400px] h-[400px] bg-indigo-100/40 rounded-full blur-[100px]" />
 
-      {/* === CONTENT === */}
-      <div className="relative z-10 w-full px-4 sm:px-8 lg:px-16 pt-24 sm:pt-28 lg:pt-32 pb-16 sm:pb-24">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32 pb-20">
 
-        {/* Pill Badge */}
-        <div className="flex justify-center">
-          <div className="bg-primary rounded-[57px] shadow-[inset_-1px_-1px_47.8px_rgba(208,186,232,0.8)] border-4 border-violet-500/95 px-10 py-5 flex items-center justify-center">
-            <span className="text-white text-2xl font-bold font-['Syne']">
-              Portofolio
-            </span>
-          </div>
+        {/* ── Header ── */}
+        <div className="text-center mb-14 sm:mb-20">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-50 border border-violet-200 text-violet-700 text-xs font-semibold tracking-wider uppercase mb-5">
+            ✦ Portofolio Kami
+          </span>
+          <h1 className="font-['Syne'] font-bold text-gray-900 text-3xl sm:text-5xl lg:text-6xl tracking-tight leading-tight">
+            Proof in Every{' '}
+            <span className="shimmer-text">Project.</span>
+          </h1>
+          <p className="mt-4 text-gray-500 max-w-xl mx-auto text-sm sm:text-base leading-relaxed">
+            Setiap proyek adalah bukti komitmen kami terhadap kualitas, performa, dan kepuasan klien.
+          </p>
         </div>
 
-        {/* Heading */}
-        <h1 className="mt-10 sm:mt-14 lg:mt-16 text-center text-violet-700 text-3xl sm:text-5xl lg:text-6xl font-bold font-['Syne']">
-          Proof in Every Project.
-        </h1>
+        {/* ── Project Grid ── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {projects.map((project) => (
+            <div
+              key={project.id}
+              className="group flex flex-col bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg hover:border-violet-200 hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+            >
+              {/* Thumbnail */}
+              <div className="relative w-full aspect-[4/3] bg-gray-50 overflow-hidden">
+                {project.image ? (
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  />
+                ) : (
+                  <div className="absolute inset-0 bg-gradient-to-br from-violet-100 to-indigo-100 flex items-center justify-center">
+                    <span className="text-violet-400 text-4xl font-bold font-['Syne']">GT</span>
+                  </div>
+                )}
 
-        {/* Projects */}
-        <div className="mt-12 sm:mt-16 lg:mt-20 flex flex-col gap-12 sm:gap-16 lg:gap-20 max-w-6xl mx-auto">
+                {/* Category badge */}
+                <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-sm text-[10px] font-semibold text-violet-700 border border-violet-100 shadow-sm">
+                  {project.category}
+                </span>
 
-          {projects.map((project, index) => {
-            const isEven = index % 2 === 0
-            return (
-              <div
-                key={project.id}
-                className={`flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} gap-6 sm:gap-8 lg:gap-12 items-center`}
-              >
-                {/* Image + Arrow */}
-                <div className="w-full md:w-1/2">
-                  <ProjectImage image={project.image} title={project.title} slug={project.slug} />
+                {/* Year badge */}
+                {project.year && (
+                  <span className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-sm text-[10px] font-semibold text-gray-500 border border-gray-100 shadow-sm">
+                    {project.year}
+                  </span>
+                )}
+              </div>
+
+              {/* Content */}
+              <div className="flex flex-col flex-1 p-4 gap-3">
+                <h2 className="font-['Syne'] font-bold text-gray-900 text-sm sm:text-base leading-snug line-clamp-2">
+                  {project.title}
+                </h2>
+
+                <p className="text-gray-500 text-xs leading-relaxed line-clamp-2 flex-1">
+                  {project.description}
+                </p>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-1.5">
+                  {project.tags.slice(0, 3).map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-violet-50 text-violet-700 border border-violet-100"
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </div>
 
-                {/* Text */}
-                <div className={`w-full md:w-1/2 flex flex-col ${isEven ? 'md:items-start' : 'md:items-end md:text-right'}`}>
-                  <h2 className="text-violet-800 text-2xl sm:text-3xl lg:text-5xl font-bold font-['Syne']">
-                    {project.title}
-                  </h2>
-                  <p className="mt-3 sm:mt-4 text-gray-500 text-sm sm:text-lg lg:text-xl font-medium font-['Inter'] leading-relaxed">
-                    {project.description}
-                  </p>
+                {/* Action buttons */}
+                <div className="flex gap-2 pt-1">
+                  {/* Detail button */}
+                  <Link
+                    href={`/portofolio/${project.slug}`}
+                    className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl border border-gray-200 text-xs font-semibold text-gray-700 hover:border-violet-300 hover:text-violet-700 hover:bg-violet-50 transition-all duration-200"
+                  >
+                    Lihat Detail
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+
+                  {/* Live URL button — hanya muncul jika ada */}
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center w-9 h-9 rounded-xl border border-violet-200 text-violet-600 hover:bg-violet-600 hover:text-white hover:border-violet-600 transition-all duration-200"
+                      title="Lihat Live"
+                    >
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  )}
                 </div>
               </div>
-            )
-          })}
-
+            </div>
+          ))}
         </div>
+
+        {/* ── CTA bottom ── */}
+        <div className="mt-20 text-center">
+          <p className="text-gray-500 text-sm mb-4">Punya proyek yang ingin dikerjakan bersama kami?</p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-sm font-semibold shadow-lg shadow-violet-200 hover:shadow-violet-300/50 hover:-translate-y-0.5 transition-all duration-300"
+          >
+            Hubungi Kami
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+
       </div>
+
       <Footer />
     </div>
   )
 }
-
-export default PortfolioPage

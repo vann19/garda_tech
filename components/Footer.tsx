@@ -70,12 +70,18 @@ const Footer = () => {
           <div className="flex flex-col gap-4">
             <h4 className="text-xs font-semibold uppercase tracking-widest text-white/30">Layanan</h4>
             <ul className="space-y-3">
-              {['Web Development', 'UI/UX Design', 'Mobile App', 'Konsultasi IT', 'Maintenance'].map((item) => (
-                <li key={item}>
-                  <a href="#services" className="text-sm text-white/55 hover:text-white transition-colors duration-150 flex items-center gap-2 group">
+              {[
+                { label: 'Web Development', href: '/website-development' },
+                { label: 'UI/UX Design',     href: '/ui-ux-design' },
+                { label: 'Mobile App',       href: '/mobile-development' },
+                { label: 'Konsultasi IT',    href: '/contact' },
+                { label: 'Maintenance',      href: '/service' },
+              ].map(({ label, href }) => (
+                <li key={label}>
+                  <Link href={href} className="text-sm text-white/55 hover:text-white transition-colors duration-150 flex items-center gap-2 group">
                     <span className="w-1 h-1 rounded-full bg-violet-500 opacity-0 group-hover:opacity-100 transition-opacity duration-150" />
-                    {item}
-                  </a>
+                    {label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -86,17 +92,17 @@ const Footer = () => {
             <h4 className="text-xs font-semibold uppercase tracking-widest text-white/30">Perusahaan</h4>
             <ul className="space-y-3">
               {[
-                { label: 'Tentang Kami', href: '#about' },
-                { label: 'Portfolio', href: '#portfolio' },
-                { label: 'Harga', href: '#pricing' },
-                { label: 'Kontak', href: '#contact' },
-                { label: 'FAQ', href: '#faq' },
+                { label: 'Tentang Kami', href: '/about' },
+                { label: 'Portfolio',    href: '/portofolio' },
+                { label: 'Harga',        href: '/price' },
+                { label: 'Kontak',       href: '/contact' },
+                { label: 'Layanan',      href: '/service' },
               ].map(({ label, href }) => (
                 <li key={label}>
-                  <a href={href} className="text-sm text-white/55 hover:text-white transition-colors duration-150 flex items-center gap-2 group">
+                  <Link href={href} className="text-sm text-white/55 hover:text-white transition-colors duration-150 flex items-center gap-2 group">
                     <span className="w-1 h-1 rounded-full bg-violet-500 opacity-0 group-hover:opacity-100 transition-opacity duration-150" />
                     {label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -130,8 +136,8 @@ const Footer = () => {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/30">
           <p>&copy; {year} Garda Tech. All rights reserved.</p>
           <div className="flex items-center gap-5">
-            <a href="#" className="hover:text-white/60 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white/60 transition-colors">Terms of Service</a>
+            <Link href="/privacy-policy" className="hover:text-white/60 transition-colors">Privacy Policy</Link>
+            <Link href="/terms-of-service" className="hover:text-white/60 transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

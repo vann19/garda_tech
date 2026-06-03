@@ -75,8 +75,8 @@ const AboutPage = () => {
       <div className="relative z-10 w-full py-12 overflow-hidden" data-aos="fade-up">
         <ScrollVelocity
           texts={[
-            '50+ Proyek Selesai  ✦  30+ Klien Puas  ✦',
-            '3+ Tahun Pengalaman  ✦  10+ Anggota Tim  ✦',
+            '15+ Proyek Selesai  ✦  10+ Klien Puas  ✦',
+            '2 Tahun Berpengalaman  ✦  10+ Anggota Tim  ✦'
           ]}
           velocity={60}
           className="text-violet-600"

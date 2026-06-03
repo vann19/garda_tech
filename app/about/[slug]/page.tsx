@@ -164,26 +164,6 @@ export default async function MemberBioPage({ params }: Props) {
               </Link>
             </div>
 
-            {/* Stats */}
-            <div className="rounded-2xl bg-white border border-gray-100 shadow-sm p-5 grid grid-cols-2 gap-4">
-              <div className="flex flex-col">
-                <span className="text-2xl font-bold text-violet-600">3+</span>
-                <span className="text-xs text-gray-400 mt-1">Tahun Pengalaman</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-2xl font-bold text-violet-600">20+</span>
-                <span className="text-xs text-gray-400 mt-1">Proyek Selesai</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-2xl font-bold text-violet-600">15+</span>
-                <span className="text-xs text-gray-400 mt-1">Klien Puas</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-2xl font-bold text-violet-600">100%</span>
-                <span className="text-xs text-gray-400 mt-1">Komitmen</span>
-              </div>
-            </div>
-
           </div>
         </div>
 
