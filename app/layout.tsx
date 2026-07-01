@@ -83,6 +83,76 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://www.gardatech.cloud/#organization",
+      name: "Garda Tech",
+      url: "https://www.gardatech.cloud",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://www.gardatech.cloud/img/logo2.png",
+      },
+      image: "https://www.gardatech.cloud/img/logo2.png",
+      description:
+        "Garda Tech menyediakan jasa pembuatan website profesional, aplikasi mobile, dan solusi digital terpercaya untuk bisnis Anda. Harga terjangkau, kualitas premium.",
+      priceRange: "$$",
+      address: {
+        "@type": "PostalAddress",
+        addressCountry: "ID",
+      },
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Layanan Digital Garda Tech",
+        itemListElement: [
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Jasa Pembuatan Website Profesional",
+              description:
+                "Pembuatan website company profile, e-commerce, landing page, dan sistem web kustom berperforma tinggi.",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Jasa Pembuatan Aplikasi Mobile (Android & iOS)",
+              description:
+                "Pengembangan aplikasi mobile modern yang responsif dan intuitif untuk bisnis.",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "UI/UX Design & Solusi IT",
+              description:
+                "Desain antarmuka modern yang menarik dan konsultasi transformasi digital bisnis.",
+            },
+          },
+        ],
+      },
+      sameAs: ["https://www.gardatech.cloud"],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.gardatech.cloud/#website",
+      url: "https://www.gardatech.cloud",
+      name: "Garda Tech",
+      description:
+        "Jasa Pembuatan Website & Aplikasi Mobile Profesional Terpercaya",
+      publisher: {
+        "@id": "https://www.gardatech.cloud/#organization",
+      },
+      inLanguage: "id-ID",
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -90,6 +160,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -102,3 +178,4 @@ export default function RootLayout({
     </html>
   );
 }
+
