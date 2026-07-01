@@ -9,39 +9,78 @@ import {
   CardDescription,
   CardContent,
 } from '@/components/ui/card';
-
-const STEPS = [
-  {
-    step: '01',
-    icon: <ClipboardList className="w-6 h-6 text-[#7C3AED]" />,
-    title: 'Konsultasi & Analisis',
-    description: 'Kami memahami kebutuhan, tujuan bisnis, dan target pengguna proyek Anda secara mendalam melalui sesi diskusi.',
-    details: ['Riset kebutuhan bisnis', 'Analisis target pengguna', 'Penyusunan brief proyek'],
-  },
-  {
-    step: '02',
-    icon: <Palette className="w-6 h-6 text-[#7C3AED]" />,
-    title: 'Desain & Prototyping',
-    description: 'Tim desainer kami merancang wireframe dan prototipe interaktif yang dapat Anda review dan setujui sebelum pengembangan.',
-    details: ['Wireframe & mockup', 'Prototipe interaktif', 'Revisi & approval desain'],
-  },
-  {
-    step: '03',
-    icon: <Code2 className="w-6 h-6 text-[#7C3AED]" />,
-    title: 'Pengembangan',
-    description: 'Developer kami membangun solusi menggunakan teknologi terkini dengan standar kode yang bersih, aman, dan terstruktur.',
-    details: ['Frontend & backend development', 'Testing & QA', 'Laporan progress berkala'],
-  },
-  {
-    step: '04',
-    icon: <Rocket className="w-6 h-6 text-[#7C3AED]" />,
-    title: 'Peluncuran & Perawatan',
-    description: 'Setelah pengujian menyeluruh, proyek diluncurkan. Kami terus memantau dan merawat sistem agar selalu optimal.',
-    details: ['Deployment & go-live', 'Monitoring performa', 'Dukungan & pembaruan berkala'],
-  },
-];
+import { useLanguage } from '@/context/LanguageContext';
 
 const Process = () => {
+  const { lang } = useLanguage();
+
+  const t = {
+    id: {
+      heading: ['Proses ', 'yang Transparan'],
+      subheading: 'Kami percaya pada transparansi penuh. Setiap tahap proyek dilakukan secara terstruktur dan Anda selalu diinformasikan perkembangannya.',
+      ctaTitle: 'Siap Memulai Proyek Anda?',
+      ctaDesc: 'Diskusikan kebutuhan Anda bersama kami secara gratis. Dapatkan estimasi biaya dan timeline yang transparan.',
+      ctaBtn: 'Konsultasi Gratis',
+      steps: [
+        {
+          title: 'Konsultasi & Analisis',
+          description: 'Kami memahami kebutuhan, tujuan bisnis, dan target pengguna proyek Anda secara mendalam melalui sesi diskusi.',
+          details: ['Riset kebutuhan bisnis', 'Analisis target pengguna', 'Penyusunan brief proyek'],
+        },
+        {
+          title: 'Desain & Prototyping',
+          description: 'Tim desainer kami merancang wireframe dan prototipe interaktif yang dapat Anda review dan setujui sebelum pengembangan.',
+          details: ['Wireframe & mockup', 'Prototipe interaktif', 'Revisi & approval desain'],
+        },
+        {
+          title: 'Pengembangan',
+          description: 'Developer kami membangun solusi menggunakan teknologi terkini dengan standar kode yang bersih, aman, dan terstruktur.',
+          details: ['Frontend & backend development', 'Testing & QA', 'Laporan progress berkala'],
+        },
+        {
+          title: 'Peluncuran & Perawatan',
+          description: 'Setelah pengujian menyeluruh, proyek diluncurkan. Kami terus memantau dan merawat sistem agar selalu optimal.',
+          details: ['Deployment & go-live', 'Monitoring performa', 'Dukungan & pembaruan berkala'],
+        },
+      ],
+    },
+    en: {
+      heading: ['Our ', 'Transparent Process'],
+      subheading: 'We believe in full transparency. Every project phase is structured and you are always kept informed of progress.',
+      ctaTitle: 'Ready to Start Your Project?',
+      ctaDesc: 'Discuss your needs with us for free. Get a transparent cost estimate and timeline.',
+      ctaBtn: 'Free Consultation',
+      steps: [
+        {
+          title: 'Consultation & Analysis',
+          description: 'We deeply understand your needs, business goals, and target users through dedicated discussion sessions.',
+          details: ['Business needs research', 'Target user analysis', 'Project brief preparation'],
+        },
+        {
+          title: 'Design & Prototyping',
+          description: 'Our design team creates wireframes and interactive prototypes you can review and approve before development.',
+          details: ['Wireframe & mockup', 'Interactive prototype', 'Design revision & approval'],
+        },
+        {
+          title: 'Development',
+          description: 'Our developers build solutions using the latest technologies with clean, secure, and structured code standards.',
+          details: ['Frontend & backend development', 'Testing & QA', 'Regular progress reports'],
+        },
+        {
+          title: 'Launch & Maintenance',
+          description: 'After thorough testing, the project goes live. We continuously monitor and maintain the system to keep it optimal.',
+          details: ['Deployment & go-live', 'Performance monitoring', 'Ongoing support & updates'],
+        },
+      ],
+    },
+  }[lang];
+
+  const STEPS = [
+    { step: '01', icon: <ClipboardList className="w-6 h-6 text-[#7C3AED]" />, ...t.steps[0] },
+    { step: '02', icon: <Palette className="w-6 h-6 text-[#7C3AED]" />, ...t.steps[1] },
+    { step: '03', icon: <Code2 className="w-6 h-6 text-[#7C3AED]" />, ...t.steps[2] },
+    { step: '04', icon: <Rocket className="w-6 h-6 text-[#7C3AED]" />, ...t.steps[3] },
+  ];
   return (
     <section className="relative w-full bg-[#7C3AED]/3 py-20 sm:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Background dot grid */}
@@ -53,12 +92,12 @@ const Process = () => {
         <div className="text-center mb-14">
           <div className="section-title-wrapper inline-block">
             <h2 className="font-['Inter'] font-extrabold tracking-tight text-gray-900 text-3xl sm:text-4xl lg:text-5xl animate-title-reveal">
-              <span className="shimmer-text">Proses </span>
-              <span className="text-gray-900">yang Transparan</span>
+              <span className="shimmer-text">{t.heading[0]}</span>
+              <span className="text-gray-900">{t.heading[1]}</span>
             </h2>
           </div>
           <p className="mt-4 text-gray-500 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
-            Kami percaya pada transparansi penuh. Setiap tahap proyek dilakukan secara terstruktur dan Anda selalu diinformasikan perkembangannya.
+            {t.subheading}
           </p>
         </div>
 
@@ -114,17 +153,17 @@ const Process = () => {
           <div className="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-6">
             <div>
               <h3 className="font-['Inter'] font-extrabold text-2xl sm:text-3xl mb-2">
-                Siap Memulai Proyek Anda?
+                {t.ctaTitle}
               </h3>
               <p className="text-white/75 text-sm sm:text-base max-w-lg">
-                Diskusikan kebutuhan Anda bersama kami secara gratis. Dapatkan estimasi biaya dan timeline yang transparan.
+                {t.ctaDesc}
               </p>
             </div>
             <a
               href="/contact"
               className="shrink-0 inline-flex items-center gap-2 bg-white text-[#7C3AED] font-bold text-sm sm:text-base px-7 py-4 rounded-2xl hover:bg-white/90 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
             >
-              Konsultasi Gratis
+              {t.ctaBtn}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>

@@ -2,20 +2,10 @@
 
 import React, { useState } from "react";
 import { Button } from "./ui/button";
-import { 
-  Phone, 
-  Mail, 
-  Clock, 
-  Send, 
-  CheckCircle2, 
-  AlertCircle, 
-  MessageSquare, 
-  Instagram, 
-  ArrowRight,
-  Loader2
-} from "lucide-react";
+import { Phone, Mail, Clock, Send, CheckCircle2, AlertCircle, Instagram, ArrowRight, Loader2 } from "lucide-react";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
+import { useLanguage } from "@/context/LanguageContext";
 
 const WhatsAppIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="currentColor" className={className} xmlns="http://www.w3.org/2000/svg">
@@ -30,12 +20,96 @@ const TikTokIcon = ({ className }: { className?: string }) => (
 );
 
 const Contact = () => {
+  const { lang } = useLanguage();
+
+  const t = lang === 'id' ? {
+    badge: 'Hubungi Garda Tech',
+    h1a: 'Ayo Mulai ',
+    h1b: 'Proyek Hebat',
+    h1c: ' Anda!',
+    sub: 'Konsultasikan kebutuhan digital Anda dengan tim developer dan desainer profesional kami secara gratis.',
+    infoTitle: 'Informasi Kontak',
+    phone: 'No. Telp',
+    email: 'Email Utama',
+    hours: 'Jam Layanan',
+    hoursVal: 'Setiap Hari: 08.00 - 16.00 WIB',
+    social: 'Sosial Media Kami',
+    waTag: 'Respon Tercepat (< 5 Menit)',
+    waTitle: 'Chat via WhatsApp',
+    waDesc: 'Konsultasi instan dan langsung terhubung dengan tim teknis Garda Tech.',
+    formTitle: 'Kirim Pesan Ke Email',
+    formSub: 'Isi formulir di bawah ini dan kami akan membalas via email dalam waktu maksimal 24 jam.',
+    successTitle: 'Pesan Terkirim!',
+    successMsg: 'Terima kasih telah menghubungi Garda Tech. Kami telah menerima pesan Anda dan akan segera menghubungi Anda kembali.',
+    errorTitle: 'Gagal Mengirim!',
+    labelName: 'Nama Lengkap *',
+    placeholderName: 'Masukkan nama Anda',
+    labelEmail: 'Alamat Email *',
+    placeholderEmail: 'contoh@email.com',
+    labelPhone: 'No. WhatsApp / Telp',
+    placeholderPhone: '0812xxxxxxxx',
+    labelSubject: 'Subjek Layanan',
+    subjectOptions: [
+      { value: 'Website Development', label: 'Website Development' },
+      { value: 'UI/UX Design', label: 'UI/UX Design' },
+      { value: 'Custom Web System', label: 'Custom Web System' },
+      { value: 'Brand & Digital Assets', label: 'Brand & Digital Assets' },
+      { value: 'Lainnya', label: 'Pertanyaan Lainnya' },
+    ],
+    labelMessage: 'Detail Kebutuhan / Pesan Anda *',
+    placeholderMessage: 'Ceritakan detail proyek atau pertanyaan yang ingin Anda ajukan kepada kami...',
+    sending: 'Mengirim...',
+    send: 'Kirim Pesan',
+    errorConn: 'Terjadi kesalahan koneksi internet.',
+    errorFail: 'Gagal mengirim pesan.',
+  } : {
+    badge: 'Contact Garda Tech',
+    h1a: "Let's Start Your ",
+    h1b: 'Amazing Project',
+    h1c: '!',
+    sub: 'Consult your digital needs with our professional team of developers and designers for free.',
+    infoTitle: 'Contact Information',
+    phone: 'Phone',
+    email: 'Main Email',
+    hours: 'Working Hours',
+    hoursVal: 'Every Day: 08:00 - 16:00 WIB',
+    social: 'Our Social Media',
+    waTag: 'Fastest Response (< 5 Minutes)',
+    waTitle: 'Chat via WhatsApp',
+    waDesc: 'Instant consultation directly connected with the Garda Tech technical team.',
+    formTitle: 'Send Us an Email',
+    formSub: 'Fill out the form below and we will reply via email within 24 hours.',
+    successTitle: 'Message Sent!',
+    successMsg: 'Thank you for contacting Garda Tech. We have received your message and will get back to you shortly.',
+    errorTitle: 'Failed to Send!',
+    labelName: 'Full Name *',
+    placeholderName: 'Enter your name',
+    labelEmail: 'Email Address *',
+    placeholderEmail: 'example@email.com',
+    labelPhone: 'WhatsApp / Phone',
+    placeholderPhone: '0812xxxxxxxx',
+    labelSubject: 'Service Subject',
+    subjectOptions: [
+      { value: 'Website Development', label: 'Website Development' },
+      { value: 'UI/UX Design', label: 'UI/UX Design' },
+      { value: 'Custom Web System', label: 'Custom Web System' },
+      { value: 'Brand & Digital Assets', label: 'Brand & Digital Assets' },
+      { value: 'Other', label: 'Other Questions' },
+    ],
+    labelMessage: 'Project Details / Your Message *',
+    placeholderMessage: 'Tell us about your project details or questions you want to ask us...',
+    sending: 'Sending...',
+    send: 'Send Message',
+    errorConn: 'A connection error occurred.',
+    errorFail: 'Failed to send message.',
+  };
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     subject: "Website Development",
-    message: ""
+    message: "",
   });
 
   const [loading, setLoading] = useState(false);
@@ -56,27 +130,21 @@ const Contact = () => {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(formData),
       });
 
       const result = await res.json();
       if (res.ok) {
         setStatus('success');
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          subject: "Website Development",
-          message: ""
-        });
+        setFormData({ name: "", email: "", phone: "", subject: "Website Development", message: "" });
       } else {
         setStatus('error');
-        setErrorMessage(result.error || "Gagal mengirim pesan.");
+        setErrorMessage(result.error || t.errorFail);
       }
     } catch (err) {
       console.error(err);
       setStatus('error');
-      setErrorMessage("Terjadi kesalahan koneksi internet.");
+      setErrorMessage(t.errorConn);
     } finally {
       setLoading(false);
     }
@@ -84,75 +152,72 @@ const Contact = () => {
 
   return (
     <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 relative overflow-hidden">
-      
+
       {/* Glow backgrounds */}
       <div className="absolute top-[20%] -left-32 w-[350px] h-[350px] bg-violet-100/50 rounded-full blur-[100px] pointer-events-none -z-10" />
       <div className="absolute bottom-[20%] -right-32 w-[350px] h-[350px] bg-purple-100/40 rounded-full blur-[100px] pointer-events-none -z-10" />
 
-      {/* Header Title */}
+      {/* ✅ Header Title — pakai variabel t */}
       <div className="text-center mb-16 relative">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#7C3AED]/8 border border-[#7C3AED]/20 text-[#7C3AED] text-xs sm:text-sm font-semibold mb-5 shadow-sm">
           <span className="w-1.5 h-1.5 rounded-full bg-[#7C3AED] animate-pulse" />
-          Hubungi Garda Tech
+          {t.badge}
         </div>
         <h1 className="font-['Inter'] font-extrabold tracking-tight text-gray-900 text-3xl sm:text-4xl lg:text-5xl">
-          Ayo Mulai <span className="text-[#7C3AED]">Proyek Hebat</span> Anda!
+          {t.h1a}<span className="text-[#7C3AED]">{t.h1b}</span>{t.h1c}
         </h1>
         <p className="mt-4 text-gray-500 max-w-2xl mx-auto text-sm sm:text-base font-['Inter']">
-          Konsultasikan kebutuhan digital Anda dengan tim developer dan desainer profesional kami secara gratis.
+          {t.sub}
         </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-        
-        {/* LEFT COLUMN: Contact Details & WA CTA */}
+
+        {/* LEFT COLUMN */}
         <div className="lg:col-span-5 flex flex-col gap-6 w-full">
-          
-          {/* Card Info Utama */}
+
+          {/* ✅ Card Info — pakai variabel t */}
           <Card className="border-violet-100/80 shadow-md shadow-violet-100/20 bg-white/80 backdrop-blur-md rounded-[28px] overflow-hidden">
             <CardContent className="p-6 sm:p-8 flex flex-col gap-6">
               <h2 className="text-xl sm:text-2xl font-bold font-['Inter'] text-gray-900 border-b border-gray-100 pb-4">
-                Informasi Kontak
+                {t.infoTitle}
               </h2>
 
               <div className="flex flex-col gap-5 font-['Inter']">
-                {/* No Telp */}
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-xl bg-violet-50 flex items-center justify-center text-[#7C3AED] shrink-0 border border-violet-100">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="text-xs uppercase tracking-wider font-semibold text-gray-400">No. Telp</h4>
+                    <h4 className="text-xs uppercase tracking-wider font-semibold text-gray-400">{t.phone}</h4>
                     <p className="text-base font-bold text-gray-800 mt-0.5">+62 831-7897-1423</p>
                   </div>
                 </div>
 
-                {/* Email */}
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-xl bg-violet-50 flex items-center justify-center text-[#7C3AED] shrink-0 border border-violet-100">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="text-xs uppercase tracking-wider font-semibold text-gray-400">Email Utama</h4>
+                    <h4 className="text-xs uppercase tracking-wider font-semibold text-gray-400">{t.email}</h4>
                     <p className="text-base font-bold text-gray-800 mt-0.5 break-all">gardatech765@gmail.com</p>
                   </div>
                 </div>
 
-                {/* Jam Kerja */}
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-xl bg-violet-50 flex items-center justify-center text-[#7C3AED] shrink-0 border border-violet-100">
                     <Clock className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="text-xs uppercase tracking-wider font-semibold text-gray-400">Jam Layanan</h4>
-                    <p className="text-base font-bold text-gray-800 mt-0.5">Setiap Hari: 08.00 - 16.00 WIB</p>
+                    <h4 className="text-xs uppercase tracking-wider font-semibold text-gray-400">{t.hours}</h4>
+                    <p className="text-base font-bold text-gray-800 mt-0.5">{t.hoursVal}</p>
                   </div>
                 </div>
               </div>
 
-              {/* Sosial Media */}
+              {/* ✅ Sosial Media */}
               <div className="mt-4 pt-6 border-t border-gray-100">
-                <h4 className="text-xs uppercase tracking-wider font-bold text-gray-400 mb-3">Sosial Media Kami</h4>
+                <h4 className="text-xs uppercase tracking-wider font-bold text-gray-400 mb-3">{t.social}</h4>
                 <div className="flex items-center gap-4">
                   <Link
                     href="https://www.instagram.com/garda_tech?igsh=MXJyMXUya2Y4aTBhZA=="
@@ -175,7 +240,7 @@ const Contact = () => {
             </CardContent>
           </Card>
 
-          {/* WHATSAPP CTA CARD */}
+          {/* ✅ WhatsApp CTA Card */}
           <Link
             href="https://wa.me/6283178971423?text=Halo%20Garda%20Tech,%20saya%20tertarik%20dengan%20layanan%20Anda."
             target="_blank"
@@ -183,9 +248,7 @@ const Contact = () => {
             className="w-full block group outline-none"
           >
             <div className="relative overflow-hidden bg-gradient-to-br from-emerald-500 to-teal-600 rounded-[28px] p-6 text-white shadow-lg shadow-emerald-200/50 hover:shadow-xl hover:shadow-emerald-300/40 hover:-translate-y-1 transition-all duration-300">
-              {/* Decorative dynamic pulse */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl pointer-events-none group-hover:scale-125 transition-transform duration-500" />
-              
               <div className="flex items-center gap-4 relative z-10">
                 <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-emerald-600 shadow-md shrink-0 animate-pulse">
                   <WhatsAppIcon className="w-8 h-8" />
@@ -193,13 +256,13 @@ const Contact = () => {
                 <div className="flex-1 text-left">
                   <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-white/20 text-white text-[10px] font-bold uppercase tracking-wider mb-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />
-                    Respon Tercepat (&lt; 5 Menit)
+                    {t.waTag}
                   </div>
                   <h3 className="text-lg sm:text-xl font-bold font-['Inter'] leading-tight">
-                    Chat via WhatsApp
+                    {t.waTitle}
                   </h3>
                   <p className="text-xs text-white/80 font-['Inter'] mt-1 leading-normal">
-                    Konsultasi instan dan langsung terhubung dengan tim teknis Garda Tech.
+                    {t.waDesc}
                   </p>
                 </div>
                 <ArrowRight className="w-5 h-5 text-white/80 group-hover:translate-x-1.5 transition-transform duration-300 shrink-0" />
@@ -209,23 +272,25 @@ const Contact = () => {
 
         </div>
 
-        {/* RIGHT COLUMN: Contact Form (Resend Integration) */}
+        {/* RIGHT COLUMN: Form */}
         <div className="lg:col-span-7 w-full">
           <Card className="border-violet-100/80 shadow-lg shadow-violet-100/10 bg-white rounded-[28px]">
             <CardContent className="p-6 sm:p-8 lg:p-10">
+
+              {/* ✅ Form title */}
               <h2 className="text-xl sm:text-2xl font-bold font-['Inter'] text-gray-900 mb-2">
-                Kirim Pesan Ke Email
+                {t.formTitle}
               </h2>
               <p className="text-sm text-gray-400 font-['Inter'] mb-8">
-                Isi formulir di bawah ini dan kami akan membalas via email dalam waktu maksimal 24 jam.
+                {t.formSub}
               </p>
 
-              {/* Status Alert Messages */}
+              {/* ✅ Status alerts */}
               {status === 'success' && (
                 <div className="mb-6 p-4 bg-emerald-50 border border-emerald-100 rounded-2xl flex items-start gap-3 text-emerald-800 text-sm font-['Inter']">
                   <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
                   <div>
-                    <span className="font-bold">Pesan Terkirim!</span> Terima kasih telah menghubungi Garda Tech. Kami telah menerima pesan Anda dan akan segera menghubungi Anda kembali.
+                    <span className="font-bold">{t.successTitle}</span> {t.successMsg}
                   </div>
                 </div>
               )}
@@ -234,24 +299,23 @@ const Contact = () => {
                 <div className="mb-6 p-4 bg-rose-50 border border-rose-100 rounded-2xl flex items-start gap-3 text-rose-800 text-sm font-['Inter']">
                   <AlertCircle className="w-5 h-5 text-rose-500 shrink-0 mt-0.5" />
                   <div>
-                    <span className="font-bold">Gagal Mengirim!</span> {errorMessage}
+                    <span className="font-bold">{t.errorTitle}</span> {errorMessage}
                   </div>
                 </div>
               )}
 
-              {/* Form Input fields */}
+              {/* ✅ Form fields */}
               <form onSubmit={handleSubmit} className="flex flex-col gap-5 font-['Inter'] text-sm">
-                
-                {/* Grid Nama & Email */}
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="flex flex-col gap-1.5">
-                    <label htmlFor="name" className="font-bold text-gray-700">Nama Lengkap *</label>
+                    <label htmlFor="name" className="font-bold text-gray-700">{t.labelName}</label>
                     <input
                       type="text"
                       id="name"
                       name="name"
                       required
-                      placeholder="Masukkan nama Anda"
+                      placeholder={t.placeholderName}
                       value={formData.name}
                       onChange={handleChange}
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[#7C3AED] focus:ring-1 focus:ring-[#7C3AED] bg-gray-50/30 transition-all"
@@ -259,13 +323,13 @@ const Contact = () => {
                   </div>
 
                   <div className="flex flex-col gap-1.5">
-                    <label htmlFor="email" className="font-bold text-gray-700">Alamat Email *</label>
+                    <label htmlFor="email" className="font-bold text-gray-700">{t.labelEmail}</label>
                     <input
                       type="email"
                       id="email"
                       name="email"
                       required
-                      placeholder="contoh@email.com"
+                      placeholder={t.placeholderEmail}
                       value={formData.email}
                       onChange={handleChange}
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[#7C3AED] focus:ring-1 focus:ring-[#7C3AED] bg-gray-50/30 transition-all"
@@ -273,15 +337,14 @@ const Contact = () => {
                   </div>
                 </div>
 
-                {/* Grid No. WA & Subject */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="flex flex-col gap-1.5">
-                    <label htmlFor="phone" className="font-bold text-gray-700">No. WhatsApp / Telp</label>
+                    <label htmlFor="phone" className="font-bold text-gray-700">{t.labelPhone}</label>
                     <input
                       type="tel"
                       id="phone"
                       name="phone"
-                      placeholder="0812xxxxxxxx"
+                      placeholder={t.placeholderPhone}
                       value={formData.phone}
                       onChange={handleChange}
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[#7C3AED] focus:ring-1 focus:ring-[#7C3AED] bg-gray-50/30 transition-all"
@@ -289,7 +352,7 @@ const Contact = () => {
                   </div>
 
                   <div className="flex flex-col gap-1.5">
-                    <label htmlFor="subject" className="font-bold text-gray-700">Subjek Layanan</label>
+                    <label htmlFor="subject" className="font-bold text-gray-700">{t.labelSubject}</label>
                     <select
                       id="subject"
                       name="subject"
@@ -297,31 +360,28 @@ const Contact = () => {
                       onChange={handleChange}
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[#7C3AED] focus:ring-1 focus:ring-[#7C3AED] bg-white transition-all appearance-none cursor-pointer"
                     >
-                      <option value="Website Development">Website Development</option>
-                      <option value="UI/UX Design">UI/UX Design</option>
-                      <option value="Custom Web System">Custom Web System</option>
-                      <option value="Brand & Digital Assets">Brand & Digital Assets</option>
-                      <option value="Lainnya">Pertanyaan Lainnya</option>
+                      {t.subjectOptions.map((opt) => (
+                        <option key={opt.value} value={opt.value}>{opt.label}</option>
+                      ))}
                     </select>
                   </div>
                 </div>
 
-                {/* Message input */}
                 <div className="flex flex-col gap-1.5">
-                  <label htmlFor="message" className="font-bold text-gray-700">Detail Kebutuhan / Pesan Anda *</label>
+                  <label htmlFor="message" className="font-bold text-gray-700">{t.labelMessage}</label>
                   <textarea
                     id="message"
                     name="message"
                     required
                     rows={5}
-                    placeholder="Ceritakan detail proyek atau pertanyaan yang ingin Anda ajukan kepada kami..."
+                    placeholder={t.placeholderMessage}
                     value={formData.message}
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[#7C3AED] focus:ring-1 focus:ring-[#7C3AED] bg-gray-50/30 transition-all resize-none leading-relaxed"
                   />
                 </div>
 
-                {/* Submit button */}
+                {/* ✅ Submit button */}
                 <Button
                   type="submit"
                   disabled={loading}
@@ -330,12 +390,12 @@ const Contact = () => {
                   {loading ? (
                     <>
                       <Loader2 className="w-5 h-5 animate-spin" />
-                      Mengirim...
+                      {t.sending}
                     </>
                   ) : (
                     <>
                       <Send className="w-4 h-4" />
-                      Kirim Pesan
+                      {t.send}
                     </>
                   )}
                 </Button>
@@ -346,7 +406,6 @@ const Contact = () => {
         </div>
 
       </div>
-
     </section>
   );
 };

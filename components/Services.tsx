@@ -11,50 +11,113 @@ import {
   CardContent,
   CardFooter,
 } from '@/components/ui/card';
-
-const SERVICES = [
-  {
-    icon: <Globe className="w-6 h-6 text-[#7C3AED]" />,
-    number: '01',
-    title: 'Website Development',
-    description: 'Website modern, cepat, dan responsif menggunakan teknologi terkini seperti Next.js, React, dan Laravel.',
-    tags: ['Next.js', 'React', 'Laravel'],
-    href: '/website-development',
-  },
-  {
-    icon: <Palette className="w-6 h-6 text-[#7C3AED]" />,
-    number: '02',
-    title: 'UI/UX Design',
-    description: 'Desain antarmuka yang intuitif, menarik, dan berpusat pada pengalaman pengguna yang optimal.',
-    tags: ['Figma', 'Prototyping', 'User Research'],
-    href: '/ui-ux-design',
-  },
-  {
-    icon: <Settings className="w-6 h-6 text-[#7C3AED]" />,
-    number: '03',
-    title: 'Custom Web System',
-    description: 'Sistem web kustom yang dirancang khusus sesuai kebutuhan operasional dan proses bisnis unik Anda.',
-    tags: ['ERP', 'CRM', 'Dashboard'],
-    href: '/custom-web-system',
-  },
-  {
-    icon: <Smartphone className="w-6 h-6 text-[#7C3AED]" />,
-    number: '04',
-    title: 'Brand & Digital Assets',
-    description: 'Identitas brand yang kuat — dari logo, panduan visual, hingga seluruh aset digital bisnis Anda.',
-    tags: ['Logo', 'Brand Guide', 'Social Kit'],
-    href: '/brand-digital-assets',
-  },
-];
-
-const STATS = [
-  { icon: <Star className="w-5 h-5 text-[#7C3AED]" />, value: '15+', label: 'Proyek Selesai' },
-  { icon: <Zap className="w-5 h-5 text-[#7C3AED]" />, value: '99%', label: 'Kepuasan Klien' },
-  { icon: <Shield className="w-5 h-5 text-[#7C3AED]" />, value: '2', label: 'Tahun Berpengalaman' },
-  { icon: <Globe className="w-5 h-5 text-[#7C3AED]" />, value: '24/7', label: 'Dukungan Teknis' },
-];
+import { useLanguage } from '@/context/LanguageContext';
 
 const Services = () => {
+  const { lang } = useLanguage();
+
+  const t = {
+    id: {
+      heading: ['Apa yang ', 'Kami Tawarkan'],
+      subheading: 'Dari konsep hingga peluncuran, kami menyediakan solusi digital lengkap yang disesuaikan dengan kebutuhan spesifik bisnis Anda.',
+      learnMore: 'Pelajari Selengkapnya',
+      services: [
+        {
+          title: 'Website Development',
+          description: 'Website modern, cepat, dan responsif menggunakan teknologi terkini seperti Next.js, React, dan Laravel.',
+        },
+        {
+          title: 'UI/UX Design',
+          description: 'Desain antarmuka yang intuitif, menarik, dan berpusat pada pengalaman pengguna yang optimal.',
+        },
+        {
+          title: 'Custom Web System',
+          description: 'Sistem web kustom yang dirancang khusus sesuai kebutuhan operasional dan proses bisnis unik Anda.',
+        },
+        {
+          title: 'Brand & Digital Assets',
+          description: 'Identitas brand yang kuat — dari logo, panduan visual, hingga seluruh aset digital bisnis Anda.',
+        },
+      ],
+      stats: [
+        { value: '15+', label: 'Proyek Selesai' },
+        { value: '99%', label: 'Kepuasan Klien' },
+        { value: '2', label: 'Tahun Berpengalaman' },
+        { value: '24/7', label: 'Dukungan Teknis' },
+      ],
+    },
+    en: {
+      heading: ['What We ', 'Offer'],
+      subheading: 'From concept to launch, we provide complete digital solutions tailored to your specific business needs.',
+      learnMore: 'Learn More',
+      services: [
+        {
+          title: 'Website Development',
+          description: 'Modern, fast, and responsive websites built with cutting-edge technologies like Next.js, React, and Laravel.',
+        },
+        {
+          title: 'UI/UX Design',
+          description: 'Intuitive, attractive interfaces focused on delivering an optimal user experience.',
+        },
+        {
+          title: 'Custom Web System',
+          description: 'Custom web systems designed specifically for your operational needs and unique business processes.',
+        },
+        {
+          title: 'Brand & Digital Assets',
+          description: 'Strong brand identity — from logos and visual guidelines to all your business digital assets.',
+        },
+      ],
+      stats: [
+        { value: '15+', label: 'Projects Done' },
+        { value: '99%', label: 'Client Satisfaction' },
+        { value: '2', label: 'Years Experience' },
+        { value: '24/7', label: 'Technical Support' },
+      ],
+    },
+  }[lang];
+
+  const SERVICES = [
+    {
+      icon: <Globe className="w-6 h-6 text-[#7C3AED]" />,
+      number: '01',
+      title: t.services[0].title,
+      description: t.services[0].description,
+      tags: ['Next.js', 'React', 'Laravel'],
+      href: '/website-development',
+    },
+    {
+      icon: <Palette className="w-6 h-6 text-[#7C3AED]" />,
+      number: '02',
+      title: t.services[1].title,
+      description: t.services[1].description,
+      tags: ['Figma', 'Prototyping', 'User Research'],
+      href: '/ui-ux-design',
+    },
+    {
+      icon: <Settings className="w-6 h-6 text-[#7C3AED]" />,
+      number: '03',
+      title: t.services[2].title,
+      description: t.services[2].description,
+      tags: ['ERP', 'CRM', 'Dashboard'],
+      href: '/custom-web-system',
+    },
+    {
+      icon: <Smartphone className="w-6 h-6 text-[#7C3AED]" />,
+      number: '04',
+      title: t.services[3].title,
+      description: t.services[3].description,
+      tags: ['Logo', 'Brand Guide', 'Social Kit'],
+      href: '/brand-digital-assets',
+    },
+  ];
+
+  const STATS = [
+    { icon: <Star className="w-5 h-5 text-[#7C3AED]" />, ...t.stats[0] },
+    { icon: <Zap className="w-5 h-5 text-[#7C3AED]" />, ...t.stats[1] },
+    { icon: <Shield className="w-5 h-5 text-[#7C3AED]" />, ...t.stats[2] },
+    { icon: <Globe className="w-5 h-5 text-[#7C3AED]" />, ...t.stats[3] },
+  ];
   return (
     <section className="relative w-full bg-white py-20 sm:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Background Aura */}
@@ -66,12 +129,12 @@ const Services = () => {
         <div className="text-center mb-14">
           <div className="section-title-wrapper inline-block">
             <h2 className="font-['Inter'] font-extrabold tracking-tight text-gray-900 text-3xl sm:text-4xl lg:text-5xl animate-title-reveal">
-              <span className="shimmer-text">Apa yang </span>
-              <span className="text-gray-900">Kami Tawarkan</span>
+              <span className="shimmer-text">{t.heading[0]}</span>
+              <span className="text-gray-900">{t.heading[1]}</span>
             </h2>
           </div>
           <p className="mt-4 text-gray-500 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
-            Dari konsep hingga peluncuran, kami menyediakan solusi digital lengkap yang disesuaikan dengan kebutuhan spesifik bisnis Anda.
+            {t.subheading}
           </p>
         </div>
 
@@ -140,7 +203,7 @@ const Services = () => {
 
                 <CardFooter className="px-6 pt-4 pb-5 mt-auto">
                   <div className="flex items-center gap-1.5 text-xs font-semibold text-[#7C3AED] group-hover:gap-2.5 transition-all duration-300">
-                    <span>Pelajari Selengkapnya</span>
+                    <span>{t.learnMore}</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-300" />
                   </div>
                 </CardFooter>

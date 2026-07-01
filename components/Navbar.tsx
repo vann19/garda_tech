@@ -6,10 +6,12 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Dock, { DockItemData } from "@/components/Dock";
 import { Home, Info, Compass, Briefcase, Tag, Mail } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { lang, toggleLang } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -84,6 +86,14 @@ const Navbar = () => {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-4">
+            <button
+              onClick={toggleLang}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-gray-200 text-sm font-semibold text-gray-600 hover:border-violet-400 hover:text-violet-600 transition-all duration-200"
+              aria-label="Toggle language"
+            >
+              <span>{lang === 'id' ? '🇮🇩' : '🇬🇧'}</span>
+              <span>{lang === 'id' ? 'ID' : 'EN'}</span>
+            </button>
             <Button variant="glow" size="pill" asChild>
               <Link href="/price">
                 Let&apos;s Talk

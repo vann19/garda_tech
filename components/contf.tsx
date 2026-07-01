@@ -1,6 +1,9 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 import { Instagram } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 const TikTokIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="currentColor" className={className} xmlns="http://www.w3.org/2000/svg">
@@ -9,7 +12,10 @@ const TikTokIcon = ({ className }: { className?: string }) => (
 );
 
 const ConfPage = () => {
-  return (
+  const { lang } = useLanguage();
+  const t = lang === 'id'
+    ? { phone: 'No. Telp', hours: 'Jam Kerja', social: 'Sosial Media' }
+    : { phone: 'Phone', hours: 'Working Hours', social: 'Social Media' };
     <footer className="relative w-full py-20 px-4 md:px-8 overflow-hidden bg-white">
 
       {/* --- BACKGROUND BLUR / GLOW ORBS --- */}
@@ -42,7 +48,7 @@ const ConfPage = () => {
 
             {/* No Telp */}
             <div className="flex flex-col gap-3">
-              <h3 className="text-violet-600 text-2xl sm:text-3xl font-bold font-['Syne']">No. Telp</h3>
+              <h3 className="text-violet-600 text-2xl sm:text-3xl font-bold font-['Syne']">{t.phone}</h3>
               <p className="text-gray-800 text-lg sm:text-xl lg:text-2xl font-normal font-['Inter']">
                 +62 831-2111-3643
               </p>
@@ -50,7 +56,7 @@ const ConfPage = () => {
 
             {/* Jam Kerja */}
             <div className="flex flex-col gap-3">
-              <h3 className="text-violet-600 text-2xl sm:text-3xl font-bold font-['Syne']">Jam Kerja</h3>
+              <h3 className="text-violet-600 text-2xl sm:text-3xl font-bold font-['Syne']">{t.hours}</h3>
               <p className="text-gray-800 text-lg sm:text-xl lg:text-2xl font-normal font-['Inter']">
                 08.00 - 16.00 WIB
               </p>
@@ -71,7 +77,7 @@ const ConfPage = () => {
 
           {/* Sosial Media */}
           <div className="flex flex-col items-center gap-6">
-            <h3 className="text-violet-600 text-2xl sm:text-3xl font-bold font-['Syne']">Sosial Media</h3>
+            <h3 className="text-violet-600 text-2xl sm:text-3xl font-bold font-['Syne']">{t.social}</h3>
 
             {/* Icon Sosial Media */}
             <div className="flex items-center gap-8 sm:gap-12">

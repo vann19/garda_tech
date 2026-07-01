@@ -8,30 +8,55 @@ const ArrowIcon = () => (
   </svg>
 )
 
-const information = [
-  {
-    number: '01.',
-    title: 'Website\nDevelopment',
-    slug: 'website-development',
-  },
-  {
-    number: '02.',
-    title: 'UI/UX\nDesign',
-    slug: 'ui-ux-design',
-  },
-  {
-    number: '03.',
-    title: 'Custom Web\nSystem',
-    slug: 'custom-web-system',
-  },
-  {
-    number: '04.',
-    title: 'Brand &\nDigital Assets',
-    slug: 'brand-digital-assets',
-  },
-]
+interface CardSlugProps {
+  lang?: string
+}
 
-const CardSlug = () => {
+const CardSlug = ({ lang = 'id' }: CardSlugProps) => {
+  const information = lang === 'id' ? [
+    {
+      number: '01.',
+      title: 'Website\nDevelopment',
+      slug: 'website-development',
+    },
+    {
+      number: '02.',
+      title: 'UI/UX\nDesign',
+      slug: 'ui-ux-design',
+    },
+    {
+      number: '03.',
+      title: 'Custom Web\nSystem',
+      slug: 'custom-web-system',
+    },
+    {
+      number: '04.',
+      title: 'Brand &\nDigital Assets',
+      slug: 'brand-digital-assets',
+    },
+  ] : [
+    {
+      number: '01.',
+      title: 'Website\nDevelopment',
+      slug: 'website-development',
+    },
+    {
+      number: '02.',
+      title: 'UI/UX\nDesign',
+      slug: 'ui-ux-design',
+    },
+    {
+      number: '03.',
+      title: 'Custom Web\nSystem',
+      slug: 'custom-web-system',
+    },
+    {
+      number: '04.',
+      title: 'Brand &\nDigital Assets',
+      slug: 'brand-digital-assets',
+    },
+  ]
+
   return (
     <section className="relative w-full py-6 sm:py-16 px-4 sm:px-8 z-20 bg-white overflow-hidden">
 
@@ -44,7 +69,7 @@ const CardSlug = () => {
       {/* Cards Grid */}
       <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
         {information.map((info, index) => (
-          <Link key={info.slug} href={`/${info.slug}`} className="group block"
+          <Link key={info.slug} href={`/portofolio`} className="group block"
             style={{ animationDelay: `${index * 0.1}s` }}
           >
             <div className="card-slug">

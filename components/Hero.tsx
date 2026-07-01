@@ -5,6 +5,7 @@ import Link from 'next/link';
 import RotatingText from '@/components/RotatingText';
 import LogoLoop from '@/components/LogoLoop';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/context/LanguageContext';
 import { 
   Laptop, 
   Smartphone, 
@@ -18,24 +19,45 @@ import {
 } from 'lucide-react';
 
 const Hero = () => {
-  const HERO_TEXTS = {
-    titleStart: 'Jasa Pembuatan &',
-    titleHighlight: 'Perawatan Website',
-    titleEnd: 'Serta Aplikasi Seluler',
-    description:
-      'Membangun platform digital berkinerja tinggi, aman, dan responsif. Kami tidak hanya membuat code, tapi juga merawat dan mengoptimalkannya demi kelangsungan bisnis Anda.',
-  };
+  const { lang } = useLanguage();
+
+  const t = {
+    id: {
+      titleStart: 'Jasa Pembuatan &',
+      titleEnd: 'Serta Aplikasi Seluler',
+      description: 'Membangun platform digital berkinerja tinggi, aman, dan responsif. Kami tidak hanya membuat code, tapi juga merawat dan mengoptimalkannya demi kelangsungan bisnis Anda.',
+      rotatingTexts: ['Perawatan Website', 'Pembuatan Aplikasi', 'Sistem Kustom', 'Desain UI/UX'],
+      btnStart: 'Mulai Proyek',
+      btnPortfolio: 'Lihat Portfolio',
+      feature1: 'Full SLA Maintenance',
+      feature2: 'High Uptime & Security',
+      feature3: 'Proses 100% Transparan',
+      techLabel: 'Teknologi Modern Yang Kami Rawat & Kembangkan:',
+    },
+    en: {
+      titleStart: 'Website Creation &',
+      titleEnd: 'And Mobile Applications',
+      description: 'Building high-performance, secure, and responsive digital platforms. We don\'t just write code — we maintain and optimize it for your business continuity.',
+      rotatingTexts: ['Website Maintenance', 'App Development', 'Custom Systems', 'UI/UX Design'],
+      btnStart: 'Start Project',
+      btnPortfolio: 'View Portfolio',
+      feature1: 'Full SLA Maintenance',
+      feature2: 'High Uptime & Security',
+      feature3: '100% Transparent Process',
+      techLabel: 'Modern Technologies We Maintain & Develop:',
+    },
+  }[lang];
 
   const CTA_BUTTONS = [
     {
       href: '/price',
-      label: 'Mulai Proyek',
+      label: t.btnStart,
       variant: 'primary',
       className: 'bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white shadow-lg shadow-violet-200 hover:shadow-xl hover:shadow-violet-300/40 hover:-translate-y-0.5 transition-all duration-300',
     },
     {
       href: '/portofolio',
-      label: 'Lihat Portfolio',
+      label: t.btnPortfolio,
       variant: 'outline',
       className: 'bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 hover:text-violet-600 hover:border-violet-200 hover:-translate-y-0.5 transition-all duration-300',
     },
@@ -120,11 +142,11 @@ const Hero = () => {
           {/* Core Headline */}
           <div className="font-['Inter'] font-extrabold tracking-tighter text-gray-900 text-[30px] sm:text-[42px] md:text-[50px] lg:text-[56px] xl:text-[64px]">
             <h1 className="leading-[1.15]">
-              Jasa Pembuatan &{' '}
+              {t.titleStart}{' '}
             </h1>
             <div className="flex items-center justify-center lg:justify-start overflow-visible" style={{ height: '1.4em', paddingBottom: '0.15em' }}>
               <RotatingText
-                texts={['Perawatan Website', 'Pembuatan Aplikasi', 'Sistem Kustom', 'Desain UI/UX']}
+                texts={t.rotatingTexts}
                 mainClassName="text-violet-600"
                 elementLevelClassName="text-violet-600"
                 staggerFrom="first"
@@ -138,28 +160,28 @@ const Hero = () => {
               />
             </div>
             <p className="leading-[1.15] mt-1">
-              Serta Aplikasi Seluler
+              {t.titleEnd}
             </p>
           </div>
 
           {/* Description */}
           <p className="text-gray-500 max-w-[580px] text-xs sm:text-sm md:text-base leading-relaxed sm:leading-relaxed lg:leading-loose mt-4">
-            {HERO_TEXTS.description}
+            {t.description}
           </p>
 
           {/* Core Feature Bullet Highlights */}
           <div className="flex flex-wrap justify-center lg:justify-start gap-x-6 gap-y-2.5 mt-6 max-w-lg">
             <div className="flex items-center gap-2 text-xs sm:text-sm font-medium text-gray-700">
               <CheckCircle2 className="w-4 h-4 text-violet-600 shrink-0" />
-              <span>Full SLA Maintenance</span>
+              <span>{t.feature1}</span>
             </div>
             <div className="flex items-center gap-2 text-xs sm:text-sm font-medium text-gray-700">
               <CheckCircle2 className="w-4 h-4 text-violet-600 shrink-0" />
-              <span>High Uptime & Security</span>
+              <span>{t.feature2}</span>
             </div>
             <div className="flex items-center gap-2 text-xs sm:text-sm font-medium text-gray-700">
               <CheckCircle2 className="w-4 h-4 text-violet-600 shrink-0" />
-              <span>Proses 100% Transparan</span>
+              <span>{t.feature3}</span>
             </div>
           </div>
 
@@ -243,7 +265,7 @@ const Hero = () => {
           
           {/* Banner Title */}
           <div className="text-xs font-semibold uppercase tracking-wider text-gray-400 font-sans text-center lg:text-left">
-            Teknologi Modern Yang Kami Rawat & Kembangkan:
+            {t.techLabel}
           </div>
 
           {/* Technology Infinite Loop using LogoLoop */}

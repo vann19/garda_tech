@@ -1,9 +1,58 @@
+'use client';
+
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useLanguage } from '@/context/LanguageContext'
 
 const Footer = () => {
   const year = new Date().getFullYear()
+  const { lang } = useLanguage()
+
+  const t = {
+    id: {
+      tagline: 'Solusi teknologi profesional yang dibangun dengan presisi, dan dipercaya oleh klien.',
+      services: 'Layanan',
+      company: 'Perusahaan',
+      contact: 'Hubungi Kami',
+      serviceLinks: [
+        { label: 'Web Development', href: '/website-development' },
+        { label: 'UI/UX Design',    href: '/ui-ux-design' },
+        { label: 'Mobile App',      href: '/mobile-development' },
+        { label: 'Konsultasi IT',   href: '/contact' },
+        { label: 'Maintenance',     href: '/service' },
+      ],
+      companyLinks: [
+        { label: 'Tentang Kami', href: '/about' },
+        { label: 'Portfolio',    href: '/portofolio' },
+        { label: 'Harga',        href: '/price' },
+        { label: 'Kontak',       href: '/contact' },
+        { label: 'Layanan',      href: '/service' },
+      ],
+      rights: `© ${year} Garda Tech. Hak cipta dilindungi.`,
+    },
+    en: {
+      tagline: 'Professional technology solutions built with precision, trusted by clients.',
+      services: 'Services',
+      company: 'Company',
+      contact: 'Contact Us',
+      serviceLinks: [
+        { label: 'Web Development', href: '/website-development' },
+        { label: 'UI/UX Design',    href: '/ui-ux-design' },
+        { label: 'Mobile App',      href: '/mobile-development' },
+        { label: 'IT Consultation', href: '/contact' },
+        { label: 'Maintenance',     href: '/service' },
+      ],
+      companyLinks: [
+        { label: 'About Us',  href: '/about' },
+        { label: 'Portfolio', href: '/portofolio' },
+        { label: 'Pricing',   href: '/price' },
+        { label: 'Contact',   href: '/contact' },
+        { label: 'Services',  href: '/service' },
+      ],
+      rights: `© ${year} Garda Tech. All rights reserved.`,
+    },
+  }[lang]
 
   return (
     <footer className="relative bg-gray-950 text-white overflow-hidden">
@@ -18,17 +67,11 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-1 flex flex-col gap-5">
             <div className="flex items-center gap-3">
-              <Image
-                src="/img/logo.png"
-                alt="Garda Tech Logo"
-                width={36}
-                height={36}
-                className="w-9 h-9 object-contain shrink-0"
-              />
+              <Image src="/img/logo.png" alt="Garda Tech Logo" width={36} height={36} className="w-9 h-9 object-contain shrink-0" />
               <span className="text-xl font-bold tracking-tight">Garda Tech</span>
             </div>
             <p className="text-white/50 text-sm leading-relaxed max-w-[240px]">
-              Solusi teknologi profesional yang dibangun dengan presisi, dan dipercaya oleh klien.
+              {t.tagline}
             </p>
             {/* Social Icons */}
             <div className="flex items-center gap-3 mt-1">
@@ -54,30 +97,20 @@ const Footer = () => {
                   ),
                 },
               ].map(({ label, href, icon }) => (
-                <a
-                  key={label}
-                  href={href}
-                  aria-label={label}
-                  className="w-8 h-8 rounded-lg border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-violet-500/60 hover:bg-violet-500/10 transition-all duration-200"
-                >
+                <a key={label} href={href} aria-label={label}
+                  className="w-8 h-8 rounded-lg border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-violet-500/60 hover:bg-violet-500/10 transition-all duration-200">
                   {icon}
                 </a>
               ))}
             </div>
           </div>
 
-          {/* Layanan */}
+          {/* Services */}
           <div className="flex flex-col gap-4">
-            <h4 className="text-xs font-semibold uppercase tracking-widest text-white/30">Layanan</h4>
+            <h4 className="text-xs font-semibold uppercase tracking-widest text-white/30">{t.services}</h4>
             <ul className="space-y-3">
-              {[
-                { label: 'Web Development', href: '/website-development' },
-                { label: 'UI/UX Design',     href: '/ui-ux-design' },
-                { label: 'Mobile App',       href: '/mobile-development' },
-                { label: 'Konsultasi IT',    href: '/contact' },
-                { label: 'Maintenance',      href: '/service' },
-              ].map(({ label, href }) => (
-                <li key={label}>
+              {t.serviceLinks.map(({ label, href }) => (
+                <li key={href}>
                   <Link href={href} className="text-sm text-white/55 hover:text-white transition-colors duration-150 flex items-center gap-2 group">
                     <span className="w-1 h-1 rounded-full bg-violet-500 opacity-0 group-hover:opacity-100 transition-opacity duration-150" />
                     {label}
@@ -87,18 +120,12 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Perusahaan */}
+          {/* Company */}
           <div className="flex flex-col gap-4">
-            <h4 className="text-xs font-semibold uppercase tracking-widest text-white/30">Perusahaan</h4>
+            <h4 className="text-xs font-semibold uppercase tracking-widest text-white/30">{t.company}</h4>
             <ul className="space-y-3">
-              {[
-                { label: 'Tentang Kami', href: '/about' },
-                { label: 'Portfolio',    href: '/portofolio' },
-                { label: 'Harga',        href: '/price' },
-                { label: 'Kontak',       href: '/contact' },
-                { label: 'Layanan',      href: '/service' },
-              ].map(({ label, href }) => (
-                <li key={label}>
+              {t.companyLinks.map(({ label, href }) => (
+                <li key={href}>
                   <Link href={href} className="text-sm text-white/55 hover:text-white transition-colors duration-150 flex items-center gap-2 group">
                     <span className="w-1 h-1 rounded-full bg-violet-500 opacity-0 group-hover:opacity-100 transition-opacity duration-150" />
                     {label}
@@ -108,9 +135,9 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Kontak */}
+          {/* Contact */}
           <div className="flex flex-col gap-4">
-            <h4 className="text-xs font-semibold uppercase tracking-widest text-white/30">Hubungi Kami</h4>
+            <h4 className="text-xs font-semibold uppercase tracking-widest text-white/30">{t.contact}</h4>
             <ul className="space-y-3 mb-2">
               <li className="flex items-start gap-2.5 text-sm text-white/55">
                 <svg className="w-4 h-4 mt-0.5 shrink-0 text-violet-400" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
@@ -134,7 +161,7 @@ const Footer = () => {
 
         {/* Bottom bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/30">
-          <p>&copy; {year} Garda Tech. All rights reserved.</p>
+          <p>{t.rights}</p>
           <div className="flex items-center gap-5">
             <Link href="/privacy-policy" className="hover:text-white/60 transition-colors">Privacy Policy</Link>
             <Link href="/terms-of-service" className="hover:text-white/60 transition-colors">Terms of Service</Link>
