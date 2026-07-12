@@ -41,7 +41,7 @@ const TeamMembers = () => {
           return (
             <Link
               key={member.slug}
-              href={`/team/${member.slug}`}
+              href={`/about/${member.slug}`}
               className="group flex flex-col rounded-2xl overflow-hidden bg-white border border-gray-100 shadow-sm hover:shadow-lg hover:border-violet-200 transition-all duration-300 hover:-translate-y-1"
               style={{ animationDelay: `${index * 0.08}s` }}
             >

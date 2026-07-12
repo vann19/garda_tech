@@ -20,23 +20,23 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/service", label: "Our Process" },
-    { href: "/portofolio", label: "Portfolio" },
-    { href: "/price", label: "Pricing" },
-    { href: "/contact", label: "Contact" },
+    { href: "/", label: lang === "id" ? "Beranda" : "Home" },
+    { href: "/about", label: lang === "id" ? "Tentang" : "About" },
+    { href: "/service", label: lang === "id" ? "Proses Kami" : "Our Process" },
+    { href: "/portofolio", label: lang === "id" ? "Portofolio" : "Portfolio" },
+    { href: "/price", label: lang === "id" ? "Harga" : "Pricing" },
+    { href: "/contact", label: lang === "id" ? "Kontak" : "Contact" },
   ];
 
   const closeMenu = () => setMenuOpen(false);
 
   const dockItems: DockItemData[] = [
-    { href: "/", label: "Home", icon: <Home /> },
-    { href: "/about", label: "About", icon: <Info /> },
-    { href: "/service", label: "Process", icon: <Compass /> },
-    { href: "/portofolio", label: "Portfolio", icon: <Briefcase /> },
-    { href: "/price", label: "Pricing", icon: <Tag /> },
-    { href: "/contact", label: "Contact", icon: <Mail /> },
+    { href: "/", label: lang === "id" ? "Beranda" : "Home", icon: <Home /> },
+    { href: "/about", label: lang === "id" ? "Tentang" : "About", icon: <Info /> },
+    { href: "/service", label: lang === "id" ? "Proses" : "Process", icon: <Compass /> },
+    { href: "/portofolio", label: lang === "id" ? "Portofolio" : "Portfolio", icon: <Briefcase /> },
+    { href: "/price", label: lang === "id" ? "Harga" : "Pricing", icon: <Tag /> },
+    { href: "/contact", label: lang === "id" ? "Kontak" : "Contact", icon: <Mail /> },
   ];
 
   return (

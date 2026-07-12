@@ -42,7 +42,7 @@ export default function MemberBioPage({ params }: Props) {
       <div className="w-full min-h-screen bg-white flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-gray-900 text-4xl font-bold font-['Syne']">{t.notFound}</h1>
-          <Link href="/team" className="text-violet-500 mt-4 inline-block hover:underline">
+          <Link href="/about" className="text-violet-500 mt-4 inline-block hover:underline">
             {t.backLink}
           </Link>
         </div>
@@ -201,7 +201,7 @@ export default function MemberBioPage({ params }: Props) {
                 {t.collaborateDesc}
               </p>
               <Link
-                href="/team"
+                href="/about"
                 className="block w-full text-center border border-white/40 text-white text-sm py-2.5 rounded-xl mt-2 hover:bg-white/15 transition-colors duration-200"
               >
                 {t.teamBtn}

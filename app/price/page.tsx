@@ -14,8 +14,8 @@ export default function Pricing() {
 
   const t = lang === 'id' ? {
     badge: 'Layanan & Paket Harga',
-    h1: 'Flexible Packages.',
-    h2: 'Transparent Pricing.',
+    h1: 'Paket Fleksibel.',
+    h2: 'Harga Transparan.',
     desc: 'Setiap paket dirancang untuk menyesuaikan kebutuhan dan skala bisnis Anda, dengan rincian biaya yang transparan tanpa biaya tersembunyi.',
     revisiTitle: 'Kebijakan Revisi & Garansi',
     revisiMinor: 'Minor:',
@@ -40,6 +40,7 @@ export default function Pricing() {
       { id: 'web', name: 'Web Development' },
       { id: 'mobile', name: 'Mobile App Development' },
       { id: 'audit', name: 'Audit Services' },
+      { id: 'social', name: 'Social Media' },
     ],
   } : {
     badge: 'Services & Pricing',
@@ -69,6 +70,7 @@ export default function Pricing() {
       { id: 'web', name: 'Web Development' },
       { id: 'mobile', name: 'Mobile App Development' },
       { id: 'audit', name: 'Audit Services' },
+      { id: 'social', name: 'Social Media' },
     ],
   };
 
@@ -88,7 +90,7 @@ export default function Pricing() {
 
   const firstRowCategories = t.categories.slice(0, 4);
   const secondRowCategories = t.categories.slice(4, 8);
-  const thirdRowCategories = t.categories.slice(8, 11);
+  const thirdRowCategories = t.categories.slice(8, 12);
 
   const services: Record<string, { tier: string; slug: string; price: string; period: string; features: string[]; promo?: string }[]> = {
     maintenance: [
@@ -408,6 +410,111 @@ export default function Pricing() {
           "Growth Audit package", "UX audit", "Security audit", "Content & SEO masterplan", "Executive report", "Figma prototype", "Tracking plan", "2x consultation sessions", "Unlimited revisions"
         ],
         promo: lang === 'id' ? "Kontrak 12 bulan → bonus 1x UI/UX review mini" : "12-month contract → bonus 1x mini UI/UX review"
+      }
+    ],
+    social: [
+      {
+        tier: "Santai Banget", slug: "santai-banget", price: "Rp1.000.000", period: lang === 'id' ? "/bulan" : "/month",
+        features: lang === 'id' ? [
+          "1 Akun Media Sosial",
+          "2 Konten Reels Instagram",
+          "Caption menarik & friendly",
+          "3 Feed Instagram",
+          "Caption & hashtag",
+          "Optimasi Bio",
+          "Caption Copywriting",
+          "Revisi Minor 1x"
+        ] : [
+          "1 Social Media Account",
+          "2 Instagram Reels Content",
+          "Engaging & friendly captions",
+          "3 Instagram Feed Posts",
+          "Caption & hashtag",
+          "Bio Optimization",
+          "Caption Copywriting",
+          "1x Minor Revision"
+        ],
+      },
+      {
+        tier: "Enjoy", slug: "enjoy", price: "Rp2.000.000", period: lang === 'id' ? "/bulan" : "/month",
+        features: lang === 'id' ? [
+          "Gratis Social Media Visual Guide Design",
+          "1 Akun Media Sosial",
+          "3 Konten Reels Instagram",
+          "5 Feed Instagram",
+          "Optimasi Bio",
+          "Caption Copywriting",
+          "Revisi Minor 1x"
+        ] : [
+          "Free Social Media Visual Guide Design",
+          "1 Social Media Account",
+          "3 Instagram Reels Content",
+          "5 Instagram Feed Posts",
+          "Bio Optimization",
+          "Caption Copywriting",
+          "1x Minor Revision"
+        ],
+        promo: lang === 'id' ? "Gratis Social Media Visual Guide Design" : "Free Social Media Visual Guide Design"
+      },
+      {
+        tier: "Santai", slug: "santai", price: "Rp3.500.000", period: lang === 'id' ? "/bulan" : "/month",
+        features: lang === 'id' ? [
+          "Gratis Konsultasi Bersama Social Media Expert",
+          "Gratis Visual Guide Design",
+          "1 Akun Media Sosial",
+          "Scheduling Konten",
+          "4 Konten Reels",
+          "4 Feed Instagram",
+          "2 Video Session",
+          "Optimasi Bio",
+          "Caption Copywriting",
+          "Group Private"
+        ] : [
+          "Free Consultation with Social Media Expert",
+          "Free Visual Guide Design",
+          "1 Social Media Account",
+          "Content Scheduling",
+          "4 Reels Content",
+          "4 Instagram Feed Posts",
+          "2 Video Sessions",
+          "Bio Optimization",
+          "Caption Copywriting",
+          "Private Group"
+        ],
+        promo: lang === 'id' ? "Gratis Konsultasi Bersama Social Media Expert" : "Free Consultation with Social Media Expert"
+      },
+      {
+        tier: "Rusuh", slug: "rusuh", price: "Rp5.000.000", period: lang === 'id' ? "/bulan" : "/month",
+        features: lang === 'id' ? [
+          "Gratis Konsultasi Bersama Social Media Expert",
+          "1 Akun Media Sosial",
+          "Scheduling Konten",
+          "10 Video TikTok",
+          "10 Reels Instagram",
+          "7 Feed Instagram",
+          "2 Deep Talk Session",
+          "1 Kali Content Shoot",
+          "Gratis 3 Highlight Instagram",
+          "Optimasi Bio",
+          "Konsistensi Caption Copywriting",
+          "Group Private",
+          "Admin Posting + Balas DM & Komentar"
+        ] : [
+          "Free Consultation with Social Media Expert",
+          "1 Social Media Account",
+          "Content Scheduling",
+          "10 TikTok Videos",
+          "10 Instagram Reels",
+          "7 Instagram Feed Posts",
+          "2 Deep Talk Sessions",
+          "1x Content Shoot",
+          "Free 3 Instagram Highlights",
+          "Bio Optimization",
+          "Consistent Caption Copywriting",
+          "Private Group",
+          "Posting Admin + Reply DM & Comments"
+        ],
+        promo: lang === 'id' ? "Termasuk Admin Posting + Balas DM & Komentar" : "Includes Posting Admin + Reply DM & Comments"
       }
     ]
   };
