@@ -6,8 +6,13 @@ import Link from 'next/link'
 import { members } from '@/lib/members'
 import { useLanguage } from '@/context/LanguageContext'
 
-const TeamMembers = () => {
-  const { lang } = useLanguage();
+interface TeamMembersProps {
+  lang?: string;
+}
+
+const TeamMembers = ({ lang: propLang }: TeamMembersProps) => {
+  const { lang: contextLang } = useLanguage();
+  const lang = propLang || contextLang;
   const t = lang === 'id'
     ? { shimmer: 'Tim', rest: ' Kami', sub: 'Profesional berpengalaman yang berdedikasi untuk menghadirkan solusi terbaik bagi setiap klien.', viewProfile: 'Lihat Profil' }
     : { shimmer: 'Our', rest: ' Team', sub: 'Experienced professionals dedicated to delivering the best solutions for every client.', viewProfile: 'View Profile' };

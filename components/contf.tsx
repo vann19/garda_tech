@@ -16,6 +16,8 @@ const ConfPage = () => {
   const t = lang === 'id'
     ? { phone: 'No. Telp', hours: 'Jam Kerja', social: 'Sosial Media' }
     : { phone: 'Phone', hours: 'Working Hours', social: 'Social Media' };
+
+  return (
     <footer className="relative w-full py-20 px-4 md:px-8 overflow-hidden bg-white">
 
       {/* --- BACKGROUND BLUR / GLOW ORBS --- */}

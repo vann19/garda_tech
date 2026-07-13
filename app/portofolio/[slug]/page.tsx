@@ -17,6 +17,7 @@ const projectDetails: Record<string, {
   descriptionEn: string
   images: { src: string }[]
   layout?: 'default' | 'mobile-grid'
+  titleFull?: boolean
 }> = {
   'ramadhan-kareem': {
     titleHighlight: 'Kareem',
