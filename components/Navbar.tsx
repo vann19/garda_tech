@@ -84,6 +84,16 @@ const Navbar = () => {
             </li>
           </ul>
 
+          {/* Mobile language toggle */}
+          <button
+            onClick={toggleLang}
+            className="lg:hidden flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-gray-200 text-sm font-semibold text-gray-600 hover:border-violet-400 hover:text-violet-600 transition-all duration-200"
+            aria-label="Toggle language"
+          >
+            <span>{lang === 'id' ? '🇮🇩' : '🇬🇧'}</span>
+            <span>{lang === 'id' ? 'ID' : 'EN'}</span>
+          </button>
+
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-4">
             <button
