@@ -148,6 +148,7 @@ export default function MemberBioPage({ params }: Props) {
               <div className="flex flex-col gap-3">
                 {member.experiences.map((exp, i) => {
                   const position = lang === 'id' ? exp.position : exp.positionEn
+                  const period = lang === 'id' ? exp.period : exp.periodEn
                   return (
                     <div key={i} className="flex items-start gap-4 p-4 rounded-xl bg-gray-50 border border-gray-100 hover:border-violet-200 hover:bg-violet-50/30 transition-colors">
                       <div className="w-10 h-10 rounded-lg bg-violet-50 border border-violet-100 flex items-center justify-center shrink-0">
@@ -158,7 +159,7 @@ export default function MemberBioPage({ params }: Props) {
                       <div>
                         <p className="font-semibold text-sm text-gray-900">{position}</p>
                         <p className="text-violet-600 text-xs mt-0.5">{exp.company}</p>
-                        <p className="text-gray-400 text-xs mt-1">{exp.period}</p>
+                        <p className="text-gray-400 text-xs mt-1">{period}</p>
                       </div>
                     </div>
                   )
@@ -172,6 +173,7 @@ export default function MemberBioPage({ params }: Props) {
               <div className="flex flex-col gap-3">
                 {member.educations.map((edu, i) => {
                   const major = lang === 'id' ? edu.major : edu.majorEn
+                  const period = lang === 'id' ? edu.period : edu.periodEn
                   return (
                     <div key={i} className="flex items-start gap-4 p-4 rounded-xl bg-gray-50 border border-gray-100 hover:border-violet-200 hover:bg-violet-50/30 transition-colors">
                       <div className="w-10 h-10 rounded-lg bg-violet-50 border border-violet-100 flex items-center justify-center shrink-0">
@@ -182,7 +184,7 @@ export default function MemberBioPage({ params }: Props) {
                       <div>
                         <p className="font-semibold text-sm text-gray-900">{edu.institution}</p>
                         <p className="text-violet-600 text-xs mt-0.5">{major}</p>
-                        <p className="text-gray-400 text-xs mt-1">{edu.period}</p>
+                        <p className="text-gray-400 text-xs mt-1">{period}</p>
                       </div>
                     </div>
                   )

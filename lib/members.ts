@@ -3,6 +3,7 @@ export type Experience = {
   position: string
   positionEn: string
   period: string
+  periodEn: string
 }
 
 export type Education = {
@@ -10,6 +11,7 @@ export type Education = {
   major: string
   majorEn: string
   period: string
+  periodEn: string
 }
 
 export type Member = {
@@ -50,11 +52,11 @@ export const members: Member[] = [
     instagram: 'https://www.instagram.com/imron.bagas/',
     linkedin: 'https://www.linkedin.com/in/imron-bagas-sajiwo-37755a3b6',
     experiences: [
-      { company: 'Garda Tech', position: 'Frontend Developer', positionEn: 'Frontend Developer', period: '2025 - Sekarang' },
-      { company: 'Freelance', position: 'Frontend Developer', positionEn: 'Frontend Developer', period: '2023 - Sekarang' },
+      { company: 'Garda Tech', position: 'Frontend Developer', positionEn: 'Frontend Developer', period: '2025 - Sekarang', periodEn: '2025 - Present' },
+      { company: 'Freelance', position: 'Frontend Developer', positionEn: 'Frontend Developer', period: '2023 - Sekarang', periodEn: '2023 - Present' },
     ],
     educations: [
-      { institution: 'Universitas Teknologi Yogyakarta', major: 'Sistem Informasi', majorEn: 'Information Systems', period: '2024 - 2026' },
+      { institution: 'Universitas Teknologi Yogyakarta', major: 'Sistem Informasi', majorEn: 'Information Systems', period: '2024 - Sekarang', periodEn: '2024 - Present' },
     ],
   },
   {
@@ -73,11 +75,11 @@ export const members: Member[] = [
     bioEn: 'Fullstack developer with 2 years of experience in building web and mobile applications. Experienced in modern technologies such as Next.js, React Native, and Node.js, with a focus on performance and optimal user experience.',
     linkedin: 'https://www.linkedin.com/in/fansyalaode',
     experiences: [
-      { company: 'Garda Tech', position: 'Back end Developer', positionEn: 'Backend Developer', period: '2025 - Sekarang' },
-      { company: 'Freelance', position: 'Fullstack Developer', positionEn: 'Fullstack Developer', period: '2023 - 2025' },
+      { company: 'Garda Tech', position: 'Back end Developer', positionEn: 'Backend Developer', period: '2025 - Sekarang', periodEn: '2025 - Present' },
+      { company: 'Freelance', position: 'Fullstack Developer', positionEn: 'Fullstack Developer', period: '2023 - 2025', periodEn: '2023 - 2025' },
     ],
     educations: [
-      { institution: 'Universitas Teknologi Yogyakarta', major: 'Teknik Informatika', majorEn: 'Informatics Engineering', period: '2022 - 2026' },
+      { institution: 'Universitas Teknologi Yogyakarta', major: 'Teknik Informatika', majorEn: 'Informatics Engineering', period: '2022 - Sekarang', periodEn: '2022 - Present' },
     ],
   },
   {
@@ -97,11 +99,12 @@ export const members: Member[] = [
     instagram: 'https://www.instagram.com/faaddlyy_',
     linkedin: 'https://www.linkedin.com/in/fadly-maulana',
     experiences: [
-      { company: 'Garda Tech', position: 'Business Development', positionEn: 'Business Development', period: '2025 - Sekarang' },
-      { company: 'PKM 2026 Universitas Teknologi Yogyakarta', position: 'Business Development', positionEn: 'Business Development', period: '2026 - 2026' },
+      { company: 'Garda Tech', position: 'Business Development', positionEn: 'Business Development', period: '2026 - Sekarang', periodEn: '2026 - Present' },
+      { company: 'PKM 2026 Universitas Teknologi Yogyakarta', position: 'Project Manager', positionEn: 'Project Manager', period: '2025 - 2026', periodEn: '2025 - 2026' },
+      { company: 'Garda Tech', position: 'Project Manager', positionEn: 'Project Manager', period: '2025 - 2026', periodEn: '2025 - 2026' },
     ],
     educations: [
-      { institution: 'Universitas Teknologi Yogyakarta', major: 'Sistem Informasi', majorEn: 'Information Systems', period: '2023 - 2027' },
+      { institution: 'Universitas Teknologi Yogyakarta', major: 'Sistem Informasi', majorEn: 'Information Systems', period: '2023 - Sekarang', periodEn: '2023 - Present' },
     ],
   },
   {
@@ -120,12 +123,12 @@ export const members: Member[] = [
     bioEn: 'I am a UI/UX Designer focused on designing digital experiences that are easy to use and comfortable for users. Through a combination of clear visual design and structured interaction flows, I strive to deliver digital products that are not only attractive but also functional. For me, design is not just about appearance, but how every element can help users achieve their goals more easily and efficiently.',
     instagram: 'https://www.instagram.com/khansasab/?utm_source=ig_web_button_share_sheet',
     experiences: [
-      { company: 'Garda Tech', position: 'Ui/Ux Designer', positionEn: 'UI/UX Designer', period: '2025 - Sekarang' },
-      { company: 'Freelance', position: 'Ui/Ux Designer', positionEn: 'UI/UX Designer', period: '2023 - 2025' },
-      { company: 'HMSI Universitas Teknologi Yogyakarta', position: 'Desain Visual', positionEn: 'Visual Design', period: '2023 - 2025' },
+      { company: 'Garda Tech', position: 'Ui/Ux Designer', positionEn: 'UI/UX Designer', period: '2025 - Sekarang', periodEn: '2025 - Present' },
+      { company: 'Freelance', position: 'Ui/Ux Designer', positionEn: 'UI/UX Designer', period: '2023 - 2025', periodEn: '2023 - 2025' },
+      { company: 'HMSI Universitas Teknologi Yogyakarta', position: 'Desain Visual', positionEn: 'Visual Design', period: '2023 - 2025', periodEn: '2023 - 2025' },
     ],
     educations: [
-      { institution: 'Universitas Teknologi Yogyakarta', major: 'Sistem Informasi', majorEn: 'Information Systems', period: '2023 - 2027' },
+      { institution: 'Universitas Teknologi Yogyakarta', major: 'Sistem Informasi', majorEn: 'Information Systems', period: '2023 - Sekarang', periodEn: '2023 - Present' },
     ],
   },
   {
@@ -144,12 +147,12 @@ export const members: Member[] = [
     bioEn: 'I am a social media specialist focused on helping brands tell their stories in a more engaging and relatable way. Through a combination of beautiful visual content and the right words, I strive to build genuine relationships between brands and their followers. My job is not just about posting content, but ensuring every post can build an active community and make brand identity more recognized in the digital world.',
     instagram: 'https://www.instagram.com/diannngrhn?igsh=MXZqM3htazN6Nmd1Nw==',
     experiences: [
-      { company: 'Garda Tech', position: 'Sosial Media Specialist', positionEn: 'Social Media Specialist', period: '2025 - Sekarang' },
-      { company: 'Freelance', position: 'Sosial Media Specialist', positionEn: 'Social Media Specialist', period: '2023 - 2025' },
-      { company: 'Divisi Infokom HMSI', position: 'Sosial Media Specialist', positionEn: 'Social Media Specialist', period: '2023 - 2025' },
+      { company: 'Garda Tech', position: 'Sosial Media Specialist', positionEn: 'Social Media Specialist', period: '2025 - Sekarang', periodEn: '2025 - Present' },
+      { company: 'Freelance', position: 'Sosial Media Specialist', positionEn: 'Social Media Specialist', period: '2023 - 2025', periodEn: '2023 - 2025' },
+      { company: 'Divisi Infokom HMSI', position: 'Sosial Media Specialist', positionEn: 'Social Media Specialist', period: '2023 - 2025', periodEn: '2023 - 2025' },
     ],
     educations: [
-      { institution: 'Universitas Teknologi Yogyakarta', major: 'Sistem Informasi', majorEn: 'Information Systems', period: '2023 - 2027' },
+      { institution: 'Universitas Teknologi Yogyakarta', major: 'Sistem Informasi', majorEn: 'Information Systems', period: '2023 - Sekarang', periodEn: '2023 - Present' },
     ],
   },
   {
@@ -168,12 +171,12 @@ export const members: Member[] = [
     bioEn: 'I am an Analysis and Marketing Specialist experienced in market analysis and building effective client acquisition strategies. With a background in Stock Exchange analysis and internship experience as a System Analyst, I have the unique ability to combine data-driven analytical approaches with creativity in digital marketing. My focus is helping brands tell their stories in relevant and engaging ways, building genuine relationships between brands and audiences, and ensuring every content strategy directly contributes to business growth.',
     instagram: 'https://www.instagram.com/dimaseeq__?igsh=ZnI5M2xlZGViOGlz',
     experiences: [
-      { company: 'Garda Tech', position: 'Marketing & Client Acquisition', positionEn: 'Marketing & Client Acquisition', period: '2025 - Sekarang' },
-      { company: 'Bursa Efek Indonesia', position: 'Analis Bursa Efek', positionEn: 'Stock Exchange Analyst', period: '2024 - 2025' },
-      { company: 'Magang', position: 'System Analyst', positionEn: 'System Analyst', period: '2023 - 2024' },
+      { company: 'Garda Tech', position: 'Marketing & Client Acquisition', positionEn: 'Marketing & Client Acquisition', period: '2025 - Sekarang', periodEn: '2025 - Present' },
+      { company: 'Bursa Efek Indonesia', position: 'Analis Bursa Efek', positionEn: 'Stock Exchange Analyst', period: '2024 - 2025', periodEn: '2024 - 2025' },
+      { company: 'Magang', position: 'System Analyst', positionEn: 'System Analyst', period: '2023 - 2024', periodEn: '2023 - 2024' },
     ],
     educations: [
-      { institution: 'Universitas Teknologi Yogyakarta', major: 'Sistem Informasi', majorEn: 'Information Systems', period: '2023 - 2027' },
+      { institution: 'Universitas Teknologi Yogyakarta', major: 'Sistem Informasi', majorEn: 'Information Systems', period: '2023 - Sekarang', periodEn: '2023 - Present' },
     ],
   },
   {
@@ -198,16 +201,18 @@ export const members: Member[] = [
         position: 'Bendahara Umum',
         positionEn: 'General Treasurer',
         period: '2024 - Sekarang',
+        periodEn: '2024 - Present',
       },
       {
         company: 'PKM 2025',
         position: 'Chief Finance Officer',
         positionEn: 'Chief Finance Officer',
         period: '2025',
+        periodEn: '2025',
       },
     ],
     educations: [
-      { institution: 'Universitas Teknologi Yogyakarta', major: 'Sistem Informasi', majorEn: 'Information Systems', period: '2023 - 2027' },
+      { institution: 'Universitas Teknologi Yogyakarta', major: 'Sistem Informasi', majorEn: 'Information Systems', period: '2023 - Sekarang', periodEn: '2023 - Present' },
     ],
   },
   {
@@ -229,19 +234,28 @@ export const members: Member[] = [
     experiences: [
       {
         company: 'Garda Tech',
-        position: 'Project Manager',
-        positionEn: 'Project Manager',
-        period: '2025 - Sekarang',
+        position: 'Business Development',
+        positionEn: 'Business Development',
+        period: '2025 - 2026',
+        periodEn: '2025 - 2026',
       },
       {
         company: 'Organisasi & Proyek Mahasiswa',
         position: 'Project Manager',
         positionEn: 'Project Manager',
         period: '2023 - 2025',
+        periodEn: '2023 - 2025',
+      },
+      {
+        company: 'Garda Tech',
+        position: 'Project Manager',
+        positionEn: 'Project Manager',
+        period: '2025 - Sekarang',
+        periodEn: '2025 - Present',
       },
     ],
     educations: [
-      { institution: 'Universitas Teknologi Yogyakarta', major: 'Sistem Informasi', majorEn: 'Information Systems', period: '2023 - 2027' },
+      { institution: 'Universitas Teknologi Yogyakarta', major: 'Sistem Informasi', majorEn: 'Information Systems', period: '2023 - Sekarang', periodEn: '2023 - Present' },
     ],
   },
   {
@@ -266,16 +280,18 @@ export const members: Member[] = [
         position: 'Video Editor',
         positionEn: 'Video Editor',
         period: '2023 - Sekarang',
+        periodEn: '2023 - Present',
       },
       {
         company: 'Bengkel AC',
         position: 'Mekanik AC Mobil dan Ruangan',
         positionEn: 'Car and Room AC Mechanic',
         period: '2022 - 2024',
+        periodEn: '2022 - 2024',
       },
     ],
     educations: [
-      { institution: 'Universitas Teknologi Yogyakarta', major: 'Sistem Informasi', majorEn: 'Information Systems', period: '2023 - 2027' },
+      { institution: 'Universitas Teknologi Yogyakarta', major: 'Sistem Informasi', majorEn: 'Information Systems', period: '2024 - Sekarang', periodEn: '2024 - Present' },
     ],
   },
 ]
