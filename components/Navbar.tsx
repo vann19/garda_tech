@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import Dock, { DockItemData } from "@/components/Dock";
 import { Home, Info, Compass, Briefcase, Tag, Mail } from "lucide-react";
@@ -12,6 +13,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { lang, toggleLang } = useLanguage();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -70,15 +72,22 @@ const Navbar = () => {
                 {/* Pill background */}
                 <div className="absolute inset-0 bg-white rounded-[33.50px] border border-gray-200 shadow-sm backdrop-blur-md" />
                 <div className="relative flex items-center gap-1 px-6">
-                  {navLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className="px-3 py-1 text-gray-700 text-base font-bold font-['Syne'] hover:text-violet-600 whitespace-nowrap transition-colors duration-200"
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
+                  {navLinks.map((link) => {
+                    const isActive = pathname === link.href;
+                    return (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        className={`px-3 py-1 text-base font-bold font-['Syne'] whitespace-nowrap transition-all duration-200 rounded-full ${
+                          isActive 
+                            ? 'bg-violet-600 text-white' 
+                            : 'text-gray-700 hover:text-violet-600'
+                        }`}
+                      >
+                        {link.label}
+                      </Link>
+                    );
+                  })}
                 </div>
               </div>
             </li>

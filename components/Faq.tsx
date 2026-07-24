@@ -32,6 +32,7 @@ const FaqPage = () => {
         { q: 'Apakah Garda Tech juga membantu domain dan hosting?', a: 'Ya, kami dapat membantu proses pembelian domain dan setup hosting sesuai kebutuhan proyek Anda. Kami juga bisa melakukan deploy ke hosting/server yang sudah Anda miliki.' },
         { q: 'Bagaimana saya bisa memantau progres pengerjaan proyek?', a: 'Kami memberikan update progres secara berkala melalui WhatsApp atau platform komunikasi yang disepakati. Anda juga bisa meminta demo langsung di setiap milestone pengerjaan.' },
         { q: 'Apa yang membedakan Garda Tech dari jasa pembuatan website lainnya?', a: 'Garda Tech mengutamakan presisi, transparansi, dan hasil yang bisa diandalkan. Kami tidak hanya membangun website, tapi juga memastikan solusi yang kami buat selaras dengan tujuan bisnis jangka panjang klien — dengan komunikasi yang jelas di setiap langkahnya.' },
+        { q: 'Apakah terkait harga sesuai di situ atau bisa dibicarakan?', a: 'Silahkan hubungi kontak yang tertera!' },
       ],
     },
     en: {
@@ -53,6 +54,7 @@ const FaqPage = () => {
         { q: 'Does Garda Tech also help with domain and hosting?', a: 'Yes, we can assist with domain registration and hosting setup according to your project needs. We can also deploy to an existing hosting or server you already own.' },
         { q: "How can I track my project's progress?", a: 'We provide regular progress updates via WhatsApp or agreed communication platforms. You can also request a live demo at each project milestone.' },
         { q: 'What sets Garda Tech apart from other web development agencies?', a: "Garda Tech prioritizes precision, transparency, and reliable results. We don't just build websites — we ensure the solutions we create align with your long-term business goals, with clear communication at every step." },
+        { q: 'Is the pricing fixed or negotiable?', a: 'Please contact us through the available contact details!' },
       ],
     },
   }[lang];

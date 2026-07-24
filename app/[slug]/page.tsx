@@ -54,7 +54,7 @@ const information: ServiceContent[] = [
     },
   },
   {
-    number: '02',
+    number: '03',
     icon: <Palette className="w-8 h-8" />,
     title: 'UI/UX Design',
     slug: 'ui-ux-design',
@@ -103,7 +103,7 @@ const information: ServiceContent[] = [
     },
   },
   {
-    number: '03',
+    number: '04',
     icon: <Settings className="w-8 h-8" />,
     title: 'Custom Web System',
     slug: 'custom-web-system',
@@ -152,7 +152,7 @@ const information: ServiceContent[] = [
     },
   },
   {
-    number: '04',
+    number: '02',
     icon: <Smartphone className="w-8 h-8" />,
     title: 'Mobile App Development',
     slug: 'mobile-development',

@@ -192,6 +192,18 @@ The design approach prioritizes user flow efficiency from gear search to booking
     layout: 'mobile-grid',
   },
   // ── Tambah detail proyek baru di bawah ini ──
+  'website-pendakian': {
+    titleHighlight: 'Pendakian',
+    titleHighlightEn: 'Hiking Website',
+    description: 'Website ini merupakan marketplace pendakian yang kami kembangkan untuk memenuhi kebutuhan klien dalam menyediakan platform digital bagi para pendaki. Website ini dibangun menggunakan framework Laravel sehingga memiliki performa yang baik, aman, dan mudah untuk dikembangkan. Melalui platform ini, pengguna dapat mencari informasi, memesan layanan atau produk pendakian, serta melakukan transaksi secara lebih mudah dan efisien, sementara admin dapat mengelola data pengguna, produk, dan transaksi melalui dashboard yang terintegrasi. Dengan adanya website ini, proses bisnis klien menjadi lebih efektif, jangkauan pasar semakin luas, dan pengalaman pengguna dalam merencanakan pendakian menjadi lebih praktis.',
+    descriptionEn: "This website is a hiking marketplace we developed to meet the client's needs in providing a digital platform for hikers. Built using the Laravel framework, it offers good performance, security, and ease of development. Through this platform, users can search for information, book hiking services or products, and conduct transactions more easily and efficiently, while admins can manage user data, products, and transactions through an integrated dashboard. With this website, the client's business processes become more effective, market reach widens, and the user experience in planning hikes becomes more practical.",
+    images: [
+      { src: '/img/pendakian/1.png' },
+      { src: '/img/pendakian/2.png' },
+      { src: '/img/pendakian/3.png' },
+      { src: '/img/pendakian/4.png' },
+    ],
+  },
   'e-kelurahan': {
     titleHighlight: 'Tulang Bawang',
     titleHighlightEn: 'Tulang Bawang',

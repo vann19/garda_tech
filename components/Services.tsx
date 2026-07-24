@@ -38,6 +38,7 @@ const Services = () => {
           title: 'Brand & Digital Assets',
           description: 'Identitas brand yang kuat — dari logo, panduan visual, hingga seluruh aset digital bisnis Anda.',
         },
+        
       ],
       stats: [
         { value: '15+', label: 'Proyek Selesai' },

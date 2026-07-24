@@ -414,7 +414,7 @@ export default function Pricing() {
     ],
     social: [
       {
-        tier: "Santai Banget", slug: "santai-banget", price: "Rp1.000.000", period: lang === 'id' ? "/bulan" : "/month",
+        tier: "Social Basic", slug: "social-basic", price: "Rp1.000.000", period: lang === 'id' ? "/bulan" : "/month",
         features: lang === 'id' ? [
           "1 Akun Media Sosial",
           "2 Konten Reels Instagram",
@@ -436,7 +436,7 @@ export default function Pricing() {
         ],
       },
       {
-        tier: "Enjoy", slug: "enjoy", price: "Rp2.000.000", period: lang === 'id' ? "/bulan" : "/month",
+        tier: "Social Growth", slug: "social-growth", price: "Rp2.000.000", period: lang === 'id' ? "/bulan" : "/month",
         features: lang === 'id' ? [
           "Gratis Social Media Visual Guide Design",
           "1 Akun Media Sosial",
@@ -457,7 +457,7 @@ export default function Pricing() {
         promo: lang === 'id' ? "Gratis Social Media Visual Guide Design" : "Free Social Media Visual Guide Design"
       },
       {
-        tier: "Santai", slug: "santai", price: "Rp3.500.000", period: lang === 'id' ? "/bulan" : "/month",
+        tier: "Social Pro", slug: "social-pro", price: "Rp3.500.000", period: lang === 'id' ? "/bulan" : "/month",
         features: lang === 'id' ? [
           "Gratis Konsultasi Bersama Social Media Expert",
           "Gratis Visual Guide Design",
@@ -484,7 +484,7 @@ export default function Pricing() {
         promo: lang === 'id' ? "Gratis Konsultasi Bersama Social Media Expert" : "Free Consultation with Social Media Expert"
       },
       {
-        tier: "Rusuh", slug: "rusuh", price: "Rp5.000.000", period: lang === 'id' ? "/bulan" : "/month",
+        tier: "Social Max", slug: "social-max", price: "Rp5.000.000", period: lang === 'id' ? "/bulan" : "/month",
         features: lang === 'id' ? [
           "Gratis Konsultasi Bersama Social Media Expert",
           "1 Akun Media Sosial",
