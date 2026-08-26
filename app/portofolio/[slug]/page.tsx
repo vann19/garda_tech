@@ -19,17 +19,6 @@ const projectDetails: Record<string, {
   layout?: 'default' | 'mobile-grid'
   titleFull?: boolean
 }> = {
-  'ramadhan-kareem': {
-    titleHighlight: 'Kareem',
-    titleHighlightEn: 'Kareem',
-    description: 'Desain ini adalah desain untuk menyambut bulan suci ramadhan. Dimana pada desain ini saya ingin memberikan kesan yang nyaman dan menenangkan bagi para pengguna.',
-    descriptionEn: 'This design is to welcome the holy month of Ramadan. In this design, I want to give a comfortable and calming impression for users.',
-    images: [
-      { src: '/img/rama1.png' },
-      { src: '/img/rama2.png' },
-      { src: '/img/rama3.png' },
-    ],
-  },
   'web-sejarah-yogyakarta': {
     titleHighlight: 'Yogyakarta',
     titleHighlightEn: 'Yogyakarta',

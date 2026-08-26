@@ -18,22 +18,6 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: 1,
-    slug: 'ramadhan-kareem',
-    title: 'Ramadhan Kareem',
-    titleEn: 'Ramadhan Kareem',
-    category: 'UI/UX Design',
-    categoryEn: 'UI/UX Design',
-    description: 'Desain antarmuka bertema Ramadhan yang memberikan kesan nyaman dan menenangkan bagi pengguna.',
-    descriptionEn: 'Ramadan-themed interface design that provides a comfortable and calming impression for users.',
-    descriptionFull: 'Desain ini adalah desain untuk menyambut bulan suci ramadhan. Dimana pada desain ini saya ingin memberikan kesan yang nyaman dan menenangkan bagi para pengguna.',
-    descriptionFullEn: 'This design is to welcome the holy month of Ramadan. In this design, I want to give a comfortable and calming impression for users.',
-    tags: ['Figma', 'UI/UX', 'Mobile'],
-    tagsEn: ['Figma', 'UI/UX', 'Mobile'],
-    image: '/img/rama1.png',
-    year: '2025',
-  },
-  {
     id: 2,
     slug: 'web-sejarah-yogyakarta',
     title: 'Web Sejarah Yogyakarta',
