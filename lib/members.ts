@@ -64,8 +64,8 @@ export const members: Member[] = [
     name: 'La Ode Muhammad Nurfansyah',
     role: 'Fullstack Developer',
     roleEn: 'Fullstack Developer',
-    specialty: 'Back end Developer',
-    specialtyEn: 'Backend Developer',
+    specialty: 'Fullstack Developer',
+    specialtyEn: 'Fullstack Developer',
     company: 'Garda Tech',
     experience: '2 Tahun Pengalaman',
     experienceEn: '2 Years Experience',
@@ -75,7 +75,7 @@ export const members: Member[] = [
     bioEn: 'Fullstack developer with 2 years of experience in building web and mobile applications. Experienced in modern technologies such as Next.js, React Native, and Node.js, with a focus on performance and optimal user experience.',
     linkedin: 'https://www.linkedin.com/in/fansyalaode',
     experiences: [
-      { company: 'Garda Tech', position: 'Back end Developer', positionEn: 'Backend Developer', period: '2025 - Sekarang', periodEn: '2025 - Present' },
+      { company: 'Garda Tech', position: 'Fullstack Developer', positionEn: 'Fullstack Developer', period: '2025 - Sekarang', periodEn: '2025 - Present' },
       { company: 'Freelance', position: 'Fullstack Developer', positionEn: 'Fullstack Developer', period: '2023 - 2025', periodEn: '2023 - 2025' },
     ],
     educations: [
