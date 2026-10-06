@@ -181,6 +181,18 @@ The design approach prioritizes user flow efficiency from gear search to booking
     layout: 'mobile-grid',
   },
   // ── Tambah detail proyek baru di bawah ini ──
+  'nawa-edukasi': {
+    titleHighlight: 'Edukasi',
+    titleHighlightEn: 'Edukasi',
+    description: 'Nawa Edukasi adalah platform dan lembaga yang berfokus pada dunia pendidikan, pelatihan penulisan artikel ilmiah, serta publikasi jurnal ilmiah di bawah naungan PT Nawa Edukasi Nusantara. Website ini kami kembangkan untuk mendukung kegiatan operasional lembaga secara digital, mulai dari informasi program pelatihan, pendaftaran peserta, hingga publikasi karya ilmiah. Dibangun dengan teknologi PHP yang handal, website ini dirancang agar mudah dikelola, responsif, dan dapat diakses oleh seluruh kalangan akademisi maupun masyarakat umum yang ingin meningkatkan kompetensi di bidang penulisan dan publikasi ilmiah.',
+    descriptionEn: "Nawa Edukasi is a platform and institution focused on education, scientific article writing training, and scientific journal publication under PT Nawa Edukasi Nusantara. We developed this website to support the institution's operational activities digitally, from training program information and participant registration to scientific work publication. Built with reliable PHP technology, the website is designed to be easy to manage, responsive, and accessible to academics and the general public who want to improve their competence in scientific writing and publication.",
+    images: [
+      { src: '/img/nawa/1.png' },
+      { src: '/img/nawa/2.png' },
+      { src: '/img/nawa/3.png' },
+      { src: '/img/nawa/4.png' },
+    ],
+  },
   'website-pendakian': {
     titleHighlight: 'Pendakian',
     titleHighlightEn: 'Hiking Website',
