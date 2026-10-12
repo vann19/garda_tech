@@ -16,6 +16,7 @@ const Footer = () => {
       company: 'Perusahaan',
       contact: 'Hubungi Kami',
       serviceLinks: [
+        { label: 'Jasa Website Jogja', href: '/jasa-website-jogja' },
         { label: 'Web Development', href: '/website-development' },
         { label: 'UI/UX Design',    href: '/ui-ux-design' },
         { label: 'Mobile App',      href: '/mobile-development' },
@@ -37,6 +38,7 @@ const Footer = () => {
       company: 'Company',
       contact: 'Contact Us',
       serviceLinks: [
+        { label: 'Website Jogja (Yogyakarta)', href: '/jasa-website-jogja' },
         { label: 'Web Development', href: '/website-development' },
         { label: 'UI/UX Design',    href: '/ui-ux-design' },
         { label: 'Mobile App',      href: '/mobile-development' },

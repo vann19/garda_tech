@@ -99,8 +99,16 @@ const jsonLd = {
       description:
         "Garda Tech menyediakan jasa pembuatan website profesional, aplikasi mobile, dan solusi digital terpercaya untuk bisnis Anda. Harga terjangkau, kualitas premium.",
       priceRange: "$$",
+      telephone: "+6283178971423",
+      areaServed: {
+        "@type": "City",
+        name: "Yogyakarta",
+        alternateName: ["Jogja", "Jogjakarta"],
+      },
       address: {
         "@type": "PostalAddress",
+        addressLocality: "Yogyakarta",
+        addressRegion: "Daerah Istimewa Yogyakarta",
         addressCountry: "ID",
       },
       hasOfferCatalog: {
